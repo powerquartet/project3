@@ -1,21 +1,33 @@
 import React, { Component } from "react";
 
+// import axios from "axios";
+
 class Form extends Component {
     // Setting the component's initial state
+    // componentDidMount() {
+    //     axios.get("/api/noodles").then((response) => {
+    //         return (response);
+    //     });
+    // }
     state = {
         firstName: "",
         lastName: "",
-        email: ""
-    };
+        email: "",
+        weight: 0,
+        height: 0,
+        age: 0
 
+    };
     handleInputChange = event => {
+        console.log(event.target.name);
         // Getting the value and name of the input which triggered the change
         let value = event.target.value;
         const name = event.target.name;
 
         if (name === "email") {
-            value = value.substring(0, 15);
+            value = value.substring(0, 50);
         }
+        console.log(name, value)
         // Updating the input's state
         this.setState({
             [name]: value
@@ -25,15 +37,24 @@ class Form extends Component {
     handleFormSubmit = event => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
-        if (!this.state.firstName || !this.state.lastName) {
-            alert("Fill out your first and last name please!");
-        } else if (this.state.email.length < 6) {
-            alert(
-                `Choose a more secure password ${this.state.firstName} ${this.state
-                    .lastName}`
-            );
+        // axios.post("/api/noodles", {
+        //     firstName: this.state.firstName,
+        //     lastName: this.state.lastName,
+        //     email: this.state.email,
+        //     weight: this.state.weight,
+        //     height: this.state.height,
+        //     age: this.state.age
+        // })
+        //     .then((response) => console.log(response));
+
+        let firstName = this.state.firstName;
+        let lastName = this.state.lastName;
+
+        if (!this.state.firstName || !this.state.lastName || !this.state.email || !this.state.weight || !this.state.height || !this.state.age) {
+            alert("Please fill out all submission fields!");
         } else {
-            alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
+            console.log(firstName, lastName);
+
         }
 
         this.setState({
@@ -48,11 +69,11 @@ class Form extends Component {
     };
 
     render() {
-        // Notice how each input has a `value`, `name`, and `onChange` prop
         return (
             <div>
+                <h1>Welcome to Portion Crush</h1>
                 <p>
-                    Hello {this.state.firstName} {this.state.lastName}
+                    We're here to help you crush it,  {this.state.firstName} {this.state.lastName}
                 </p>
                 <form className="form">
                     <input
@@ -77,25 +98,25 @@ class Form extends Component {
                         placeholder="Email"
                     />
                     <input
-                        value={this.state.email}
+                        value={this.state.weight}
                         name="weight"
                         onChange={this.handleInputChange}
                         type="weight"
-                        placeholder="Weight"
+                        placeholder="Weight(lbs)"
                     />
                     <input
-                        value={this.state.email}
+                        value={this.state.height}
                         name="height"
                         onChange={this.handleInputChange}
                         type="height"
-                        placeholder="Height"
+                        placeholder="Height(in)"
                     />
                     <input
-                        value={this.state.email}
+                        value={this.state.age}
                         name="age"
                         onChange={this.handleInputChange}
                         type="age"
-                        placeholder="Age"
+                        placeholder="Age(yrs)"
                     />
                     <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
