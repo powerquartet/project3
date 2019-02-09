@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import HTML5Backend from 'react-dnd-html5-backend';
-import { DragDropContext } from 'react-dnd';
+// import HTML5Backend from 'react-dnd-html5-backend';
+// import { DragDropContext } from 'react-dnd';
 import Form from './pages/Form';
 import Grid from './pages/Grid';
 import Home from './pages/Home';
@@ -20,4 +20,5 @@ class App extends Component {
   }
 }
 
-export default DragDropContext(HTML5Backend)(App)
+// export default DragDropContext(HTML5Backend)(App)
+export default App;
