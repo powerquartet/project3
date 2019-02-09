@@ -1,36 +1,23 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import axios from "axios";
+import React, { Component } from 'react';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
+import Form from './pages/Form';
+import Grid from './pages/Grid';
+import Home from './pages/Home';
+import Portion from './pages/Portion';
 
 class App extends Component {
-  state = {
-    "testValue": "getting..."
-  }
-
-  componentDidMount() {
-    console.log("Mounting APP");
-    axios.get("/api/test")
-      .then(result => {
-        console.log(result.data.test);
-        this.setState({ "testValue": result.data.test })
-      })
-  }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Power Quartet Mystery App</h2>
-          <p>Get ready to be impressed!</p>
-        </div>
-        <p className="App-intro">
-          Test value is: {this.state.testValue}
-        </p>
+      <div>
+        <Form />
+        <Grid />
+        <Home />
+        <Portion />
       </div>
     );
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App)
