@@ -21,6 +21,17 @@
   "dependencies": {
     "dotenv": "^6.2.0",
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
-  }
+    "if-env": "^1.0.4",
+    "react-dnd": "^7.0.2",
+    "react-dnd-html5-backend": "^7.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powerquartet/project3.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/powerquartet/project3/issues"
+  },
+  "homepage": "https://github.com/powerquartet/project3#readme"
 }
