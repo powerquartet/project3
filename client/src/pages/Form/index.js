@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-class Grid extends Component {
+class Form extends Component {
 
     render() {
         return (
-            <div>Grid</div>
+            <div>Form</div>
         )
     };
 }
 
-export default Grid;
+export default Form;
