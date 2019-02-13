@@ -1,34 +1,57 @@
 import React, { Component } from "react";
-import { DropTarget } from 'react-dnd';
+import { DropTarget } from "react-dnd";
+import Item from "../Item";
 
-const itemSource = {
-    beginDrag(props) {
-        console.log('dragging...');
-        return props.item;
-    },
-    endDrag(props, monitor, component) {
-        return props.handleDrop(props.item.id);
+const Types = {
+    ITEM: "portion"
+};
+
+const dropTarget = {
+    drop(props, monitor, component) {
+        const item = monitor.getItem().id;
+        const meal = props.meal;
+
+        return props.handleDrop(item, meal)
     }
 }
 
 function collect(connect, monitor) {
     return {
-        connectDropTarget: connect.DropTarget(),
-        hovered: monitor.isOver(),
-        item: monitor.getItem(),
+        connectDropTarget: connect.dropTarget(),
+        isOver: monitor.isOver(),
+        canDrop: monitor.canDrop()
     }
 }
 
 class Target extends Component {
+
     render() {
-        const { connectDropTarget, hovered, item } = this.props;
+
+        // const { canDrop, isOver, connectDropTarget, portions } = this.props;
+        // const isActive = canDrop && isOver;
+        // const style = {
+        //     width: "200px",
+        //     height: "404px",
+        //     border: '1px dashed gray'
+        // };
+        // const backgroundColor = isActive ? 'lightgreen' : '#FFF';
+
+        const { connectDropTarget } = this.props;
+
+        const portions = this.props.portions.map((portion, indx) => {
+            return <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} />
+        });
 
         return connectDropTarget(
-            <div className="target">
-                Target
+            <div style={{ "height": "150px", "width": "800px", "border": "5px solid yellow" }}>
+                <div style={{ "border": "5px solid green" }}>
+                    {this.props.meal}
+                </div>
+                {portions}
             </div>
+
         )
     }
 }
 
-export default DropTarget("item", {}, collect)(Target);
+export default DropTarget(Types.ITEM, dropTarget, collect)(Target);
