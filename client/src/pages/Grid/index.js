@@ -4,6 +4,7 @@ import { DragDropContext } from "react-dnd";
 
 import Item from "../../components/Item"
 import Target from "../../components/Target"
+import Counter from "../../components/Counter"
 
 class Grid extends Component {
     constructor(props) {
@@ -143,18 +144,17 @@ class Grid extends Component {
     };
 
     decrementPortion = (index) => {
-        // console.log(this.state.portions[1].portion);
-        let portionIndex = index.charAt(0);
+        console.log(this.state.portions[1].portion);
+        let portionIndex = parseInt(index.charAt(0));
         let isFraction = index.slice(3);
         //when and Item gets moved, decrement portion
         for (let i = 0; i < this.state.portions.length; i++) {
-
-            if (portionIndex == i) {
+            if (portionIndex === i) {
 
                 let stateCopy = Object.assign({}, this.state.portions);
 
-                if (isFraction == .5) {
-                    stateCopy[i].portion -= isFraction;
+                if (isFraction === ".5") {
+                    stateCopy[i].portion -= 0.5;
                 } else {
                     stateCopy[i].portion -= 1;
                 }
@@ -176,6 +176,7 @@ class Grid extends Component {
 
         return (
             <div>
+                <Counter portion={this.state.portions[0].portion} />
                 {portions}
                 {targets}
             </div >
