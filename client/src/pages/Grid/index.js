@@ -77,8 +77,16 @@ class Grid extends Component {
     createPortions = (portionItem, index) => {
         const list = [];
         const fraction = portionItem.portion % 1;
+        let i;
         //create portions based on the number provided by the database
-        for (let i = 0; i < portionItem.portion; i++) {
+        // franction is not added with a forloop, therefore needs to start at 1
+        if (fraction === 1) {
+            i = 0
+        } else {
+            i = 1
+        }
+
+        for (i; i < portionItem.portion; i++) {
             list.push(
                 {
                     type: portionItem.type,
@@ -102,6 +110,7 @@ class Grid extends Component {
     }
 
     moveItem = (itemId, meal) => {
+        this.decrementPortion(itemId);
         // console.log(`Meal target: ${meal} for item: ${itemId}`)
         // console.log(this.state.meals[0].portions);
         for (let i = 0; i < this.state.meals.length; i++) {
@@ -128,11 +137,32 @@ class Grid extends Component {
                         })
 
                     }
-
                 }
             }
         }
     };
+
+    decrementPortion = (index) => {
+        // console.log(this.state.portions[1].portion);
+        let portionIndex = index.charAt(0);
+        let isFraction = index.slice(3);
+        //when and Item gets moved, decrement portion
+        for (let i = 0; i < this.state.portions.length; i++) {
+
+            if (portionIndex == i) {
+
+                let stateCopy = Object.assign({}, this.state.portions);
+
+                if (isFraction == .5) {
+                    stateCopy[i].portion -= isFraction;
+                } else {
+                    stateCopy[i].portion -= 1;
+                }
+
+                this.setState(stateCopy);
+            };
+        };
+    }
 
     render() {
 

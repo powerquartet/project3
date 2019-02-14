@@ -31,8 +31,8 @@ class Item extends Component {
     render() {
         const { isDragging, connectDragSource } = this.props;
         return connectDragSource(
-            <div>
-                {!isDragging && <div>{this.props.type}</div>}
+            <div style={{ "display": "inline", "margin": "5px", "border": "1px solid black" }}>
+                {!isDragging && <span>{this.props.type}</span>}
             </div>
         )
     }
