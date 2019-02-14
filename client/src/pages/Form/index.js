@@ -71,7 +71,7 @@ class Form extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to Portion Crush</h1>
+                <h1>So, tell us about yourself</h1>
                 <p>
                     We're here to help you crush it,  {this.state.firstName} {this.state.lastName}
                 </p>

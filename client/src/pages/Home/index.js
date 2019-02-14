@@ -1,34 +1,32 @@
-import React, { Component } from "react";
+import React from "react";
 import "../Home/css/style.css";
-import logo from "../Home/css/img/plate.jpg";
+import logo from "../Home/css/img/plate.png";
 
 
-
-class Home extends Component {
+class Home extends React.Component {
   render() {
     return (
-      <div>
-        
-        <div className="Home-header">Welcome!</div>
+      <div className ="container">
+        <div className="home-header">Welcome!</div>
 
-        <div className="Logo">
-          <img src={logo} alt="logo" />
+        <div className="logo">
+          <img className="logo" src={logo} alt="logo"/>
         </div>
 
         <div className="button-group">
           <a href="/form">
-            <button className="Home-button button1" />
+            <button className="button1">Form</button>
           </a>
 
           <a href="/portion">
-            <button className="Home-button button2" />
+            <button className="button2">Portion</button>
           </a>
 
           <a href="/grid">
-            <button className="Home-button button3" />
+            <button className="button3">Grid</button>
           </a>
-
         </div>
+
       </div>
     );
   }
