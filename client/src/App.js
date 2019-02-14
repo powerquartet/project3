@@ -4,7 +4,7 @@ import Form from './pages/Form';
 // import Grid from './pages/Grid';
 import Home from './pages/Home';
 import Portion from './pages/Portion';
-
+// import Toggle from './components/Toggle';
 
 function App() {
   return (
@@ -22,4 +22,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,3 +1,5 @@
+userController.js
+
 const db = require("../models");
 
 // Defining methods for the usersController
@@ -16,8 +18,11 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     create: function (req, res) {
+        console.log(req.body);
+        console.log("I'm here - userController");
         db.User
-            .create(req.body)
+            .create
+            (req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
