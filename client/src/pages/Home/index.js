@@ -25,8 +25,11 @@ class Home extends React.Component {
           <a href="/grid">
             <button className="button3">Grid</button>
           </a>
+         
         </div>
 
+        <div className="textArea"> A portion managing app that does the counting for you
+          </div>
       </div>
     );
   }
