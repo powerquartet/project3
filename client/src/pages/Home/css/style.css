@@ -1,48 +1,55 @@
-.Home-header {
+.home-header {
   height: 150;
-  padding-top: 120;
+  padding-top: 50px;
+  padding-bottom: 10px; 
   text-align: "center";
   font-size: 50px;
   clear: "both";
-}
-
-.Home-button {
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 50%;
-}
-
-.button1 {
-  background-color: white;
-  border-color: black;
-  padding: 10px;
+  color: #9f7e69;
+  margin: auto;
   
 }
 
+.button-group {
+  margin: auto;
+}
+
+.button1 {
+  background-color: #9f7e69;
+  height: 100px;
+  width: 100px; 
+  border-radius: 50%;
+  color: white;
+}
+
 .button2 {
-  background-color: white;
-  border-color: black;
-  padding: 10px;
+  background-color: #9f7e69;
+  height: 100px;
+  width: 100px; 
+  border-radius: 50%;
+  color: white;
 }
 
 .button3 {
-  background-color: white;
-  border-color: black;
-  padding: 10px;
+  background-color: #9f7e69;
+  height: 100px;
+  width: 100px; 
+  border-radius: 50%;
+  color: white;
 }
 
-.button4 {
-  background-color: white;
-  border-color: black;
-  padding: 10px;
+.logo {
+  height: 300px;
+  width: 300px; 
+  margin: auto;
+  padding-bottom: 20px; 
 }
 
-.button-group {
-  align-content: center;
+body {
+  background-color: whitesmoke;
 }
 
-.Logo {
-height: 50%; 
-width: 50%;
+.container {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
 }
