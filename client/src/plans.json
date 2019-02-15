@@ -1,0 +1,417 @@
+[
+    {
+        "plan": "1600",
+        "portions": [
+            {
+                "portion": 1.5,
+                "type": "fruit",
+                "measurement": "cups"
+            },
+            {
+                "portion": 2,
+                "type": "vegetable",
+                "measurement": "cups"
+            },
+            {
+                "portion": 5,
+                "type": "grains",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 5,
+                "type": "protein",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 3,
+                "type": "dairy",
+                "measurement": "cups"
+            }
+        ],
+        "limits": [
+            {
+                "type": "sugar",
+                "amount": 40,
+                "measurement": "grams"
+            },
+            {
+                "type": "saturated fat",
+                "amount": 18,
+                "measurement": "grams"
+            },
+            {
+                "type": "sodium",
+                "amount": 2300,
+                "measurement": "milligrams"
+            },
+            {
+                "type": "beer",
+                "amount": 12,
+                "measurement": "ounces",
+                "proof": 5,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "malt liquor",
+                "amount": 8,
+                "measurement": "ounces",
+                "proof": 7,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "wine",
+                "amount": 5,
+                "measurement": "ounces",
+                "proof": 12,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "distilled spirits or liquor",
+                "amount": 1.5,
+                "measurement": "ounces",
+                "proof": 40,
+                "femalePortion": 1,
+                "malePortion": 2
+            }
+        ],
+        "excersize": {
+            "hours": "2.5",
+            "measurement": "week"
+        }
+    },
+    {
+        "plan": "1800",
+        "portions": [
+            {
+                "portion": 1.5,
+                "type": "fruit",
+                "measurement": "cups"
+            },
+            {
+                "portion": 2.5,
+                "type": "vegetable",
+                "measurement": "cups"
+            },
+            {
+                "portion": 6,
+                "type": "grains",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 5,
+                "type": "protein",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 3,
+                "type": "dairy",
+                "measurement": "cups"
+            }
+        ],
+        "limits": [
+            {
+                "type": "sugar",
+                "amount": 45,
+                "measurement": "grams"
+            },
+            {
+                "type": "saturated fat",
+                "amount": 20,
+                "measurement": "grams"
+            },
+            {
+                "type": "sodium",
+                "amount": 2300,
+                "measurement": "milligrams"
+            },
+            {
+                "type": "beer",
+                "amount": 12,
+                "measurement": "ounces",
+                "proof": 5,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "malt liquor",
+                "amount": 8,
+                "measurement": "ounces",
+                "proof": 7,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "wine",
+                "amount": 5,
+                "measurement": "ounces",
+                "proof": 12,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "distilled spirits or liquor",
+                "amount": 1.5,
+                "measurement": "ounces",
+                "proof": 40,
+                "femalePortion": 1,
+                "malePortion": 2
+            }
+        ],
+        "excersize": {
+            "hours": "2.5",
+            "measurement": "week"
+        }
+    },
+    {
+        "plan": "2000",
+        "portions": [
+            {
+                "portion": 2,
+                "type": "fruit",
+                "measurement": "cups"
+            },
+            {
+                "portion": 2.5,
+                "type": "vegetable",
+                "measurement": "cups"
+            },
+            {
+                "portion": 6,
+                "type": "grains",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 5.5,
+                "type": "protein",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 3,
+                "type": "dairy",
+                "measurement": "cups"
+            }
+        ],
+        "limits": [
+            {
+                "type": "sugar",
+                "amount": 50,
+                "measurement": "grams"
+            },
+            {
+                "type": "saturated fat",
+                "amount": 22,
+                "measurement": "grams"
+            },
+            {
+                "type": "sodium",
+                "amount": 2300,
+                "measurement": "milligrams"
+            },
+            {
+                "type": "beer",
+                "amount": 12,
+                "measurement": "ounces",
+                "proof": 5,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "malt liquor",
+                "amount": 8,
+                "measurement": "ounces",
+                "proof": 7,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "wine",
+                "amount": 5,
+                "measurement": "ounces",
+                "proof": 12,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "distilled spirits or liquor",
+                "amount": 1.5,
+                "measurement": "ounces",
+                "proof": 40,
+                "femalePortion": 1,
+                "malePortion": 2
+            }
+        ],
+        "excersize": {
+            "hours": "2.5",
+            "measurement": "week"
+        }
+    },
+    {
+        "plan": "2200",
+        "portions": [
+            {
+                "portion": 2,
+                "type": "fruit",
+                "measurement": "cups"
+            },
+            {
+                "portion": 3,
+                "type": "vegetable",
+                "measurement": "cups"
+            },
+            {
+                "portion": 7,
+                "type": "grains",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 6,
+                "type": "protein",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 3,
+                "type": "dairy",
+                "measurement": "cups"
+            }
+        ],
+        "limits": [
+            {
+                "type": "sugar",
+                "amount": 55,
+                "measurement": "grams"
+            },
+            {
+                "type": "saturated fat",
+                "amount": 24,
+                "measurement": "grams"
+            },
+            {
+                "type": "sodium",
+                "amount": 2300,
+                "measurement": "milligrams"
+            },
+            {
+                "type": "beer",
+                "amount": 12,
+                "measurement": "ounces",
+                "proof": 5,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "malt liquor",
+                "amount": 8,
+                "measurement": "ounces",
+                "proof": 7,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "wine",
+                "amount": 5,
+                "measurement": "ounces",
+                "proof": 12,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "distilled spirits or liquor",
+                "amount": 1.5,
+                "measurement": "ounces",
+                "proof": 40,
+                "femalePortion": 1,
+                "malePortion": 2
+            }
+        ],
+        "excersize": {
+            "hours": "2.5",
+            "measurement": "week"
+        }
+    },
+    {
+        "plan": "2400",
+        "portions": [
+            {
+                "portion": 1.5,
+                "type": "fruit",
+                "measurement": "cups"
+            },
+            {
+                "portion": 2.5,
+                "type": "vegetable",
+                "measurement": "cups"
+            },
+            {
+                "portion": 6,
+                "type": "grains",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 5,
+                "type": "protein",
+                "measurement": "ounces"
+            },
+            {
+                "portion": 3,
+                "type": "dairy",
+                "measurement": "cups"
+            }
+        ],
+        "limits": [
+            {
+                "type": "sugar",
+                "amount": 45,
+                "measurement": "grams"
+            },
+            {
+                "type": "saturated fat",
+                "amount": 20,
+                "measurement": "grams"
+            },
+            {
+                "type": "sodium",
+                "amount": 2300,
+                "measurement": "milligrams"
+            },
+            {
+                "type": "beer",
+                "amount": 12,
+                "measurement": "ounces",
+                "proof": 5,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "malt liquor",
+                "amount": 8,
+                "measurement": "ounces",
+                "proof": 7,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "wine",
+                "amount": 5,
+                "measurement": "ounces",
+                "proof": 12,
+                "femalePortion": 1,
+                "malePortion": 2
+            },
+            {
+                "type": "distilled spirits or liquor",
+                "amount": 1.5,
+                "measurement": "ounces",
+                "proof": 40,
+                "femalePortion": 1,
+                "malePortion": 2
+            }
+        ],
+        "excersize": {
+            "hours": "2.5",
+            "measurement": "week"
+        }
+    }
+]

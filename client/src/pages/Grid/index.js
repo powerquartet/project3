@@ -5,39 +5,18 @@ import { DragDropContext } from "react-dnd";
 import Item from "../../components/Item"
 import Target from "../../components/Target"
 import Counter from "../../components/Counter"
+import plans from "../../plans.json";
+
+//Acess plan from the json tier object
+let plan = plans[0].plan;
+let portions = plans[0].portions;
 
 class Grid extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            plan: "1800",
-            portions: [
-                {
-                    portion: 1.5,
-                    type: "fruit",
-                    measurement: "cups"
-                },
-                {
-                    portion: 2.5,
-                    type: "vegetable",
-                    measurement: "cups"
-                },
-                {
-                    portion: 6,
-                    type: "grains",
-                    measurement: "ounces"
-                },
-                {
-                    portion: 5,
-                    type: "protein",
-                    measurement: "ounces"
-                },
-                {
-                    portion: 3,
-                    type: "dairy",
-                    measurement: "cups"
-                }
-            ],
+            plan,
+            portions,
             newPortions: [],
             meals: [
                 {
