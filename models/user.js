@@ -7,7 +7,8 @@ const userSchema = new Schema({
     email: String,
     weight: Number,
     height: Number,
-    age: { type: Number, min: 14, max: 65 }
+    age: { type: Number, min: 14, max: 65 },
+    gender: String
 });
 
 const User = mongoose.model("User", userSchema);

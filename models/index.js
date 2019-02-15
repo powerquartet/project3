@@ -1,3 +1,3 @@
 module.exports = {
-    Form: require("./form")
+    User: require("./user")
 };
