@@ -4,6 +4,7 @@ import { DragDropContext } from "react-dnd";
 
 import Item from "../../components/Item"
 import Target from "../../components/Target"
+import Counter from "../../components/Counter"
 
 class Grid extends Component {
     constructor(props) {
@@ -13,23 +14,28 @@ class Grid extends Component {
             portions: [
                 {
                     portion: 1.5,
-                    type: "fruit"
+                    type: "fruit",
+                    measurement: "cups"
                 },
                 {
                     portion: 2.5,
-                    type: "vegetable"
+                    type: "vegetable",
+                    measurement: "cups"
                 },
                 {
                     portion: 6,
-                    type: "grains"
+                    type: "grains",
+                    measurement: "ounces"
                 },
                 {
                     portion: 5,
-                    type: "protein"
+                    type: "protein",
+                    measurement: "ounces"
                 },
                 {
                     portion: 3,
-                    type: "dairy"
+                    type: "dairy",
+                    measurement: "cups"
                 }
             ],
             newPortions: [],
@@ -67,25 +73,22 @@ class Grid extends Component {
             return allPortions.concat(portionArrays)
         }, []);
 
-        console.log(createdPortions)
-
         this.setState({
             newPortions: createdPortions
         })
     }
 
+    //create portions based on the number provided by the database
     createPortions = (portionItem, index) => {
         const list = [];
         const fraction = portionItem.portion % 1;
         let i;
-        //create portions based on the number provided by the database
         // franction is not added with a forloop, therefore needs to start at 1
-        if (fraction === 1) {
+        if (fraction === 0) {
             i = 0
         } else {
             i = 1
         }
-
         for (i; i < portionItem.portion; i++) {
             list.push(
                 {
@@ -143,18 +146,16 @@ class Grid extends Component {
     };
 
     decrementPortion = (index) => {
-        // console.log(this.state.portions[1].portion);
-        let portionIndex = index.charAt(0);
+        let portionIndex = parseInt(index.charAt(0));
         let isFraction = index.slice(3);
         //when and Item gets moved, decrement portion
         for (let i = 0; i < this.state.portions.length; i++) {
-
-            if (portionIndex == i) {
+            if (portionIndex === i) {
 
                 let stateCopy = Object.assign({}, this.state.portions);
 
-                if (isFraction == .5) {
-                    stateCopy[i].portion -= isFraction;
+                if (isFraction === ".5") {
+                    stateCopy[i].portion -= 0.5;
                 } else {
                     stateCopy[i].portion -= 1;
                 }
@@ -166,8 +167,28 @@ class Grid extends Component {
 
     render() {
 
-        const portions = this.state.newPortions.map((portion, indx) => {
-            return <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} />
+        const fruit = this.state.newPortions.map((portion, indx) => {
+            return (portion.type === "fruit" ?
+                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+        });
+
+        const vegetables = this.state.newPortions.map((portion, indx) => {
+            return (portion.type === "vegetable" ?
+                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+        });
+        const grains = this.state.newPortions.map((portion, indx) => {
+            return (portion.type === "grains" ?
+                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+        });
+
+        const protein = this.state.newPortions.map((portion, indx) => {
+            return (portion.type === "protein" ?
+                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+        });
+
+        const dairy = this.state.newPortions.map((portion, indx) => {
+            return (portion.type === "dairy" ?
+                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
         });
 
         const targets = this.state.meals.map((meal, indx) => {
@@ -176,7 +197,23 @@ class Grid extends Component {
 
         return (
             <div>
-                {portions}
+                <Counter portionDailyTarget={this.state.portions} />
+                <div style={{ "float": "left" }}>
+                    {fruit}
+                </div>
+                <div style={{ "float": "left" }}>
+                    {vegetables}
+                </div>
+                <div style={{ "float": "left" }}>
+                    {grains}
+                </div>
+                <div style={{ "float": "left" }}>
+                    {protein}
+                </div>
+                <div style={{ "float": "left" }}>
+                    {dairy}
+                </div>
+                <br style={{ "clear": "both" }} />
                 {targets}
             </div >
         );
