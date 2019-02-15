@@ -43,7 +43,7 @@ class Target extends Component {
         });
 
         return connectDropTarget(
-            <div style={{ "height": "150px", "width": "800px", "border": "5px solid yellow" }}>
+            <div style={{ "float": "left", "height": "150px", "width": "250px", "border": "5px solid yellow" }}>
                 <div style={{ "border": "5px solid green" }}>
                     {this.props.meal}
                 </div>
