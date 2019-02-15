@@ -132,7 +132,7 @@ class Form extends Component {
                             <option value="non-gender-binary">Non-gender binary</option>
                         </select>
                     </label>
-                    <button className = "submit" onClick={this.handleFormSubmit}>Submit</button>
+                    <button className="submit" onClick={this.handleFormSubmit}>Submit</button>
                 </form>
             </div>
         );
