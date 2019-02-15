@@ -17,5 +17,6 @@ export default {
     saveUser: function (userData) {
         console.log("in APIU", userData);
         return axios.post("/api/users", userData);
+
     }
 };
