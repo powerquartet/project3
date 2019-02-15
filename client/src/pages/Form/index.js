@@ -17,8 +17,10 @@ class Form extends Component {
     };
 
     // calculatePortionTier = event => {
+    //     if (this.state.gender === 'male') {
 
-    //     maleTier = (10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5)
+    //     }
+    //     // maleTier = (10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5)
 
     // }
 
@@ -42,6 +44,7 @@ class Form extends Component {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
         console.log(this.state);
+
         if (this.state.firstName && this.state.email) {
             API.saveUser({
                 firstName: this.state.firstName,
@@ -53,11 +56,10 @@ class Form extends Component {
                 gender: this.state.gender
             })
                 .then(res => {
+                    console.log(JSON);
                     // this.loadUser();
                     // this.calculatePortionTier();
-                })
-                .catch(err => console.log(err));
-
+                }).catch(err => console.log(err));
         }
 
         // let firstName = this.state.firstName;
@@ -125,7 +127,9 @@ class Form extends Component {
                     />
                     <label>
                         Pick your gender identity:
-          <select name='gender' value={this.state.gender} onChange={this.handleChange}>
+                    <select name='gender'
+                            value={this.state.gender}
+                            onChange={this.handleChange}>
                             <option value="default">choose your gender</option>
                             <option value="male">male</option>
                             <option value="female">female</option>
