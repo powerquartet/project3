@@ -35,8 +35,6 @@ class Home extends React.Component {
 
   render() {
 
-    // { this.state.user ? console.log(this.state.user.uid) : "" }
-
     return (
     
       <div className="container" >
