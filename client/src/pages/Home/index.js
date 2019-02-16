@@ -36,6 +36,7 @@ class Home extends React.Component {
   render() {
 
     return (
+    
       <div className="container" >
         {this.state.user === null ?
           (<SignIn />)
