@@ -7,11 +7,11 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to="/">
-               Mindful Plate
+               Handful
       </Link>
             <div>
-                <ul className="btn-nav">
-                    <li className="btn-item">
+                <ul className="navbar-nav">
+                    <li className="nav-item">
                         <Link
                             to="/portion"
                             className={
@@ -23,7 +23,7 @@ function Navbar() {
                             Portion
             </Link>
                     </li>
-                    <li className="btn-item">
+                    <li className="nav-item">
                         <Link
                             to="/form"
                             className={window.location.pathname === "/form" ? "nav-link active" : "nav-link"}
@@ -31,7 +31,7 @@ function Navbar() {
                             Form
             </Link>
                     </li>
-                    <li className="btn-item">
+                    <li className="nav-item">
                         <Link
                             to="/grid"
                             className={window.location.pathname === "/grid" ? "nav-link active" : "nav-link"}

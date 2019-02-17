@@ -4,7 +4,7 @@ import { auth } from '../../utils/firebase';
 export default class SignIn extends Component {
     state = {
         email: "",
-        passowrd: ""
+        password: ""
     }
 
     handleChange = event => {
@@ -32,11 +32,11 @@ export default class SignIn extends Component {
                         placeholder="Email"
                     />
                     <input
-                        value={this.state.passoword}
+                        value={this.state.password}
                         name="password"
                         onChange={this.handleChange}
                         type="password"
-                        placeholder="Passowrd"
+                        placeholder="Password"
                     />
                     <button className="submit" onClick={this.submit}>Sign In</button>
                 </form >
