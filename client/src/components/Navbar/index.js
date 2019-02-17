@@ -10,8 +10,8 @@ function Navbar() {
                Mindful Plate
       </Link>
             <div>
-                <ul className="navbar-nav">
-                    <li className="nav-item">
+                <ul className="btn-nav">
+                    <li className="btn-item">
                         <Link
                             to="/portion"
                             className={
@@ -23,7 +23,7 @@ function Navbar() {
                             Portion
             </Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="btn-item">
                         <Link
                             to="/form"
                             className={window.location.pathname === "/form" ? "nav-link active" : "nav-link"}
@@ -31,7 +31,7 @@ function Navbar() {
                             Form
             </Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="btn-item">
                         <Link
                             to="/grid"
                             className={window.location.pathname === "/grid" ? "nav-link active" : "nav-link"}
