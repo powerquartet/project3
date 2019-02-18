@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
 // import axios from "axios";
+import calculateBMICalories from '../../components/BMICalculator';
+import calculateBMI from '../../components/HealthyWeightCalc'
+
+
 
 class Form extends Component {
     // Setting the component's initial state
@@ -12,17 +16,11 @@ class Form extends Component {
         weight: 0,
         height: 0,
         age: 0,
-        gender: ''
-
+        sex: '',
+        userBMI: 0,
+        userBMICalories: 0
     };
 
-    // calculatePortionTier = event => {
-    //     if (this.state.gender === 'male') {
-
-    //     }
-    //     // maleTier = (10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5)
-
-    // }
 
 
     handleInputChange = event => {
@@ -37,29 +35,42 @@ class Form extends Component {
     };
 
     handleChange = (event) => {
-        this.setState({ gender: event.target.value });
-    }
+        this.setState({ sex: event.target.value });
+    };
+
 
     handleFormSubmit = event => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
         console.log(this.state);
 
+        const firstName = this.state.firstName;
+        const lastName = this.state.lastName;
+        const email = this.state.email;
+        const weight = this.state.weight;
+        const height = this.state.height;
+        const age = this.state.age;
+        const sex = this.state.gender;
+
+
         if (this.state.firstName && this.state.email) {
             API.saveUser({
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
-                email: this.state.email,
-                weight: this.state.weight,
-                height: this.state.height,
-                age: this.state.age,
-                gender: this.state.gender
+                firstName,
+                lastName,
+                email,
+                weight,
+                height,
+                age,
+                sex
             })
                 .then(res => {
                     console.log(JSON);
                     // this.loadUser();
                     // this.calculatePortionTier();
                 }).catch(err => console.log(err));
+
+            userBMICalories = calculateBMI(height, age, gender);
+            calculateBMICalories(weight, height, age, sex);
         }
 
         // let firstName = this.state.firstName;
@@ -80,7 +91,7 @@ class Form extends Component {
             <div>
                 <h1>So, tell us about yourself</h1>
                 <p>
-                    We're here to help you crush it,  {this.state.firstName} {this.state.lastName}
+                    We're here to help you crush it,  {this.state.firstName}
                 </p>
                 <form className="form">
                     <input
@@ -130,14 +141,15 @@ class Form extends Component {
                     <select name='gender'
                             value={this.state.gender}
                             onChange={this.handleChange}>
-                            <option value="default">choose your gender</option>
+                            <option value="default">choose your sex</option>
                             <option value="male">male</option>
                             <option value="female">female</option>
-                            <option value="non-gender-binary">Non-gender binary</option>
+                            {/* <option value="non-sex-binary">Non-sex binary</option> */}
                         </select>
                     </label>
                     <button className="submit" onClick={this.handleFormSubmit}>Submit</button>
                 </form>
+
             </div>
         );
     }
