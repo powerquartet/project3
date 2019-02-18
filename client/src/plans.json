@@ -5,27 +5,36 @@
             {
                 "portion": 1.5,
                 "type": "fruit",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/strawberry.png",
+                "imgHalf": "icons/strawberry_half.png"
             },
             {
                 "portion": 2,
                 "type": "vegetable",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/broccoli.png",
+                "imgHalf": "icons/broccoli_half.png"
             },
             {
                 "portion": 5,
                 "type": "grains",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/wheat.png",
+                "imgHalf": "icons/wheat_half.png"
             },
             {
                 "portion": 5,
                 "type": "protein",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/fish.png",
+                "imgHalf": "icons/fish_half.png"
             },
             {
                 "portion": 3,
                 "type": "dairy",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/glass_bottle.png"
             }
         ],
         "limits": [

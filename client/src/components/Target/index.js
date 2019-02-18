@@ -39,7 +39,7 @@ class Target extends Component {
         const { connectDropTarget } = this.props;
 
         const portions = this.props.portions.map((portion, indx) => {
-            return <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} />
+            return <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} />
         });
 
         return connectDropTarget(

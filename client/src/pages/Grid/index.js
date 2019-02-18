@@ -69,11 +69,13 @@ class Grid extends Component {
             i = 1
         }
         for (i; i < portionItem.portion; i++) {
+
             list.push(
                 {
                     type: portionItem.type,
                     id: index + "-" + i,
-                    size: 1
+                    size: 1,
+                    src: portionItem.img
                 }
             )
         }
@@ -83,7 +85,8 @@ class Grid extends Component {
                 {
                     type: portionItem.type,
                     id: index + "-" + fraction,
-                    size: fraction
+                    size: fraction,
+                    src: portionItem.imgHalf
                 }
             )
         }
@@ -106,7 +109,8 @@ class Grid extends Component {
                         const portion = {
                             id: this.state.newPortions[j].id,
                             type: this.state.newPortions[j].type,
-                            size: this.state.newPortions[j].size
+                            size: this.state.newPortions[j].size,
+                            src: this.state.newPortions[j].src,
                         }
 
                         const updatedPortions = this.state.newPortions.filter((portion) => {
@@ -146,28 +150,29 @@ class Grid extends Component {
 
     render() {
 
+        console.log(this.state.newPortions);
         const fruit = this.state.newPortions.map((portion, indx) => {
             return (portion.type === "fruit" ?
-                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
         });
 
         const vegetables = this.state.newPortions.map((portion, indx) => {
             return (portion.type === "vegetable" ?
-                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
         });
         const grains = this.state.newPortions.map((portion, indx) => {
             return (portion.type === "grains" ?
-                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
         });
 
         const protein = this.state.newPortions.map((portion, indx) => {
             return (portion.type === "protein" ?
-                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
         });
 
         const dairy = this.state.newPortions.map((portion, indx) => {
             return (portion.type === "dairy" ?
-                <Item size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
         });
 
         const targets = this.state.meals.map((meal, indx) => {
