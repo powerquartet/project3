@@ -30,18 +30,20 @@ function collect(connect, monitor) {
 class Item extends Component {
     render() {
         const { isDragging, connectDragSource } = this.props;
+        const src = JSON.stringify(this.props.src);
+        console.log(src);
         return connectDragSource(
             this.props.size === 1 ?
-                < div style={{ "width": "80px", "margin": "5px", "border": "1px solid black" }}>
-                    {!isDragging && <span>{this.props.type}</span>}
-                    {isDragging && <div style={{ "width": "80px", "margin": "5px", "color": "lightgrey", "border": "1px solid lightgrey" }}>{this.props.type}</div>}
-
+                < div>
+                    {!isDragging && <div style={{ "width": "72px", "height": "72px", "background": `url(${src})` }}></div>}
+                    {isDragging && <div><span>'ello {this.props.name}</span></div>
+                    }
                 </div >
                 :
-                < div style={{ "width": "40px", "margin": "5px", "border": "1px solid black" }}>
-                    {!isDragging && <span>{this.props.type}</span>}
-                    {isDragging && <div style={{ "width": "40px", "margin": "5px", "color": "lightgrey", "border": "1px solid lightgrey" }}>{this.props.type}</div>}
-
+                < div>
+                    {!isDragging && <div style={{ "width": "36px", "height": "72px", "background": `url(${src})` }}></div>}
+                    {isDragging && <div><span>'ello {this.props.name}</span></div>
+                    }
                 </div >
         )
     }
