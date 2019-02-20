@@ -97,27 +97,36 @@
             {
                 "portion": 1.5,
                 "type": "fruit",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/strawberry.png",
+                "imgHalf": "icons/strawberry_half.png"
             },
             {
                 "portion": 2.5,
                 "type": "vegetable",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/broccoli.png",
+                "imgHalf": "icons/broccoli_half.png"
             },
             {
                 "portion": 6,
                 "type": "grains",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/wheat.png",
+                "imgHalf": "icons/wheat_half.png"
             },
             {
                 "portion": 5,
                 "type": "protein",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/fish.png",
+                "imgHalf": "icons/fish_half.png"
             },
             {
                 "portion": 3,
                 "type": "dairy",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/glass_bottle.png"
             }
         ],
         "limits": [
@@ -180,27 +189,36 @@
             {
                 "portion": 2,
                 "type": "fruit",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/strawberry.png",
+                "imgHalf": "icons/strawberry_half.png"
             },
             {
                 "portion": 2.5,
                 "type": "vegetable",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/broccoli.png",
+                "imgHalf": "icons/broccoli_half.png"
             },
             {
                 "portion": 6,
                 "type": "grains",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/wheat.png",
+                "imgHalf": "icons/wheat_half.png"
             },
             {
                 "portion": 5.5,
                 "type": "protein",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/fish.png",
+                "imgHalf": "icons/fish_half.png"
             },
             {
                 "portion": 3,
                 "type": "dairy",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/glass_bottle.png"
             }
         ],
         "limits": [
@@ -263,27 +281,36 @@
             {
                 "portion": 2,
                 "type": "fruit",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/strawberry.png",
+                "imgHalf": "icons/strawberry_half.png"
             },
             {
                 "portion": 3,
                 "type": "vegetable",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/broccoli.png",
+                "imgHalf": "icons/broccoli_half.png"
             },
             {
                 "portion": 7,
                 "type": "grains",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/wheat.png",
+                "imgHalf": "icons/wheat_half.png"
             },
             {
                 "portion": 6,
                 "type": "protein",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/fish.png",
+                "imgHalf": "icons/fish_half.png"
             },
             {
                 "portion": 3,
                 "type": "dairy",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/glass_bottle.png"
             }
         ],
         "limits": [
@@ -346,27 +373,36 @@
             {
                 "portion": 2,
                 "type": "fruit",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/strawberry.png",
+                "imgHalf": "icons/strawberry_half.png"
             },
             {
                 "portion": 3,
                 "type": "vegetable",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/broccoli.png",
+                "imgHalf": "icons/broccoli_half.png"
             },
             {
                 "portion": 8,
                 "type": "grains",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/wheat.png",
+                "imgHalf": "icons/wheat_half.png"
             },
             {
                 "portion": 6.5,
                 "type": "protein",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/fish.png",
+                "imgHalf": "icons/fish_half.png"
             },
             {
                 "portion": 3,
                 "type": "dairy",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/glass_bottle.png"
             }
         ],
         "limits": [
@@ -429,27 +465,36 @@
             {
                 "portion": 2,
                 "type": "fruit",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/strawberry.png",
+                "imgHalf": "icons/strawberry_half.png"
             },
             {
                 "portion": 3.5,
                 "type": "vegetable",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/broccoli.png",
+                "imgHalf": "icons/broccoli_half.png"
             },
             {
                 "portion": 9,
                 "type": "grains",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/wheat.png",
+                "imgHalf": "icons/wheat_half.png"
             },
             {
                 "portion": 6.5,
                 "type": "protein",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/fish.png",
+                "imgHalf": "icons/fish_half.png"
             },
             {
                 "portion": 3,
                 "type": "dairy",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/glass_bottle.png"
             }
         ],
         "limits": [
@@ -512,27 +557,36 @@
             {
                 "portion": 2.5,
                 "type": "fruit",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/strawberry.png",
+                "imgHalf": "icons/strawberry_half.png"
             },
             {
                 "portion": 3.5,
                 "type": "vegetable",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/broccoli.png",
+                "imgHalf": "icons/broccoli_half.png"
             },
             {
                 "portion": 10,
                 "type": "grains",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/wheat.png",
+                "imgHalf": "icons/wheat_half.png"
             },
             {
                 "portion": 7,
                 "type": "protein",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/fish.png",
+                "imgHalf": "icons/fish_half.png"
             },
             {
                 "portion": 3,
                 "type": "dairy",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/glass_bottle.png"
             }
         ],
         "limits": [
@@ -595,27 +649,36 @@
             {
                 "portion": 2.5,
                 "type": "fruit",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/strawberry.png",
+                "imgHalf": "icons/strawberry_half.png"
             },
             {
                 "portion": 4,
                 "type": "vegetable",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/broccoli.png",
+                "imgHalf": "icons/broccoli_half.png"
             },
             {
                 "portion": 10,
                 "type": "grains",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/wheat.png",
+                "imgHalf": "icons/wheat_half.png"
             },
             {
                 "portion": 7,
                 "type": "protein",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/fish.png",
+                "imgHalf": "icons/fish_half.png"
             },
             {
                 "portion": 3,
                 "type": "dairy",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/glass_bottle.png"
             }
         ],
         "limits": [
@@ -678,27 +741,36 @@
             {
                 "portion": 2.5,
                 "type": "fruit",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/strawberry.png",
+                "imgHalf": "icons/strawberry_half.png"
             },
             {
                 "portion": 4,
                 "type": "vegetable",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/broccoli.png",
+                "imgHalf": "icons/broccoli_half.png"
             },
             {
                 "portion": 10,
                 "type": "grains",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/wheat.png",
+                "imgHalf": "icons/wheat_half.png"
             },
             {
                 "portion": 7,
                 "type": "protein",
-                "measurement": "ounces"
+                "measurement": "ounces",
+                "img": "icons/fish.png",
+                "imgHalf": "icons/fish_half.png"
             },
             {
                 "portion": 3,
                 "type": "dairy",
-                "measurement": "cups"
+                "measurement": "cups",
+                "img": "icons/glass_bottle.png"
             }
         ],
         "limits": [
