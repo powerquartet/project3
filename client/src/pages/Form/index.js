@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
 // import axios from "axios";
-import calculateBMICalories from '../../components/BMICalculator';
-import calculateBMI from '../../components/HealthyWeightCalc'
+// import calculateBMICalories from '../../components/BMICalculator';
+// import calculateBMI from '../../components/HealthyWeightCalc'
 
 
 
@@ -69,8 +69,8 @@ class Form extends Component {
                     // this.calculatePortionTier();
                 }).catch(err => console.log(err));
 
-            userBMICalories = calculateBMI(height, age, gender);
-            calculateBMICalories(weight, height, age, sex);
+            // userBMICalories = calculateBMI(height, age, gender);
+            // calculateBMICalories(weight, height, age, sex);
         }
 
         // let firstName = this.state.firstName;

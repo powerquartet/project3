@@ -8,8 +8,8 @@ import Counter from "../../components/Counter"
 import plans from "../../plans.json";
 
 //Acess plan from the json tier object
-let plan = plans[0].plan;
-let portions = plans[0].portions;
+let plan = plans[4].plan;
+let portions = plans[4].portions;
 
 class Grid extends Component {
     constructor(props) {
