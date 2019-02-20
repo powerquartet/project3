@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
 // import axios from "axios";
-import calculateBMICalories from '../../components/BMICalculator';
-import calculateBMI from '../../components/HealthyWeightCalc'
+// import calculateBMICalories from '../../components/BMICalculator';
+// import calculateBMI from '../../components/HealthyWeightCalc'
+import Wrapper from '../../components/Wrapper/index';
+import Container from '../../components/Container/index';
+import Row from '../../components/Row/index';
 
 
 
@@ -69,8 +72,8 @@ class Form extends Component {
                     // this.calculatePortionTier();
                 }).catch(err => console.log(err));
 
-            userBMICalories = calculateBMI(height, age, gender);
-            calculateBMICalories(weight, height, age, sex);
+            // userBMICalories = calculateBMI(height, age, gender);
+            // calculateBMICalories(weight, height, age, sex);
         }
 
         // let firstName = this.state.firstName;
@@ -88,69 +91,96 @@ class Form extends Component {
     render() {
         console.log("render method: ", this.state)
         return (
-            <div>
-                <h1>So, tell us about yourself</h1>
-                <p>
-                    We're here to help you crush it,  {this.state.firstName}
-                </p>
-                <form className="form">
-                    <input
-                        value={this.state.firstName}
-                        name="firstName"
-                        onChange={this.handleInputChange}
-                        type="text"
-                        placeholder="First Name"
-                    />
-                    <input
-                        value={this.state.lastName}
-                        name="lastName"
-                        onChange={this.handleInputChange}
-                        type="text"
-                        placeholder="Last Name"
-                    />
-                    <input
-                        value={this.state.email}
-                        name="email"
-                        onChange={this.handleInputChange}
-                        type="email"
-                        placeholder="Email"
-                    />
-                    <input
-                        value={this.state.weight}
-                        name="weight"
-                        onChange={this.handleInputChange}
-                        type="weight"
-                        placeholder="Weight(lbs)"
-                    />
-                    <input
-                        value={this.state.height}
-                        name="height"
-                        onChange={this.handleInputChange}
-                        type="height"
-                        placeholder="Height(in)"
-                    />
-                    <input
-                        value={this.state.age}
-                        name="age"
-                        onChange={this.handleInputChange}
-                        type="aged"
-                        placeholder="age (years)"
-                    />
-                    <label>
-                        Pick your gender identity:
-                    <select name='gender'
-                            value={this.state.gender}
-                            onChange={this.handleChange}>
-                            <option value="default">choose your sex</option>
-                            <option value="male">male</option>
-                            <option value="female">female</option>
-                            {/* <option value="non-sex-binary">Non-sex binary</option> */}
-                        </select>
-                    </label>
-                    <button className="submit" onClick={this.handleFormSubmit}>Submit</button>
-                </form>
+            <Wrapper>
+                <Container>
+                    <Row>
 
-            </div>
+                        <div>
+                            <h1>So, tell us about yourself</h1>
+                            <p>
+                                We're here to help you crush it,  {this.state.firstName}
+                            </p>
+                            <form className="form">
+                                <p>
+                                    <input
+                                        value={this.state.firstName}
+                                        name="firstName"
+                                        onChange={this.handleInputChange}
+                                        type="text"
+                                        placeholder="First Name"
+                                    />
+
+                                </p>
+                                <p>
+                                    <input
+                                        value={this.state.lastName}
+                                        name="lastName"
+                                        onChange={this.handleInputChange}
+                                        type="text"
+                                        placeholder="Last Name"
+                                    />
+                                </p>
+                                <p>
+                                    <input
+                                        value={this.state.email}
+                                        name="email"
+                                        onChange={this.handleInputChange}
+                                        type="email"
+                                        placeholder="Email"
+                                    />
+                                </p>
+                                <p>
+                                    <input
+                                        value={this.state.weight}
+                                        name="weight"
+                                        onChange={this.handleInputChange}
+                                        type="weight"
+                                        placeholder="Weight(lbs)"
+                                    />
+                                </p>
+                                <p>
+                                    <input
+                                        value={this.state.height}
+                                        name="height"
+                                        onChange={this.handleInputChange}
+                                        type="height"
+                                        placeholder="Height(in)"
+                                    />
+                                </p>
+                                <p>
+                                    <input
+                                        value={this.state.age}
+                                        name="age"
+                                        onChange={this.handleInputChange}
+                                        type="aged"
+                                        placeholder="age (years)"
+                                    />
+                                </p>
+                                <p>
+                                    <label>
+                                        Pick your gender identity:
+                                    </label>
+                                </p>
+                                <p>
+                                    <select name='gender'
+                                        value={this.state.gender}
+                                        onChange={this.handleChange}>
+                                        <option value="default">choose your sex</option>
+                                        <option value="male">male</option>
+                                        <option value="female">female</option>
+                                        {/* <option value="non-sex-binary">Non-sex binary</option> */}
+                                    </select>
+                                </p>
+                                <p>
+                                    <button className="submit" onClick={this.handleFormSubmit}>Submit</button>
+                                </p>
+                            </form>
+
+                        </div>
+
+                    </Row>
+                </Container>
+            </Wrapper>
         );
     }
 }
