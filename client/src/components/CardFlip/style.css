@@ -1,0 +1,16 @@
+.measurement {
+    /* border-radius: 50%; */
+    background-color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 150px;
+    height: 100px;
+}
+
+.measurement img {
+    flex-shrink: 0;
+    width: 200px;
+    height: 100px;
+}
