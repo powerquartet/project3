@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import API from "../../utils/API"
-import axios from "axios";
+// import axios from "axios";
 import Wrapper from '../../components/Wrapper/index';
 import Container from '../../components/Container/index';
 import Row from '../../components/Row/index';
