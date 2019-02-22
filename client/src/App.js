@@ -102,53 +102,59 @@ class App extends Component {
     return <span style={{ fontSize: value }}>{value}</span>;
   };
 
-  chooseUserTier(userBMICalories)
-let userTier;
+  // chooseUserTier(userBMICalories) {
+  //   let userTier;
+  //   console.log(`chooseUserTier function reporting for duty`);
 
-render() {
-  // function App() {
-  return (
-    <Router>
-      <div>
-        {/* <Navbar /> */}
-        <Wrapper>
-          <Route exact path="/" component={Home} />
+  //   switch (userBMICalories) {
 
-          <Route
-            exact path='/form'
-            render={() =>
-              <Form
-
-                firstName={this.state.firstName}
-                lastName={this.state.lastName}
-                email={this.state.email}
-                weight={this.state.weight}
-                height={this.state.height}
-                age={this.state.age}
-                sex={this.state.sex}
-                userBMI={this.state.userBMI}
-                userBMICalories={this.state.userBMICalories}
-                userAL={this.state.userAL}
-                handleInputChange={this.handleInputChange}
-                handleALChange={this.handleALChange}
-                handleSexChange={this.handleSexChange}
-                calculateBMI={this.calculateBMI}
-                calculateBMICalories={this.calculateBMICalories}
-              />
-            }
-          />
-
-          {/* <Route exact path="/form" component={Form} /> */}
-
-          <Route exact path="/portion" component={Portion} />
-          <Route exact path="/grid" component={Grid} />
-        </Wrapper>
-        {/* <Footer /> */}
-      </div>
-    </Router >
-  );
+  //   }
   // }
-}
+
+  render() {
+    // function App() {
+    return (
+      <Router>
+        <div>
+          {/* <Navbar /> */}
+          <Wrapper>
+            <Route exact path="/" component={Home} />
+
+            <Route
+              exact path='/form'
+              render={() =>
+                <Form
+
+                  firstName={this.state.firstName}
+                  lastName={this.state.lastName}
+                  email={this.state.email}
+                  weight={this.state.weight}
+                  height={this.state.height}
+                  age={this.state.age}
+                  sex={this.state.sex}
+                  userBMI={this.state.userBMI}
+                  userBMICalories={this.state.userBMICalories}
+                  userAL={this.state.userAL}
+                  handleInputChange={this.handleInputChange}
+                  handleALChange={this.handleALChange}
+                  handleSexChange={this.handleSexChange}
+                  calculateBMI={this.calculateBMI}
+                  calculateBMICalories={this.calculateBMICalories}
+                />
+              }
+            />
+
+            {/* <Route exact path="/form" component={Form} /> */}
+
+            <Route exact path="/portion" component={Portion} />
+            <Route exact path="/grid" component={Grid} />
+          </Wrapper>
+          {/* <Footer /> */}
+        </div>
+      </Router >
+    );
+    // }
+  }
 }
 
 export default App;
