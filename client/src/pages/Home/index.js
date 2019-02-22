@@ -7,6 +7,7 @@ import SignIn from "../../components/SignIn";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import Container from "../../components/Container";
+import Navbar from "../../components/Navbar";
 // import Navbar from "../../components/Navbar";
 
 class Home extends React.Component {
