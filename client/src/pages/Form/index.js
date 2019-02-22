@@ -1,62 +1,85 @@
+
 import React, { Component } from "react";
 import API from "../../utils/API"
 // import axios from "axios";
-// import calculateBMICalories from '../../components/BMICalculator';
-// import calculateBMI from '../../components/HealthyWeightCalc'
+// import calculateBMICalories from '../../components/BMICalorieCalculator';
+// import calculateBMI from '../../components/BMICalculator'
 import Wrapper from '../../components/Wrapper/index';
 import Container from '../../components/Container/index';
 import Row from '../../components/Row/index';
+// import calculateBMI from '../../components/BMICalculator/index';
 
+
+// function BMI() {
+//     return <calculateBMI />;
+// }
+
+// function BMICal() {
+//     return <calculateBMICalories />
+// }
 
 
 class Form extends Component {
-    // Setting the component's initial state
+    // Setting the component's initial props
+    constructor(props) {
+        super(props)
+        console.log(`constructor here`)
+    }
+    // props = {
+    //     firstName: "",
+    //     lastName: "",
+    //     email: "",
+    //     weight: 0,
+    //     height: 0,
+    //     age: 0,
+    //     sex: '',
+    //     userBMI: 0,
+    //     // userBMICalories: 0,
+    //     //AL = Activity Level
+    //     userAL: ''
+    // };
 
-    state = {
-        firstName: "",
-        lastName: "",
-        email: "",
-        weight: 0,
-        height: 0,
-        age: 0,
-        sex: '',
-        userBMI: 0,
-        userBMICalories: 0
-    };
+
+
+    // handleInputChange = event => {
+    //     console.log(event.target.name);
+    //     // Getting the value and name of the input which triggered the change
+    //     let value = event.target.value;
+    //     const name = event.target.name;
+
+    //     this.setprops({
+    //         [name]: value
+    //     });
+    // };
 
 
 
-    handleInputChange = event => {
-        console.log(event.target.name);
-        // Getting the value and name of the input which triggered the change
-        let value = event.target.value;
-        const name = event.target.name;
+    // handleSexChange = (event) => {
+    //     this.setprops({ sex: event.target.value });
+    // };
 
-        this.setState({
-            [name]: value
-        });
-    };
-
-    handleChange = (event) => {
-        this.setState({ sex: event.target.value });
-    };
-
+    // handleALChange = (event) => {
+    //     this.setprops({ userAL: event.target.value });
+    // };
 
     handleFormSubmit = event => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
-        console.log(this.state);
+        console.log(this.props);
 
-        const firstName = this.state.firstName;
-        const lastName = this.state.lastName;
-        const email = this.state.email;
-        const weight = this.state.weight;
-        const height = this.state.height;
-        const age = this.state.age;
-        const sex = this.state.gender;
+        const firstName = this.props.firstName;
+        const lastName = this.props.lastName;
+        const email = this.props.email;
+        const weight = this.props.weight;
+        const height = this.props.height;
+        const age = this.props.age;
+        const sex = this.props.sex;
+        const userBMI = this.props.userBMI;
+        const userBMICalories = this.props.userBMICalories;
+        const userAL = this.props.userAL;
 
 
-        if (this.state.firstName && this.state.email) {
+        if (this.props.firstName && this.props.email) {
             API.saveUser({
                 firstName,
                 lastName,
@@ -64,48 +87,54 @@ class Form extends Component {
                 weight,
                 height,
                 age,
-                sex
+                sex,
+                userBMI,
+                userBMICalories,
+                userAL
             })
                 .then(res => {
                     console.log(JSON);
                     // this.loadUser();
-                    // this.calculatePortionTier();
+                    this.props.calculateBMI(weight, height);
+                    this.props.calculateBMICalories(weight, height, age, sex, userAL);
+                    console.log(userBMI, userBMICalories);
                 }).catch(err => console.log(err));
 
-            // userBMICalories = calculateBMI(height, age, gender);
-            // calculateBMICalories(weight, height, age, sex);
         }
 
-        // let firstName = this.state.firstName;
-        // let lastName = this.state.lastName;
 
-        // if (!this.state.firstName || !this.state.lastName || !this.state.email || !this.state.weight || !this.state.height || !this.state.age) {
+        // let firstName = this.props.firstName;
+        // let lastName = this.props.lastName;
+
+        // if (!this.props.firstName || !this.props.lastName || !this.props.email || !this.props.weight || !this.props.height || !this.props.age) {
         //     alert("Please fill out all submission fields!");
         // } else {
         //     console.log(firstName, lastName);
 
         // }
 
+
     };
 
     render() {
-        console.log("render method: ", this.state)
+        console.log("render method: ", this.props)
         return (
             <Wrapper>
                 <Container>
                     <Row>
 
                         <div>
+
                             <h1>So, tell us about yourself</h1>
                             <p>
-                                We're here to help you crush it,  {this.state.firstName}
+                                We're here to help you crush it,  {this.props.firstName}
                             </p>
                             <form className="form">
                                 <p>
                                     <input
-                                        value={this.state.firstName}
+                                        value={this.props.firstName}
                                         name="firstName"
-                                        onChange={this.handleInputChange}
+                                        onChange={this.props.handleInputChange}
                                         type="text"
                                         placeholder="First Name"
                                     />
@@ -113,62 +142,77 @@ class Form extends Component {
                                 </p>
                                 <p>
                                     <input
-                                        value={this.state.lastName}
+                                        value={this.props.lastName}
                                         name="lastName"
-                                        onChange={this.handleInputChange}
+                                        onChange={this.props.handleInputChange}
                                         type="text"
                                         placeholder="Last Name"
                                     />
                                 </p>
                                 <p>
                                     <input
-                                        value={this.state.email}
+                                        value={this.props.email}
                                         name="email"
-                                        onChange={this.handleInputChange}
+                                        onChange={this.props.handleInputChange}
                                         type="email"
                                         placeholder="Email"
                                     />
                                 </p>
                                 <p>
                                     <input
-                                        value={this.state.weight}
+                                        value={this.props.weight}
                                         name="weight"
-                                        onChange={this.handleInputChange}
+                                        onChange={this.props.handleInputChange}
                                         type="weight"
                                         placeholder="Weight(lbs)"
                                     />
                                 </p>
                                 <p>
                                     <input
-                                        value={this.state.height}
+                                        value={this.props.height}
                                         name="height"
-                                        onChange={this.handleInputChange}
+                                        onChange={this.props.handleInputChange}
                                         type="height"
                                         placeholder="Height(in)"
                                     />
                                 </p>
                                 <p>
                                     <input
-                                        value={this.state.age}
+                                        value={this.props.age}
                                         name="age"
-                                        onChange={this.handleInputChange}
+                                        onChange={this.props.handleInputChange}
                                         type="aged"
                                         placeholder="age (years)"
                                     />
                                 </p>
                                 <p>
                                     <label>
-                                        Pick your gender identity:
+                                        Sex:
                                     </label>
                                 </p>
                                 <p>
-                                    <select name='gender'
-                                        value={this.state.gender}
-                                        onChange={this.handleChange}>
+                                    <select name='sex'
+                                        value={this.props.sex}
+                                        onChange={this.props.handleSexChange}>
                                         <option value="default">choose your sex</option>
                                         <option value="male">male</option>
                                         <option value="female">female</option>
                                         {/* <option value="non-sex-binary">Non-sex binary</option> */}
+                                    </select>
+                                </p>
+                                <p>
+                                    <label>
+                                        Activity Level:
+                                    </label>
+                                </p>
+                                <p>
+                                    <select name='userAL'
+                                        value={this.props.userAL}
+                                        onChange={this.props.handleALChange}>
+                                        <option value="default">choose your activity level</option>
+                                        <option value='1.53' >Less than 30 minutes of exercise each day</option>
+                                        <option value='1.76'>30-60 minutes of exercise each day</option>
+                                        <option value='2.25'>More than 60 minutes each day</option>
                                     </select>
                                 </p>
                                 <p>

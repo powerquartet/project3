@@ -11,13 +11,18 @@ class Home extends React.Component {
     super(props)
 
     this.state = {
-      user: null
+      user: null,
+      signUp: false
     }
 
     this.signOut = () => {
       auth.signOut().then((result) => {
         console.log(result);
       })
+    }
+
+    this.toggleSignUp = () => {
+      this.setState({ signUp: !this.state.signUp })
     }
   }
 
@@ -29,6 +34,15 @@ class Home extends React.Component {
     })
   }
 
+  renderSignIn() {
+    console.log(this.state.signUp);
+    if (this.state.signUp === true) {
+      return <SignUp />;
+    } else {
+      return <SignIn />
+    }
+  }
+
   componentDidMount() {
     this.authListener();
   }
@@ -36,17 +50,8 @@ class Home extends React.Component {
   render() {
 
     return (
-    
+
       <div className="container" >
-        {this.state.user === null ?
-          (<SignIn />)
-          : ("Welcome " + this.state.user.email)}
-
-        {this.state.user === null ?
-          (<SignUp />)
-          : ("")}
-
-        <button style={{ "width": "65px" }} onClick={this.signOut} > Sign Out</button >
 
         <div className="home-header">Welcome!</div>
 
@@ -54,26 +59,26 @@ class Home extends React.Component {
           <img className="logo" src={logo} alt="logo" />
         </div>
 
-        <div className="button-group">
-          <a href="/form">
-            <button className="button1">Form</button>
-          </a>
-
-          <a href="/portion">
-            <button className="button2">Portion</button>
-          </a>
-
-          <a href="/grid">
-            <button className="button3">Grid</button>
-          </a>
-
-        </div>
-
+        {this.state.user === null ?
+          <div>{this.renderSignIn()}</div>
+          : ("Welcome @" + this.state.user.email.split("@")[0] + "!")}
+        {this.state.signUp === false ?
+          <div>
+            If you don't have an account
+              <button onClick={this.toggleSignUp}> Sign Up </button>
+            !
+            </div>
+          :
+          <div>
+            Already have an acount?
+            <button onClick={this.toggleSignUp}> Sign In </button>
+          </div>
+        }
         <div className="textArea"> A portion managing app that does the counting for you
           </div>
+        <button style={{ "width": "65px" }} onClick={this.signOut} > Sign Out</button >
       </div >
     );
   }
 }
-
 export default Home;

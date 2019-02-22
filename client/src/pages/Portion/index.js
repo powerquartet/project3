@@ -4,6 +4,8 @@ import "../Portion/css/style.css";
 
 
 class Portion extends Component {
+
+
     render() {
         return (
             <div className="toggleButtons">
@@ -12,7 +14,7 @@ class Portion extends Component {
                     {({ on, toggle }) => (
                         <div className="card-container">
                             {on && <div className="card">1.5 cups means 1 cup raw, frozen or canned / .5 cups dried</div>}
-                            <button className="food-group"  onClick={toggle}>Fruits</button>
+                            <button className="food-group" onClick={toggle}>Fruits</button>
                         </div>
                     )}
                 </Toggle>
@@ -39,7 +41,7 @@ class Portion extends Component {
                     {({ on, toggle }) => (
                         <div className="card-container">
                             {on && <div className="card">6 oz means 1 slice of bread / 1 oz of ready to eat cereal</div>}
-                            <button className = "food-group" onClick={toggle}>Grains</button>
+                            <button className="food-group" onClick={toggle}>Grains</button>
                         </div>
                     )}
                 </Toggle>
