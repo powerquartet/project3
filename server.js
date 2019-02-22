@@ -27,14 +27,14 @@ app.get("*", (req, res) => {
 });
 
 app.post("api/users", (req, res) => console.log(req.body));
-res.json(true);
+
 
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/portionCrushDB");
-console.log(`mongo here`);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds347665.mlab.com:47665/heroku_s7jskswt");
+console.log(`! MONGO, online and listening`);
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
