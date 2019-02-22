@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import Form from "./pages/Form";
@@ -12,7 +12,6 @@ import Header from "./components/Header";
 // import Plans from './plans.json';
 
 class App extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -22,12 +21,11 @@ class App extends Component {
       weight: 0,
       height: 0,
       age: 0,
-      sex: '',
+      sex: "",
       userBMI: 0,
       userBMICalories: 0,
-      userAL: ''
+      userAL: ""
     };
-
   }
 
   handleInputChange = event => {
@@ -41,24 +39,22 @@ class App extends Component {
     });
   };
 
-
-  handleSexChange = (event) => {
+  handleSexChange = event => {
     this.setState({ sex: event.target.value });
   };
 
-  handleALChange = (event) => {
+  handleALChange = event => {
     this.setState({ userAL: event.target.value });
   };
 
-
   calculateBMI(weight, height) {
     let BMI;
-    BMI = 703 * (weight / (Math.pow(height, 2))
+    BMI =
+      703 *
+      (weight / Math.pow(height, 2));
       // console.log(`calculateBMI = ${BMI}`)
-    );
     return <span style={{ fontSize: BMI }}>{BMI}</span>;
-  };
-
+  }
 
   calculateBMICalories(weight, height, age, sex, userAL) {
     let u_weight;
@@ -72,11 +68,11 @@ class App extends Component {
       // if the user has male inputs
       case "male":
         u_weight = 10 * (weight / 2.205);
-        u_height = 6.25 * (height / .394);
+        u_height = 6.25 * (height / 0.394);
         u_age = 5 * age;
         u_activity = parseInt(userAL);
 
-        value = ((u_weight + u_height - u_age) + 5) * u_activity;
+        value = (u_weight + u_height - u_age + 5) * u_activity;
 
         console.log(`male BMICalc - ${value}`);
         break;
@@ -84,13 +80,13 @@ class App extends Component {
       // if the user has female inputs
       case "female":
         u_weight = 10 * (weight / 2.205);
-        u_height = 6.25 * (height / .394);
+        u_height = 6.25 * (height / 0.394);
         u_age = 5 * age;
         u_activity = parseInt(userAL);
 
-        value = ((u_weight + u_height - u_age) - 161) * u_activity;
+        value = (u_weight + u_height - u_age - 161) * u_activity;
 
-        console.log(`female BMICalc - ${value}`)
+        console.log(`female BMICalc - ${value}`);
         console.log(weight, height, age);
         break;
 
@@ -98,7 +94,7 @@ class App extends Component {
         value = NaN;
     }
     return <span style={{ fontSize: value }}>{value}</span>;
-  };
+  }
 
   // chooseUserTier(userBMICalories) {
   //   let userTier;
@@ -110,48 +106,43 @@ class App extends Component {
   // }
 
   render() {
-
     return (
       <Router>
-        <div>
-          {/* <Navbar /> */}
-          <Wrapper>
-            <Route exact path="/" component={Home} />
+        <Wrapper>
+          <Header />
+          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/form"
+            render={() => (
+              <Form
+                firstName={this.state.firstName}
+                lastName={this.state.lastName}
+                email={this.state.email}
+                weight={this.state.weight}
+                height={this.state.height}
+                age={this.state.age}
+                sex={this.state.sex}
+                userBMI={this.state.userBMI}
+                userBMICalories={this.state.userBMICalories}
+                userAL={this.state.userAL}
+                handleInputChange={this.handleInputChange}
+                handleALChange={this.handleALChange}
+                handleSexChange={this.handleSexChange}
+                calculateBMI={this.calculateBMI}
+                calculateBMICalories={this.calculateBMICalories}
+              />
+            )}
+          />
 
-            <Route
-              exact path='/form'
-              render={() =>
-                <Form
+          {/* <Route exact path="/form" component={Form} /> */}
 
-                  firstName={this.state.firstName}
-                  lastName={this.state.lastName}
-                  email={this.state.email}
-                  weight={this.state.weight}
-                  height={this.state.height}
-                  age={this.state.age}
-                  sex={this.state.sex}
-                  userBMI={this.state.userBMI}
-                  userBMICalories={this.state.userBMICalories}
-                  userAL={this.state.userAL}
-                  handleInputChange={this.handleInputChange}
-                  handleALChange={this.handleALChange}
-                  handleSexChange={this.handleSexChange}
-                  calculateBMI={this.calculateBMI}
-                  calculateBMICalories={this.calculateBMICalories}
-                />
-              }
-            />
-
-            {/* <Route exact path="/form" component={Form} /> */}
-
-            <Route exact path="/portion" component={Portion} />
-            <Route exact path="/grid" component={Grid} />
-          </Wrapper>
-          {/* <Footer /> */}
-        </div>
-      </Router >
+          <Route exact path="/portion" component={Portion} />
+          <Route exact path="/grid" component={Grid} />
+          <Navbar />
+        </Wrapper>
+      </Router>
     );
-
   }
 }
 
