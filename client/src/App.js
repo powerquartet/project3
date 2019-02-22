@@ -9,7 +9,7 @@ import Wrapper from './components/Wrapper'
 // import Navbar from "./components/Navbar";
 // import Footer from "./components/Footer";
 // import Toggle from './components/Toggle';
-// import calculateBMI from './components/BMICalculator/index';
+
 
 
 class App extends Component {

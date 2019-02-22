@@ -1,22 +1,11 @@
 
 import React, { Component } from "react";
 import API from "../../utils/API"
-// import axios from "axios";
-// import calculateBMICalories from '../../components/BMICalorieCalculator';
-// import calculateBMI from '../../components/BMICalculator'
+import axios from "axios";
 import Wrapper from '../../components/Wrapper/index';
 import Container from '../../components/Container/index';
 import Row from '../../components/Row/index';
-// import calculateBMI from '../../components/BMICalculator/index';
 
-
-// function BMI() {
-//     return <calculateBMI />;
-// }
-
-// function BMICal() {
-//     return <calculateBMICalories />
-// }
 
 
 class Form extends Component {
@@ -25,42 +14,9 @@ class Form extends Component {
         super(props)
         console.log(`constructor here`)
     }
-    // props = {
-    //     firstName: "",
-    //     lastName: "",
-    //     email: "",
-    //     weight: 0,
-    //     height: 0,
-    //     age: 0,
-    //     sex: '',
-    //     userBMI: 0,
-    //     // userBMICalories: 0,
-    //     //AL = Activity Level
-    //     userAL: ''
-    // };
 
 
 
-    // handleInputChange = event => {
-    //     console.log(event.target.name);
-    //     // Getting the value and name of the input which triggered the change
-    //     let value = event.target.value;
-    //     const name = event.target.name;
-
-    //     this.setprops({
-    //         [name]: value
-    //     });
-    // };
-
-
-
-    // handleSexChange = (event) => {
-    //     this.setprops({ sex: event.target.value });
-    // };
-
-    // handleALChange = (event) => {
-    //     this.setprops({ userAL: event.target.value });
-    // };
 
     handleFormSubmit = event => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
