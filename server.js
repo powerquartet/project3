@@ -34,7 +34,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/portionCrushDB");
-console.log(`mongo here`);
+console.log(`! MONGO, online and listening`);
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
