@@ -27,7 +27,7 @@ app.get("*", (req, res) => {
 });
 
 app.post("api/users", (req, res) => console.log(req.body));
-res.json(true);
+
 
 // Add routes, both API and view
 app.use(routes);
