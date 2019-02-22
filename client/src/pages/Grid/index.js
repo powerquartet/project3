@@ -6,15 +6,20 @@ import Item from "../../components/Item"
 import Target from "../../components/Target"
 import Counter from "../../components/Counter"
 import plans from "../../plans.json";
+import Container from "../../components/Container";
+import Row from "../../components/Row";
+import Col from "../../components/Col";
 
 //Acess plan from the json tier object
-let plan = plans[4].plan;
-let portions = plans[4].portions;
+let plan = plans[0].plan;
+let portions = plans[0].portions;
 
 class Grid extends Component {
     constructor(props) {
         super(props);
+        this.original = {};
         this.state = {
+            showDelete: false,
             plan,
             portions,
             newPortions: [],
@@ -44,17 +49,8 @@ class Grid extends Component {
     }
 
     componentDidMount() {
-        let createdPortions = this.state.portions.map((item, index) => {
-            //creating arrays of portions
-            return this.createPortions(item, index)
-            //reducing them to one array
-        }).reduce((allPortions, portionArrays) => {
-            return allPortions.concat(portionArrays)
-        }, []);
-
-        this.setState({
-            newPortions: createdPortions
-        })
+        this.makeNewPortions();
+        // this.original = Object.assign({}, this.state);
     }
 
     //create portions based on the number provided by the database
@@ -94,10 +90,22 @@ class Grid extends Component {
         return list;
     }
 
+    makeNewPortions = () => {
+        let createdPortions = this.state.portions.map((item, index) => {
+            //creating arrays of portions
+            return this.createPortions(item, index)
+            //reducing them to one array
+        }).reduce((allPortions, portionArrays) => {
+            return allPortions.concat(portionArrays)
+        }, []);
+
+        this.setState({
+            newPortions: createdPortions
+        })
+    }
     moveItem = (itemId, meal) => {
         this.decrementPortion(itemId);
-        // console.log(`Meal target: ${meal} for item: ${itemId}`)
-        // console.log(this.state.meals[0].portions);
+
         for (let i = 0; i < this.state.meals.length; i++) {
 
             if (meal === this.state.meals[i].meal) {
@@ -128,6 +136,61 @@ class Grid extends Component {
         }
     };
 
+    moveBack = (item, meal) => {
+
+        this.setState({
+            showDelete: false
+        })
+
+        this.incrementPortion(item.id);
+        // push portion back to the newPortions array
+        const updatedPortions = this.state.newPortions;
+        updatedPortions.push(item);
+        let updatedMeals = [...this.state.meals];
+
+        for (let i = 0; i < this.state.meals.length; i++) {
+            if (this.state.meals[i].meal === meal) {
+                for (let j = 0; j < this.state.meals[i].portions.length; j++) {
+
+                    if (item.id === this.state.meals[i].portions[j].id) {
+                        //Delete portion from target meal
+                        const updatedMeal = this.state.meals[i].portions.filter((portion) => {
+                            return portion.id !== item.id
+                        });
+
+                        updatedMeals[i].portions[j] = updatedMeal;
+
+                    }
+
+                    this.setState({
+                        "meals": updatedMeals,
+                        "newPortions": updatedPortions
+                    })
+                }
+            }
+        }
+    }
+
+    incrementPortion = (index) => {
+        let portionIndex = parseInt(index.charAt(0));
+        let isFraction = index.slice(3);
+        //when and Item gets moved, decrement portion
+        for (let i = 0; i < this.state.portions.length; i++) {
+            if (portionIndex === i) {
+
+                let stateCopy = Object.assign({}, this.state.portions);
+
+                if (isFraction === ".5") {
+                    stateCopy[i].portion += 0.5;
+                } else {
+                    stateCopy[i].portion += 1;
+                }
+
+                this.setState(stateCopy);
+            };
+        };
+    }
+
     decrementPortion = (index) => {
         let portionIndex = parseInt(index.charAt(0));
         let isFraction = index.slice(3);
@@ -148,57 +211,119 @@ class Grid extends Component {
         };
     }
 
+    //TODO Where to capture the intial state? Should it start with that?
+    setInitialState = () => {
+        this.setState(this.original);
+    }
+
     render() {
-
         console.log(this.state.newPortions);
-        const fruit = this.state.newPortions.map((portion, indx) => {
+        const fruit = this.state.newPortions.map((portion) => {
             return (portion.type === "fruit" ?
-                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item
+                    src={portion.src}
+                    showDelete={this.state.showDelete}
+                    size={portion.size}
+                    type={portion.type}
+                    id={portion.id}
+                    key={portion.id}
+                // handleClick={(item, meal) => this.moveBack(item, meal)}
+                />
+                : "")
         });
 
-        const vegetables = this.state.newPortions.map((portion, indx) => {
+        const vegetables = this.state.newPortions.map((portion) => {
             return (portion.type === "vegetable" ?
-                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item
+                    src={portion.src}
+                    showDelete={this.state.showDelete}
+                    size={portion.size}
+                    type={portion.type}
+                    id={portion.id}
+                    key={portion.id}
+                // handleClick={(item, meal) => this.moveBack(item, meal)}
+                />
+                : "")
         });
-        const grains = this.state.newPortions.map((portion, indx) => {
+        const grains = this.state.newPortions.map((portion) => {
             return (portion.type === "grains" ?
-                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item
+                    src={portion.src}
+                    showDelete={this.state.showDelete}
+                    size={portion.size}
+                    type={portion.type}
+                    id={portion.id}
+                    key={portion.id}
+                // handleClick={(item, meal) => this.moveBack(item, meal)}
+                />
+                : "")
         });
 
-        const protein = this.state.newPortions.map((portion, indx) => {
+        const protein = this.state.newPortions.map((portion) => {
             return (portion.type === "protein" ?
-                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item
+                    src={portion.src}
+                    showDelete={this.state.showDelete}
+                    size={portion.size}
+                    type={portion.type}
+                    id={portion.id}
+                    key={portion.id}
+                // handleClick={(item, meal) => this.moveBack(item, meal)}
+                />
+                : "")
         });
 
-        const dairy = this.state.newPortions.map((portion, indx) => {
+        const dairy = this.state.newPortions.map((portion) => {
             return (portion.type === "dairy" ?
-                <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} /> : "")
+                <Item
+                    src={portion.src}
+                    showDelete={this.state.showDelete}
+                    size={portion.size}
+                    type={portion.type}
+                    id={portion.id}
+                    key={portion.id}
+                // handleClick={(item, meal) => this.moveBack(item, meal)}
+                />
+                : "")
         });
 
-        const targets = this.state.meals.map((meal, indx) => {
-            return <Target portions={this.state.meals[indx].portions} meal={this.state.meals[indx].meal} key={meal.meal} handleDrop={(item, meal) => this.moveItem(item, meal)} />
+        const targets = this.state.meals.map((meal, index) => {
+            return <Target
+                portions={this.state.meals[index].portions}
+                meal={this.state.meals[index].meal}
+                key={meal.meal}
+                handleDrop={(item, meal) => this.moveItem(item, meal)}
+                handleClick={(item, meal) => { this.moveBack(item, meal) }}
+            />
         });
 
         return (
             <div>
-                <Counter portionDailyTarget={this.state.portions} />
-                <div style={{ "float": "left" }}>
-                    {fruit}
-                </div>
-                <div style={{ "float": "left" }}>
-                    {vegetables}
-                </div>
-                <div style={{ "float": "left" }}>
-                    {grains}
-                </div>
-                <div style={{ "float": "left" }}>
-                    {protein}
-                </div>
-                <div style={{ "float": "left" }}>
-                    {dairy}
-                </div>
-                <br style={{ "clear": "both" }} />
-                {targets}
+                <Container>
+                    <Row>
+                        <Col size="md-4">
+                            <Counter portionDailyTarget={this.state.portions} />
+                        </Col>
+                        <Col size="md-8">{fruit}
+                            <br style={{ "clear": "both" }} />
+                            {vegetables}
+                            <br style={{ "clear": "both" }} />
+                            {grains}
+                            <br style={{ "clear": "both" }} />
+                            {protein}
+                            <br style={{ "clear": "both" }} />
+                            {dairy}
+                            <br style={{ "clear": "both" }} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        {targets}
+                    </Row>
+                    <Row>
+                        <button onClick={() => this.setInitialState()}>CLEAR</button>
+                    </Row>
+                </Container>
+
             </div >
         );
     };
