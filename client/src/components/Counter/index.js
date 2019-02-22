@@ -4,7 +4,6 @@ function Counter(props) {
     // console.log(props)
     return (
         <div>
-
             {props.portionDailyTarget.map((element, index) => {
                 return (
                     <div key={index}>

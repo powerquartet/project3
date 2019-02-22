@@ -17,8 +17,8 @@ let portions = plans[0].portions;
 class Grid extends Component {
     constructor(props) {
         super(props);
-        this.original = {};
         this.state = {
+            initialState: {},
             showDelete: false,
             plan,
             portions,
@@ -49,11 +49,11 @@ class Grid extends Component {
     }
 
     componentDidMount() {
+        // Display the number values for portions as separate items
         this.makeNewPortions();
-        // this.original = Object.assign({}, this.state);
     }
 
-    //create portions based on the number provided by the database
+    //Create portions based on the number provided by the database
     createPortions = (portionItem, index) => {
         const list = [];
         const fraction = portionItem.portion % 1;
@@ -91,7 +91,8 @@ class Grid extends Component {
     }
 
     makeNewPortions = () => {
-        let createdPortions = this.state.portions.map((item, index) => {
+
+        const createdPortions = this.state.portions.map((item, index) => {
             //creating arrays of portions
             return this.createPortions(item, index)
             //reducing them to one array
@@ -99,11 +100,23 @@ class Grid extends Component {
             return allPortions.concat(portionArrays)
         }, []);
 
+        // Save a copy of the initial state
+        const initialState = Object.assign({}, this.state.initialState);
+        initialState.newPortions = createdPortions;
+        initialState.portions = [...this.state.portions];
+        initialState.meals = [...this.state.meals];
+
+        //Make a deep copy of the object, so it won't update with the state
+        const newObj = JSON.parse(JSON.stringify(initialState));
+
         this.setState({
-            newPortions: createdPortions
+            "newPortions": createdPortions,
+            "initialState": newObj
         })
     }
+
     moveItem = (itemId, meal) => {
+
         this.decrementPortion(itemId);
 
         for (let i = 0; i < this.state.meals.length; i++) {
@@ -138,15 +151,18 @@ class Grid extends Component {
 
     moveBack = (item, meal) => {
 
+        //In order not to display the delete button the state returns to false
         this.setState({
             showDelete: false
         })
 
         this.incrementPortion(item.id);
-        // push portion back to the newPortions array
+
+        // Push portion back to the newPortions array
         const updatedPortions = this.state.newPortions;
         updatedPortions.push(item);
-        let updatedMeals = [...this.state.meals];
+
+        const updatedMealsTarget = [...this.state.meals];
 
         for (let i = 0; i < this.state.meals.length; i++) {
             if (this.state.meals[i].meal === meal) {
@@ -154,31 +170,35 @@ class Grid extends Component {
 
                     if (item.id === this.state.meals[i].portions[j].id) {
                         //Delete portion from target meal
-                        const updatedMeal = this.state.meals[i].portions.filter((portion) => {
+                        const updatedTarget = this.state.meals[i].portions.filter((portion) => {
                             return portion.id !== item.id
                         });
 
-                        updatedMeals[i].portions[j] = updatedMeal;
+                        updatedMealsTarget[i].portions[j] = updatedTarget;
 
                     }
 
                     this.setState({
-                        "meals": updatedMeals,
+                        "meals": updatedMealsTarget,
                         "newPortions": updatedPortions
-                    })
-                }
-            }
-        }
-    }
+                    });
+
+                };
+            };
+        };
+    };
 
     incrementPortion = (index) => {
-        let portionIndex = parseInt(index.charAt(0));
-        let isFraction = index.slice(3);
-        //when and Item gets moved, decrement portion
+
+        const portionIndex = parseInt(index.charAt(0));
+        const isFraction = index.slice(3);
+
+        //When an Item gets moved back, increment portion
         for (let i = 0; i < this.state.portions.length; i++) {
+
             if (portionIndex === i) {
 
-                let stateCopy = Object.assign({}, this.state.portions);
+                const stateCopy = Object.assign({}, this.state.portions);
 
                 if (isFraction === ".5") {
                     stateCopy[i].portion += 0.5;
@@ -189,16 +209,19 @@ class Grid extends Component {
                 this.setState(stateCopy);
             };
         };
-    }
+    };
 
     decrementPortion = (index) => {
-        let portionIndex = parseInt(index.charAt(0));
-        let isFraction = index.slice(3);
-        //when and Item gets moved, decrement portion
+
+        const portionIndex = parseInt(index.charAt(0));
+        const isFraction = index.slice(3);
+
+        //When an Item gets moved, decrement portion
         for (let i = 0; i < this.state.portions.length; i++) {
+
             if (portionIndex === i) {
 
-                let stateCopy = Object.assign({}, this.state.portions);
+                const stateCopy = Object.assign({}, this.state.portions);
 
                 if (isFraction === ".5") {
                     stateCopy[i].portion -= 0.5;
@@ -209,15 +232,23 @@ class Grid extends Component {
                 this.setState(stateCopy);
             };
         };
-    }
+    };
 
-    //TODO Where to capture the intial state? Should it start with that?
     setInitialState = () => {
-        this.setState(this.original);
-    }
+        //Making a copy of the saved initialState state
+        const initialPortions = [...this.state.initialState.portions];
+        const initialNewPortions = [...this.state.initialState.newPortions];
+        const initialMeals = [...this.state.initialState.meals];
+
+        //Pushing it to the display
+        this.setState({
+            "portions": initialPortions,
+            "newPortions": initialNewPortions,
+            "meals": initialMeals
+        });
+    };
 
     render() {
-        console.log(this.state.newPortions);
         const fruit = this.state.newPortions.map((portion) => {
             return (portion.type === "fruit" ?
                 <Item
@@ -227,7 +258,6 @@ class Grid extends Component {
                     type={portion.type}
                     id={portion.id}
                     key={portion.id}
-                // handleClick={(item, meal) => this.moveBack(item, meal)}
                 />
                 : "")
         });
@@ -241,7 +271,6 @@ class Grid extends Component {
                     type={portion.type}
                     id={portion.id}
                     key={portion.id}
-                // handleClick={(item, meal) => this.moveBack(item, meal)}
                 />
                 : "")
         });
@@ -254,7 +283,6 @@ class Grid extends Component {
                     type={portion.type}
                     id={portion.id}
                     key={portion.id}
-                // handleClick={(item, meal) => this.moveBack(item, meal)}
                 />
                 : "")
         });
@@ -268,7 +296,6 @@ class Grid extends Component {
                     type={portion.type}
                     id={portion.id}
                     key={portion.id}
-                // handleClick={(item, meal) => this.moveBack(item, meal)}
                 />
                 : "")
         });
@@ -282,7 +309,6 @@ class Grid extends Component {
                     type={portion.type}
                     id={portion.id}
                     key={portion.id}
-                // handleClick={(item, meal) => this.moveBack(item, meal)}
                 />
                 : "")
         });
@@ -291,6 +317,7 @@ class Grid extends Component {
             return <Target
                 portions={this.state.meals[index].portions}
                 meal={this.state.meals[index].meal}
+                showDelete={this.state.showDelete}
                 key={meal.meal}
                 handleDrop={(item, meal) => this.moveItem(item, meal)}
                 handleClick={(item, meal) => { this.moveBack(item, meal) }}
