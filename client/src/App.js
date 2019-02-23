@@ -10,11 +10,13 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 // import Toggle from './components/Toggle';
 // import Plans from './plans.json';
+import { auth } from "./utils/firebase";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      user: null,
       firstName: "",
       lastName: "",
       email: "",
@@ -26,6 +28,18 @@ class App extends Component {
       userBMICalories: 0,
       userAL: ""
     };
+  }
+
+  componentDidMount() {
+    this.authListener();
+  }
+
+  authListener() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ user });
+      }
+    });
   }
 
   handleInputChange = event => {
@@ -52,7 +66,7 @@ class App extends Component {
     BMI =
       703 *
       (weight / Math.pow(height, 2));
-      // console.log(`calculateBMI = ${BMI}`)
+    // console.log(`calculateBMI = ${BMI}`)
     return <span style={{ fontSize: BMI }}>{BMI}</span>;
   }
 
@@ -106,11 +120,21 @@ class App extends Component {
   // }
 
   render() {
+    console.log(auth.currentUser);
     return (
       <Router>
         <Wrapper>
           <Header />
-          <Route exact path="/" component={Home} />
+          {/* <Route exact path="/" component={Home} /> */}
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Home
+                user={this.state.user}
+              />
+            )}
+          />
           <Route
             exact
             path="/form"

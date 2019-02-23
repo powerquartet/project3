@@ -5,6 +5,7 @@ import API from "../../utils/API"
 import Wrapper from '../../components/Wrapper/index';
 import Container from '../../components/Container/index';
 import Row from '../../components/Row/index';
+import { auth } from '../../utils/firebase';
 
 
 
@@ -37,6 +38,7 @@ class Form extends Component {
 
     if (this.props.firstName && this.props.email) {
       API.saveUser({
+        _id: auth.currentUser.uid,
         firstName,
         lastName,
         email,

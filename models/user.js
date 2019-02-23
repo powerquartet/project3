@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+    _id: String,
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     email: String,
@@ -9,7 +10,7 @@ const userSchema = new Schema({
     height: Number,
     age: { type: Number, min: 14, max: 65 },
     gender: String
-});
+}, { _id: false });
 
 const User = mongoose.model("User", userSchema);
 
