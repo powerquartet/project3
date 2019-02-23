@@ -37,7 +37,7 @@ class CardFlip extends React.Component {
                         <Col size="md-3">
                             <ReactCardFlip isFlipped={this.state.handful}>
                                 <div key="front" className="measurement">
-                                    <img onClick={() => this.handleClick('handful')}
+                                    <img onClick={() => this.handleClick("handful")}
                                         src={require("./images/handful.png")}
                                         alt="hand" />
                                 </div>
@@ -53,13 +53,13 @@ class CardFlip extends React.Component {
                         <Col size="md-3">
                             <ReactCardFlip isFlipped={this.state.flathand}>
                                 <div key="front" className="measurement">
-                                    <img onClick={() => this.handleClick('flathand')}
+                                    <img onClick={() => this.handleClick("flathand")}
                                         src={require("./images/flathand.png")}
                                         alt="hand" />
                                 </div>
 
                                 <div key="back" className="measurement">
-                                    <div value="flathand" onClick={() => this.handleClick('flathand')} className="measurement">
+                                    <div value="flathand" onClick={() => this.handleClick("flathand")} className="measurement">
                                         Flat Hand = 1 Slice
                                     </div>
                                 </div >
@@ -69,13 +69,13 @@ class CardFlip extends React.Component {
                         <Col size="md-3">
                             <ReactCardFlip isFlipped={this.state.onefist}>
                                 <div key="front" className="measurement">
-                                    <img onClick={() => this.handleClick('onefist')}
+                                    <img onClick={() => this.handleClick("onefist")}
                                         src={require("./images/onefist.png")}
                                         alt="hand" />
                                 </div>
 
                                 <div key="back" className="measurement">
-                                    <div onClick={() => this.handleClick('onefist')} className="measurement">
+                                    <div onClick={() => this.handleClick("onefist")} className="measurement">
                                         One Fist = 1 Cup
                     </div>
                                 </div >
@@ -85,7 +85,7 @@ class CardFlip extends React.Component {
                         <Col size="md-3">
                             <ReactCardFlip isFlipped={this.state.palm}>
                                 <div key="front" className="measurement">
-                                    <img onClick={() => this.handleClick('palm')}
+                                    <img onClick={() => this.handleClick("palm")}
                                         src={require("./images/palm.png")}
                                         alt="hand" />
                                 </div>
@@ -104,7 +104,7 @@ class CardFlip extends React.Component {
                         <Col size="md-4">
                             <ReactCardFlip isFlipped={this.state.pointerfinger}>
                                 <div key="front" className="measurement">
-                                    <img onClick={() => this.handleClick('pointerfinger')}
+                                    <img onClick={() => this.handleClick("pointerfinger")}
                                         src={require("./images/pointerfinger.png")}
                                         alt="hand" />
                                 </div>
@@ -120,7 +120,7 @@ class CardFlip extends React.Component {
                         <Col size="md-4">
                             <ReactCardFlip isFlipped={this.state.thumb}>
                                 <div key="front" className="measurement">
-                                    <img onClick={() => this.handleClick('thumb')}
+                                    <img onClick={() => this.handleClick("thumb")}
                                         src={require("./images/thumb.png")}
                                         alt="hand" />
                                 </div>
@@ -136,7 +136,7 @@ class CardFlip extends React.Component {
                         <Col size="md-4">
                             <ReactCardFlip isFlipped={this.state.twofist}>
                                 <div key="front" className="measurement">
-                                    <img onClick={() => this.handleClick('twofist')}
+                                    <img onClick={() => this.handleClick("twofist")}
                                         src={require("./images/twofist.png")}
                                         alt="hand" />
                                 </div>
