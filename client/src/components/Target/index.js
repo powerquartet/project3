@@ -7,44 +7,46 @@ const Types = {
 };
 
 const dropTarget = {
-    drop(props, monitor, component) {
+    drop(props, monitor) {
         const item = monitor.getItem().id;
         const meal = props.meal;
-
         return props.handleDrop(item, meal)
     }
 }
 
-function collect(connect, monitor) {
+function collect(connect) {
     return {
         connectDropTarget: connect.dropTarget(),
-        isOver: monitor.isOver(),
-        canDrop: monitor.canDrop()
     }
 }
 
 class Target extends Component {
 
-    render() {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.props.handleClick.bind(this);
+    }
 
-        // const { canDrop, isOver, connectDropTarget, portions } = this.props;
-        // const isActive = canDrop && isOver;
-        // const style = {
-        //     width: "200px",
-        //     height: "404px",
-        //     border: '1px dashed gray'
-        // };
-        // const backgroundColor = isActive ? 'lightgreen' : '#FFF';
+    render() {
 
         const { connectDropTarget } = this.props;
 
-        const portions = this.props.portions.map((portion, indx) => {
-            return <Item src={portion.src} size={portion.size} type={portion.type} id={portion.id} key={portion.id} />
+        const portions = this.props.portions.map((portion, index) => {
+            return <Item
+                src={portion.src}
+                showDelete={true}
+                size={portion.size}
+                type={portion.type}
+                id={portion.id}
+                meal={this.props.meal}
+                key={portion.id}
+                handleClick={this.handleClick}
+            />
         });
 
         return connectDropTarget(
-            <div style={{ "float": "left", "height": "150px", "width": "250px", "border": "5px solid yellow" }}>
-                <div style={{ "border": "5px solid green" }}>
+            <div style={{ "height": "100px", "width": "400px", "border": "1px solid lightgrey", "borderRadius": "7px", "margin": "5px" }}>
+                <div style={{ "borderBottom": "1px solid lightgrey", "color": "grey" }}>
                     {this.props.meal}
                 </div>
                 {portions}
