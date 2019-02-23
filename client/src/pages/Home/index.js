@@ -8,6 +8,8 @@ import Row from "../../components/Row";
 import Col from "../../components/Col";
 import Container from "../../components/Container";
 import Navbar from "../../components/Navbar";
+import Wrapper from "../../components/Wrapper";
+import HeaderLogin from "../../components/HeaderLogin";
 // import Navbar from "../../components/Navbar";
 
 class Home extends React.Component {
@@ -39,47 +41,50 @@ class Home extends React.Component {
   }
 
   render() {
-
     console.log(auth.currentUser);
 
     return (
-      <Container>
-        <Row>
-          {/* <Col size="md-12"> */}
-          <img className="logo" src={logo} alt="logo" />
-          {/* </Col> */}
-        </Row>
+      <Wrapper>
+        <HeaderLogin />
 
-        {auth.currentUser === null ? (
-          <div>{this.renderSignIn()}</div>
-        ) : (
+        <Container>
+          <Row>
+            {/* <Col size="md-12"> */}
+            <img className="logo" src={logo} alt="logo" />
+            {/* </Col> */}
+          </Row>
+
+          {auth.currentUser === null ? (
+            <div>{this.renderSignIn()}</div>
+          ) : (
             "Welcome @" + auth.currentUser.email.split("@")[0] + "!"
           )}
-        {this.state.signUp === false ? (
-          <div>
-            If you don't have an account
+          {this.state.signUp === false ? (
+            <div>
+              If you don't have an account
               <button onClick={this.toggleSignUp}> Sign Up </button>!
             </div>
-        ) : (
+          ) : (
             <div>
               Already have an acount?
               <button onClick={this.toggleSignUp}> Sign In </button>
             </div>
           )}
 
-        <Row>
-          {/* <Col size="md-2"></Col>
-          <Col size="md-10">  */}
-          A portion managing app that does the counting for you
-          {/* </Col>
+          <Row>
+            {/* <Col size="md-2"></Col>
+          <Col size="md-10">  */}A
+            portion managing app that does the counting for you
+            {/* </Col>
           <Col size="md-2"></Col> */}
-        </Row>
+          </Row>
 
-        <button style={{ width: "65px" }} onClick={this.signOut}>
-          {" "}
-          Sign Out
-        </button>
-      </Container>
+          <button style={{ width: "65px" }} onClick={this.signOut}>
+            {" "}
+            Sign Out
+          </button>
+        </Container>
+      </Wrapper>
     );
   }
 }

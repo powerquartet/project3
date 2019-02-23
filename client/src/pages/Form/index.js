@@ -1,23 +1,18 @@
-
 import React, { Component } from "react";
-import API from "../../utils/API"
+import API from "../../utils/API";
 // import axios from "axios";
-import Wrapper from '../../components/Wrapper/index';
-import Container from '../../components/Container/index';
-import Row from '../../components/Row/index';
-import { auth } from '../../utils/firebase';
-
-
+import Wrapper from "../../components/Wrapper/index";
+import Container from "../../components/Container/index";
+import Row from "../../components/Row/index";
+import Header from "../../components/Header";
+import { auth } from "../../utils/firebase";
 
 class Form extends Component {
   // Setting the component's initial props
   constructor(props) {
-    super(props)
-    console.log(`constructor here`)
+    super(props);
+    console.log(`constructor here`);
   }
-
-
-
 
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
@@ -34,7 +29,6 @@ class Form extends Component {
     const userBMI = this.props.userBMI;
     const userBMICalories = this.props.userBMICalories;
     const userAL = this.props.userAL;
-
 
     if (this.props.firstName && this.props.email) {
       API.saveUser({
@@ -56,10 +50,9 @@ class Form extends Component {
           this.props.calculateBMI(weight, height);
           this.props.calculateBMICalories(weight, height, age, sex, userAL);
           console.log(userBMI, userBMICalories);
-        }).catch(err => console.log(err));
-
+        })
+        .catch(err => console.log(err));
     }
-
 
     // let firstName = this.props.firstName;
     // let lastName = this.props.lastName;
@@ -70,23 +63,18 @@ class Form extends Component {
     //     console.log(firstName, lastName);
 
     // }
-
-
   };
 
   render() {
-    console.log("render method: ", this.props)
+    console.log("render method: ", this.props);
     return (
       <Wrapper>
+        <Header />
         <Container>
           <Row>
-
             <div>
-
               <h1>So, tell us about yourself</h1>
-              <p>
-                We're here to help you crush it,  {this.props.firstName}
-              </p>
+              <p>We're here to help you crush it, {this.props.firstName}</p>
               <form className="form">
                 <p>
                   <input
@@ -96,7 +84,6 @@ class Form extends Component {
                     type="text"
                     placeholder="First Name"
                   />
-
                 </p>
                 <p>
                   <input
@@ -144,14 +131,14 @@ class Form extends Component {
                   />
                 </p>
                 <p>
-                  <label>
-                    Sex:
-                                    </label>
+                  <label>Sex:</label>
                 </p>
                 <p>
-                  <select name='sex'
+                  <select
+                    name="sex"
                     value={this.props.sex}
-                    onChange={this.props.handleSexChange}>
+                    onChange={this.props.handleSexChange}
+                  >
                     <option value="default">choose your sex</option>
                     <option value="male">male</option>
                     <option value="female">female</option>
@@ -159,27 +146,31 @@ class Form extends Component {
                   </select>
                 </p>
                 <p>
-                  <label>
-                    Activity Level:
-                                    </label>
+                  <label>Activity Level:</label>
                 </p>
                 <p>
-                  <select name='userAL'
+                  <select
+                    name="userAL"
                     value={this.props.userAL}
-                    onChange={this.props.handleALChange}>
+                    onChange={this.props.handleALChange}
+                  >
                     <option value="default">choose your activity level</option>
-                    <option value='1.53' >Less than 30 minutes of exercise each day</option>
-                    <option value='1.76'>30-60 minutes of exercise each day</option>
-                    <option value='2.25'>More than 60 minutes each day</option>
+                    <option value="1.53">
+                      Less than 30 minutes of exercise each day
+                    </option>
+                    <option value="1.76">
+                      30-60 minutes of exercise each day
+                    </option>
+                    <option value="2.25">More than 60 minutes each day</option>
                   </select>
                 </p>
                 <p>
-                  <button className="submit" onClick={this.handleFormSubmit}>Submit</button>
+                  <button className="submit" onClick={this.handleFormSubmit}>
+                    Submit
+                  </button>
                 </p>
               </form>
-
             </div>
-
           </Row>
         </Container>
       </Wrapper>

@@ -124,7 +124,7 @@ class App extends Component {
     return (
       <Router>
         <Wrapper>
-          <Header />
+          {/* <Header /> */}
           {/* <Route exact path="/" component={Home} /> */}
           <Route
             exact
