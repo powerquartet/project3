@@ -249,6 +249,7 @@ class Grid extends Component {
     };
 
     render() {
+        console.log(this.state.newPortions);
         const fruit = this.state.newPortions.map((portion) => {
             return (portion.type === "fruit" ?
                 <Item

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { auth } from '../../utils/firebase';
+import Axios from "axios";
 
 class SignUp extends Component {
 
@@ -16,7 +17,10 @@ class SignUp extends Component {
     submit = event => {
         event.preventDefault();
         auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then((user) => { })
+            .then((user) => {
+                // make call to the server sending in that unique id from firebase
+
+            })
             .catch((error) => console.log(error))
     }
 
