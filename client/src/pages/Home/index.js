@@ -7,17 +7,17 @@ import SignIn from "../../components/SignIn";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import Container from "../../components/Container";
-import Navbar from "../../components/Navbar";
+// import Navbar from "../../components/Navbar";
 import Wrapper from "../../components/Wrapper";
 import HeaderLogin from "../../components/HeaderLogin";
-// import Navbar from "../../components/Navbar";
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      signUp: false
+      signUp: false,
+      toggleDisplay: false
     };
 
     this.signOut = () => {
@@ -28,6 +28,10 @@ class Home extends React.Component {
 
     this.toggleSignUp = () => {
       this.setState({ signUp: !this.state.signUp });
+    };
+
+    this.toggleDisplay = () => {
+      this.setState({ toggleDisplay: !this.state.toggleDisplay });
     };
   }
 
@@ -45,32 +49,48 @@ class Home extends React.Component {
 
     return (
       <Wrapper>
-        <HeaderLogin />
-
+        <HeaderLogin
+          handleDisplay={() => {
+            this.toggleDisplay();
+          }}
+        />
         <Container>
           <Row>
-            {/* <Col size="md-12"> */}
-            <img className="logo" src={logo} alt="logo" />
+            {/* <Col size="md-3"> */}
+            {/* <img className="logo" src={logo} alt="logo" /> */}
             {/* </Col> */}
+
+            {this.state.toggleDisplay ? (
+              
+                this.state.signUp === false ? (
+               
+                  <div>
+                  <div>{this.renderSignIn()}</div>
+                    If you don't have an account
+                <button onClick={this.toggleSignUp}> Sign Up </button>!
+              </div>
+                ) : (
+                    <div>
+                    <div>{this.renderSignIn()}</div>
+                      Already have an account?
+                <button onClick={this.toggleSignUp}> Sign In </button>
+                    </div>
+                  )
+              
+            ) : (
+              <img className="logo" src={logo} alt="logo" />
+            )}
+
+              {/* welcome message */}
+            {auth.currentUser === null ? (
+              <div>{this.renderSignIn()}</div>
+            ) : (
+              "Welcome @" + auth.currentUser.email.split("@")[0] + "!"
+            )}
+
+
+            
           </Row>
-
-          {auth.currentUser === null ? (
-            <div>{this.renderSignIn()}</div>
-          ) : (
-            "Welcome @" + auth.currentUser.email.split("@")[0] + "!"
-          )}
-          {this.state.signUp === false ? (
-            <div>
-              If you don't have an account
-              <button onClick={this.toggleSignUp}> Sign Up </button>!
-            </div>
-          ) : (
-            <div>
-              Already have an acount?
-              <button onClick={this.toggleSignUp}> Sign In </button>
-            </div>
-          )}
-
           <Row>
             {/* <Col size="md-2"></Col>
           <Col size="md-10">  */}A
@@ -79,10 +99,10 @@ class Home extends React.Component {
           <Col size="md-2"></Col> */}
           </Row>
 
-          <button style={{ width: "65px" }} onClick={this.signOut}>
+          {/* <button style={{ width: "65px" }} onClick={this.signOut}>
             {" "}
             Sign Out
-          </button>
+          </button> */}
         </Container>
       </Wrapper>
     );
