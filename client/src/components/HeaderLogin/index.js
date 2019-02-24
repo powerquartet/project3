@@ -1,44 +1,21 @@
 import React from "react";
-import "../../components/Header/style.css";
-import { Link } from "react-router-dom";
+// import "../../components/Header/style.css";
 
-const Header = props => (
+
+const HeaderLogin = props => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <ul className="navbar-nav">
       <li className="nav-item">
-        <Link className="navbar-brand" to="/">
-          Daily Plate{" "}
-        </Link>{" "}
-        {/* <div> */}{" "}
-      </li>{" "}
+        Daily Plate
+      </li>
       <li className="nav-item">
-        <Link
-          to="/SignIn"
-          className={
-            window.location.pathname === "/SignIn" ||
-            window.location.pathname === "/SignIn"
-              ? "nav-link active"
-              : "nav-link"
-          }
-        >
-          Sign In{" "}
-        </Link>{" "}
-      </li>{" "}
-      <li className="nav-item">
-        <Link
-          to="/SignUp"
-          className={
-            window.location.pathname === "/SignUp"
-              ? "nav-link active"
-              : "nav-link"
-          }
-        >
-          Sign Up{" "}
-        </Link>{" "}
-      </li>{" "}
-    </ul>{" "}
-    {/* </div> */}{" "}
+      {console.log(props)}
+        <button onClick={() => (props.handleDisplay())}>
+          Sign In
+        </button>
+      </li>
+    </ul>
   </nav>
 );
 
-export default Header;
+export default HeaderLogin;

@@ -163,7 +163,7 @@ class App extends Component {
 
           <Route exact path="/portion" component={Portion} />
           <Route exact path="/grid" component={Grid} />
-          <Navbar />
+          {/* <Navbar /> */}
         </Wrapper>
       </Router>
     );
