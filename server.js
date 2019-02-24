@@ -26,7 +26,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.post("api/users", (req, res) => console.log(req.body));
+// app.post("api/users", (req, res) => console.log(req.body));
+app.put("api/users", (req, res) => console.log(req.body));
 
 
 // Add routes, both API and view

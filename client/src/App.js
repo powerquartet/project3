@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Portion from "./pages/Portion";
 import Wrapper from "./components/Wrapper";
 import Navbar from "./components/Navbar";
-// import Headesr from "./components/Header";
+// import Header from "./components/Header";
 // import Toggle from './components/Toggle';
 import plans from './plans.json';
 import { auth } from "./utils/firebase";
