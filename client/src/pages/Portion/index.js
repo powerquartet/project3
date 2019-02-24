@@ -7,6 +7,13 @@ import Row from "../../components/Row";
 import "../Portion/css/style.css";
 
 class Portion extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log(`here are your props: ${props} \n`);
+  }
+
+
   render() {
     return (
       <div className="container">
