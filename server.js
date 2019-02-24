@@ -33,7 +33,11 @@ app.post("api/users", (req, res) => console.log(req.body));
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds347665.mlab.com:47665/heroku_s7jskswt");
+mongoose.connect(process.env.MONGODB_URI ||
+  // "mongodb://localhost/portionCrushDB"
+  "mongodb://local:power4tet@ds347665.mlab.com:47665/heroku_s7jskswt"
+);
+
 console.log(`! MONGO, online and listening`);
 
 app.listen(PORT, () => {

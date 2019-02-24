@@ -11,6 +11,9 @@ class Form extends Component {
   // Setting the component's initial props
   constructor(props) {
     super(props);
+    this.state = {
+      userTier: ""
+    }
     console.log(`constructor here`);
   }
 
@@ -29,8 +32,10 @@ class Form extends Component {
     const userBMI = this.props.userBMI;
     const userBMICalories = this.props.userBMICalories;
     const userAL = this.props.userAL;
+    const userTier = this.props.userTier;
 
-    if (this.props.firstName && this.props.email) {
+    if (this.props.firstName) {
+      console.log(`I'm here - if statement`);
       API.saveUser({
         _id: auth.currentUser.uid,
         firstName,
@@ -42,14 +47,18 @@ class Form extends Component {
         sex,
         userBMI,
         userBMICalories,
-        userAL
+        userAL,
+        userTier
       })
         .then(res => {
-          console.log(JSON);
+          console.log(`JSON here`, JSON);
+          console.log(`res here`, res);
           // this.loadUser();
           this.props.calculateBMI(weight, height);
           this.props.calculateBMICalories(weight, height, age, sex, userAL);
-          console.log(userBMI, userBMICalories);
+          this.props.calculateTier(userBMICalories);
+
+          console.log(`userBMI: ${userBMI}\n userBMICalories: ${userBMICalories}\n userTier: ${userTier}`);
         })
         .catch(err => console.log(err));
     }
@@ -66,7 +75,7 @@ class Form extends Component {
   };
 
   render() {
-    console.log("render method: ", this.props);
+    // console.log("render method: ", this.props);
     return (
       <Wrapper>
         <Header />
@@ -92,15 +101,6 @@ class Form extends Component {
                     onChange={this.props.handleInputChange}
                     type="text"
                     placeholder="Last Name"
-                  />
-                </p>
-                <p>
-                  <input
-                    value={this.props.email}
-                    name="email"
-                    onChange={this.props.handleInputChange}
-                    type="email"
-                    placeholder="Email"
                   />
                 </p>
                 <p>
