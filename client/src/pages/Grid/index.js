@@ -150,7 +150,6 @@ class Grid extends Component {
     };
 
     moveBack = (item, meal) => {
-
         //In order not to display the delete button the state returns to false
         this.setState({
             showDelete: false
@@ -158,9 +157,17 @@ class Grid extends Component {
 
         this.incrementPortion(item.id);
 
+        const movedPortion = {};
+        movedPortion.type = item.type;
+        movedPortion.id = item.id;
+        movedPortion.size = item.size;
+        movedPortion.src = item.src;
+
+        console.log(movedPortion);
+
         // Push portion back to the newPortions array
         const updatedPortions = this.state.newPortions;
-        updatedPortions.push(item);
+        updatedPortions.push(movedPortion);
 
         const updatedMealsTarget = [...this.state.meals];
 
