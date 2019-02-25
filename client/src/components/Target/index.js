@@ -39,13 +39,13 @@ class Target extends Component {
                 type={portion.type}
                 id={portion.id}
                 meal={this.props.meal}
-                key={portion.id}
+                key={"item-" + portion.id}
                 handleClick={this.handleClick}
             />
         });
 
         return connectDropTarget(
-            <div style={{ "height": "100px", "width": "400px", "border": "1px solid lightgrey", "borderRadius": "7px", "margin": "5px" }}>
+            <div key={"meal-" + this.props.meal} style={{ "height": "100px", "width": "400px", "border": "1px solid lightgrey", "borderRadius": "7px", "margin": "5px" }}>
                 <div style={{ "borderBottom": "1px solid lightgrey", "color": "grey" }}>
                     {this.props.meal}
                 </div>
