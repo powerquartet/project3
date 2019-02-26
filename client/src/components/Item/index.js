@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { DragSource } from "react-dnd";
+import PropTypes from 'prop-types';
 
 const Types = {
     ITEM: "portion"
@@ -27,7 +28,12 @@ function collect(connect, monitor) {
     }
 }
 
-class Item extends Component {
+class Item extends PureComponent {
+
+    static propTypes = {
+        isDragging: PropTypes.bool.isRequired,
+        connectDragSource: PropTypes.func.isRequired,
+    }
 
     render() {
         const { isDragging, connectDragSource } = this.props;

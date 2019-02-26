@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HTML5Backend from "react-dnd-html5-backend";
+// import HTML5Backend from "react-dnd-html5-backend";
 import { DragDropContext } from "react-dnd";
 import MultiBackend, { Preview } from "../../utils/index";
 import HTML5toTouch from '../../utils/HTML5toTouch';

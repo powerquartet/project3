@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { DropTarget } from "react-dnd";
+import PropTypes from 'prop-types';
 import Item from "../Item";
 
 const Types = {
@@ -20,11 +21,17 @@ function collect(connect) {
     }
 }
 
-class Target extends Component {
+class Target extends PureComponent {
 
     constructor(props) {
         super(props);
         this.handleClick = this.props.handleClick.bind(this);
+    }
+
+    static propTypes = {
+        connectDropTarget: PropTypes.func.isRequired,
+        // isOver: PropTypes.bool.isRequired,
+        // canDrop: PropTypes.bool.isRequired,
     }
 
     render() {
