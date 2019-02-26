@@ -5,6 +5,7 @@ import Wrapper from "../../components/Wrapper/index";
 import Container from "../../components/Container/index";
 import Row from "../../components/Row/index";
 import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 import { auth } from "../../utils/firebase";
 
 class Form extends Component {
@@ -13,7 +14,7 @@ class Form extends Component {
     super(props);
     this.state = {
       userTier: ""
-    }
+    };
     console.log(`constructor here`);
   }
 
@@ -58,7 +59,9 @@ class Form extends Component {
           this.props.calculateBMICalories(weight, height, age, sex, userAL);
           this.props.calculateTier(userBMICalories);
 
-          console.log(`userBMI: ${userBMI}\n userBMICalories: ${userBMICalories}\n userTier: ${userTier}`);
+          console.log(
+            `userBMI: ${userBMI}\n userBMICalories: ${userBMICalories}\n userTier: ${userTier}`
+          );
         })
         .catch(err => console.log(err));
     }
@@ -173,6 +176,7 @@ class Form extends Component {
             </div>
           </Row>
         </Container>
+        <Navbar />
       </Wrapper>
     );
   }

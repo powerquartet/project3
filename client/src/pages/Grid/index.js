@@ -8,6 +8,7 @@ import Counter from "../../components/Counter";
 import plans from "../../plans.json";
 import Container from "../../components/Container";
 import Wrapper from "../../components/Wrapper"; 
+import Navbar from "../../components/Navbar";
 import Header from "../../components/Header"; 
 import Row from "../../components/Row";
 import Col from "../../components/Col";
@@ -378,6 +379,7 @@ class Grid extends Component {
               <button onClick={() => this.setInitialState()}> CLEAR </button>
             </Row>
           </Container>
+          <Navbar />
         </Wrapper>
       </div>
     );

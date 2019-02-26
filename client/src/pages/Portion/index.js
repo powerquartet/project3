@@ -26,8 +26,10 @@ class Portion extends Component {
   render() {
     return (
       <div>
+        <Header />
         {this.state.toggleDisplay ? (
           <div>
+    
             <Row>
               <Col size="md-12">
                 {/* <div className="toggleButtons"> */}
@@ -137,6 +139,7 @@ class Portion extends Component {
             </Row>
           </div>
         )}
+        <Navbar/>
       </div>
     );
   }

@@ -1,27 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
-import { FaUtensils } from "react-icons/fa";
+import { FaUtensils, FaAlignCenter } from "react-icons/fa";
 import { FaAppleAlt } from "react-icons/fa";
-import { FaVial} from "react-icons/fa";
+import { FaVial } from "react-icons/fa";
 import form from "./form.png";
 import grid from "./grid.png";
 import help from "./help.png";
 import home from "./home.png";
 
-
 const gridStyle = {
-  size : '1',
-  color: 'black', 
-}
+  size: "70",
+  color: "white"
+  
+};
 const formStyle = {
-  size: '14em',
-  color: 'black',
-}
+  size: "70",
+  color: "white"
+};
 const portionStyle = {
-  size: '14em',
-  color: 'black',
-}
+  size: "70em",
+  color: "white"
+};
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar() {
   return (
@@ -41,7 +41,7 @@ function Navbar() {
                 : "nav-link"
             }
           >
-            <FaUtensils style={portionStyle}/>
+            <FaUtensils className="faAlignCenter"  style={portionStyle} />
             {/* <img className="nav-icon" src={help} alt="help" /> */}
           </Link>
         </li>
@@ -54,7 +54,7 @@ function Navbar() {
                 : "nav-link"
             }
           >
-            <FaVial style={formStyle} />
+            <FaVial className="faAlignCenter"  style={formStyle} />
             {/* <img className="nav-icon" src={form} alt="form" /> */}
           </Link>
         </li>
@@ -67,7 +67,7 @@ function Navbar() {
                 : "nav-link"
             }
           >
-            <FaAppleAlt style={gridStyle} />
+            <FaAppleAlt className = "faAlignCenter" style={gridStyle} />
             {/* <img className="nav-icon" src={grid} alt="grid" /> */}
           </Link>
         </li>
