@@ -9,7 +9,8 @@ const userSchema = new Schema({
     weight: Number,
     height: Number,
     age: { type: Number },
-    gender: String
+    sex: String,
+    activityLevel: { type: Number }
 }, { _id: false });
 
 const User = mongoose.model("User", userSchema);

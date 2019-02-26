@@ -88,7 +88,7 @@ class Home extends React.Component {
           <Row>
             {/* <Col size="md-2"></Col>
           <Col size="md-10">  */}A
-                      portion managing app that does the counting for you
+                        portion managing app that does the counting for you
             {/* </Col>
           <Col size="md-2"></Col> */}
           </Row>
