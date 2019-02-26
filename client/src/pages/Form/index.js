@@ -9,59 +9,45 @@ import Navbar from "../../components/Navbar";
 import { auth } from "../../utils/firebase";
 
 class Form extends Component {
-  // Setting the component's initial props
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      userTier: ""
+      userTiers: []
     };
-    console.log(`constructor here`);
   }
 
   handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
+
     event.preventDefault();
-    console.log(this.props);
 
     const firstName = this.props.firstName;
     const lastName = this.props.lastName;
-    const email = this.props.email;
     const weight = this.props.weight;
     const height = this.props.height;
     const age = this.props.age;
     const sex = this.props.sex;
-    const userBMI = this.props.userBMI;
-    const userBMICalories = this.props.userBMICalories;
-    const userAL = this.props.userAL;
-    const userTier = this.props.userTier;
+    const activityLevel = this.props.activityLevel;
 
-    if (this.props.firstName) {
-      console.log(`I'm here - if statement`);
+    if (this.props.firstName && this.props.firstName) {
       API.saveUser({
         _id: auth.currentUser.uid,
         firstName,
         lastName,
-        email,
+        email: auth.currentUser.email,
         weight,
         height,
         age,
         sex,
-        userBMI,
-        userBMICalories,
-        userAL,
-        userTier
+        activityLevel
       })
         .then(res => {
-          console.log(`JSON here`, JSON);
-          console.log(`res here`, res);
-          // this.loadUser();
-          this.props.calculateBMI(weight, height);
-          this.props.calculateBMICalories(weight, height, age, sex, userAL);
-          this.props.calculateTier(userBMICalories);
 
-          console.log(
-            `userBMI: ${userBMI}\n userBMICalories: ${userBMICalories}\n userTier: ${userTier}`
-          );
+          console.log(res.data);
+
+          // TODO push to state and send it via props
+          let userTiersArray = this.getUserTiers(res.data.weight, res.data.height, res.data.age, res.data.sex, res.data.activityLevel);
+          console.log(userTiersArray);
+
         })
         .catch(err => console.log(err));
     }
@@ -73,12 +59,126 @@ class Form extends Component {
     //     alert("Please fill out all submission fields!");
     // } else {
     //     console.log(firstName, lastName);
-
     // }
   };
 
+  // Calculate food plan based on TEE & BMI
+
+  // Men	BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5
+  // Women	BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161
+
+  // Sedentary or light activity	(Office worker getting little or no exercise)	1.53
+  // Active or moderately active	(Construction worker or person running one hour daily)	1.76
+  // Vigorously active	(Agricultural worker (non mechanized) or person swimming two hours daily)	2.25
+
+  getUserTiers = (weight, height, age, sex, activityLevel) => {
+    const BMI = this.calculateBMI(weight, height);
+    const idealWeight = this.caluclateIdealWeight(height);
+    const userTEE = this.calculateBMICalories(weight, height, age, sex, activityLevel);
+    const idealTEE = this.calculateBMICalories(idealWeight, height, age, sex, activityLevel);
+    let userTiers = [];
+
+    // if a person has a healthy BMI
+    if (BMI >= 18.5 && BMI <= 25) {
+      // calculate their suggestions base on their OWN weight
+      const tier = this.calculateTier(userTEE);
+      userTiers.push(tier);
+
+      // if a person is underweight
+    } else if (BMI < 18.5) {
+      // calculate their suggestions beased on their IDEAL weight
+      const tier = this.calculateTier(idealTEE);
+      userTiers.push(tier);
+
+      // if a person is obesese
+    } else if (BMI >= 30) {
+      // calculate thir suggestions bease on their IDEAL weight
+      const tier = this.calculateTier(idealTEE);
+      userTiers.push(tier);
+
+      //if a person is overweight (muscle mass or genetic features come in play)
+    } else if (BMI > 25 && BMI < 30) {
+      // SHOW TWO SUGGESTIONS
+      // calucate based on thier OWN weight & their IDEAL weight
+      const tier1 = this.calculateTier(idealTEE);
+      const tier2 = this.calculateTier(userTEE);
+
+      userTiers.push(tier1, tier2);
+    }
+
+    return userTiers;
+
+  }
+
+
+  calculateBMICalories = (weight, height, age, sex, activityLevel) => {
+
+    let weightKG = weight / 2.205;
+    let heightCM = height * 2.54;
+    //total energy expenditure
+    let tee;
+
+    switch (sex) {
+      // if the user has male inputs
+      case "male":
+        tee = ((10 * weightKG) + (6.25 * heightCM) - (5 * age) + 5) * activityLevel;
+        break;
+      // if the user has female inputs
+      case "female":
+        tee = ((10 * weightKG) + (6.25 * heightCM) - (5 * age) - 161) * activityLevel;
+        break;
+
+      default:
+        tee = NaN;
+        console.log(tee);
+    }
+
+    return tee;
+  }
+
+  // BMI range formula
+  calculateBMI = (weight, height) => {
+
+    let BMI = 703 * (weight / Math.pow(height, 2));
+
+    return BMI;
+  }
+
+  // Lemmens formula: most reliable -> shows very low weight, corresponds with BMI
+  // Ideal Body Weight (kg) = 22 x height^2 (meter)
+  // transform to imperial = 2.205 (IBW)
+  // tansform inches to meters inches/39.37
+  caluclateIdealWeight = (height) => {
+
+    let heightInMeters = height / 39.37;
+    let idealBodyWeightKG = 22 * (Math.pow(heightInMeters, 2));
+    let idealBodyWeightPounds = 2.205 * idealBodyWeightKG;
+
+    return idealBodyWeightPounds;
+  }
+
+  calculateTier = (totalEnergyExpenditure) => {
+
+    let userTier;
+
+    const caloricRemainder = totalEnergyExpenditure % 100;
+    // Drop 2 zeros
+    const checkTier = (totalEnergyExpenditure - caloricRemainder) / 100;
+    // Check if a number is odd
+    const isOdd = checkTier % 2;
+    //if isOdd = 0 then false -> go lower
+    // if is Odd = 1, then true -> go higher
+    if (isOdd === 1) {
+      userTier = (checkTier + isOdd) * 100;
+    } else {
+      userTier = checkTier * 100
+    }
+
+    return userTier;
+  }
+
   render() {
-    // console.log("render method: ", this.props);
+    console.log(this.props)
     return (
       <Wrapper>
         <Header
@@ -156,7 +256,7 @@ class Form extends Component {
                 <p>
                   <select
                     name="userAL"
-                    value={this.props.userAL}
+                    value={this.props.activityLevel}
                     onChange={this.props.handleALChange}
                   >
                     <option value="default">choose your activity level</option>
