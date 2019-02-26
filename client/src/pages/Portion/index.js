@@ -137,7 +137,7 @@ class Portion extends Component {
               </Row>
             </div>
           )}
-          </div>
+      </div>
 
     )
   };
