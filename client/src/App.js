@@ -6,7 +6,6 @@ import Grid from "./pages/Grid";
 import Home from "./pages/Home";
 import Portion from "./pages/Portion";
 import Wrapper from "./components/Wrapper";
-// import plans from './plans.json';
 import { auth } from "./utils/firebase";
 
 class App extends Component {
@@ -122,7 +121,16 @@ class App extends Component {
             )}
           />
 
-          <Route exact path="/grid" component={Grid} />
+          <Route
+            exact
+            path="/grid"
+            render={() => (
+              <Grid
+                firstName={this.state.firstName}
+                userTier={this.state.userTier}
+              />
+            )}
+          />
 
         </Wrapper>
       </Router>
