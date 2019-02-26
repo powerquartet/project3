@@ -12,10 +12,14 @@ class Form extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      userTiers: []
+      userTiers: [],
+      chosenTier: ""
     };
   }
 
+  componentDidMount = () => {
+    console.log(this.state.userTiers);
+  }
   handleFormSubmit = event => {
 
     event.preventDefault();
@@ -42,11 +46,11 @@ class Form extends Component {
       })
         .then(res => {
 
-          console.log(res.data);
-
-          // TODO push to state and send it via props
           let userTiersArray = this.getUserTiers(res.data.weight, res.data.height, res.data.age, res.data.sex, res.data.activityLevel);
-          console.log(userTiersArray);
+
+          this.setState({
+            "userTiers": userTiersArray
+          });
 
         })
         .catch(err => console.log(err));
@@ -61,6 +65,13 @@ class Form extends Component {
     //     console.log(firstName, lastName);
     // }
   };
+
+  handleClick = (tier) => {
+    console.log(tier);
+    //grab the vaule from user's choice
+    // send props back to App.js
+    this.props.getUserTier(tier);
+  }
 
   // Calculate food plan based on TEE & BMI
 
@@ -178,105 +189,113 @@ class Form extends Component {
   }
 
   render() {
-    console.log(this.props)
+
+    const userTier = this.state.userTiers.map(tier => <button key={tier} onClick={() => this.handleClick(tier)}>{tier}</button>);
+
     return (
       <Wrapper>
         <Header
           handleSignOut={this.props.handleSignOut}
         />
         <Container>
-          <Row>
+          {this.state.userTiers.length > 0 ?
             <div>
-              <h1>So, tell us about yourself</h1>
-              <p>We're here to help you crush it, {this.props.firstName}</p>
-              <form className="form">
-                <p>
-                  <input
-                    value={this.props.firstName}
-                    name="firstName"
-                    onChange={this.props.handleInputChange}
-                    type="text"
-                    placeholder="First Name"
-                  />
-                </p>
-                <p>
-                  <input
-                    value={this.props.lastName}
-                    name="lastName"
-                    onChange={this.props.handleInputChange}
-                    type="text"
-                    placeholder="Last Name"
-                  />
-                </p>
-                <p>
-                  <input
-                    value={this.props.weight}
-                    name="weight"
-                    onChange={this.props.handleInputChange}
-                    type="weight"
-                    placeholder="Weight(lbs)"
-                  />
-                </p>
-                <p>
-                  <input
-                    value={this.props.height}
-                    name="height"
-                    onChange={this.props.handleInputChange}
-                    type="height"
-                    placeholder="Height(in)"
-                  />
-                </p>
-                <p>
-                  <input
-                    value={this.props.age}
-                    name="age"
-                    onChange={this.props.handleInputChange}
-                    type="aged"
-                    placeholder="age (years)"
-                  />
-                </p>
-                <p>
-                  <label>Sex:</label>
-                </p>
-                <p>
-                  <select
-                    name="sex"
-                    value={this.props.sex}
-                    onChange={this.props.handleSexChange}
-                  >
-                    <option value="default">choose your sex</option>
-                    <option value="male">male</option>
-                    <option value="female">female</option>
-                    {/* <option value="non-sex-binary">Non-sex binary</option> */}
-                  </select>
-                </p>
-                <p>
-                  <label>Activity Level:</label>
-                </p>
-                <p>
-                  <select
-                    name="userAL"
-                    value={this.props.activityLevel}
-                    onChange={this.props.handleALChange}
-                  >
-                    <option value="default">choose your activity level</option>
-                    <option value="1.53">
-                      Less than 30 minutes of exercise each day
-                    </option>
-                    <option value="1.76">
-                      30-60 minutes of exercise each day
-                    </option>
-                    <option value="2.25">More than 60 minutes each day</option>
-                  </select>
-                </p>
-                <p>
-                  <button className="submit" onClick={this.handleFormSubmit}>
-                    Submit
-                  </button>
-                </p>
-              </form>
+              {userTier}
             </div>
-          </Row>
+            :
+            <Row>
+              <div>
+                <h1>So, tell us about yourself</h1>
+                <p>We're here to help you crush it, {this.props.firstName}</p>
+                <form className="form">
+                  <p>
+                    <input
+                      value={this.props.firstName}
+                      name="firstName"
+                      onChange={this.props.handleInputChange}
+                      type="text"
+                      placeholder="First Name"
+                    />
+                  </p>
+                  <p>
+                    <input
+                      value={this.props.lastName}
+                      name="lastName"
+                      onChange={this.props.handleInputChange}
+                      type="text"
+                      placeholder="Last Name"
+                    />
+                  </p>
+                  <p>
+                    <input
+                      value={this.props.weight}
+                      name="weight"
+                      onChange={this.props.handleInputChange}
+                      type="weight"
+                      placeholder="Weight(lbs)"
+                    />
+                  </p>
+                  <p>
+                    <input
+                      value={this.props.height}
+                      name="height"
+                      onChange={this.props.handleInputChange}
+                      type="height"
+                      placeholder="Height(in)"
+                    />
+                  </p>
+                  <p>
+                    <input
+                      value={this.props.age}
+                      name="age"
+                      onChange={this.props.handleInputChange}
+                      type="aged"
+                      placeholder="age (years)"
+                    />
+                  </p>
+                  <p>
+                    <label>Sex:</label>
+                  </p>
+                  <p>
+                    <select
+                      name="sex"
+                      value={this.props.sex}
+                      onChange={this.props.handleSexChange}
+                    >
+                      <option value="default">choose your sex</option>
+                      <option value="male">male</option>
+                      <option value="female">female</option>
+                      {/* <option value="non-sex-binary">Non-sex binary</option> */}
+                    </select>
+                  </p>
+                  <p>
+                    <label>Activity Level:</label>
+                  </p>
+                  <p>
+                    <select
+                      name="userAL"
+                      value={this.props.activityLevel}
+                      onChange={this.props.handleALChange}
+                    >
+                      <option value="default">choose your activity level</option>
+                      <option value="1.53">
+                        Less than 30 minutes of exercise each day
+                    </option>
+                      <option value="1.76">
+                        30-60 minutes of exercise each day
+                    </option>
+                      <option value="2.25">More than 60 minutes each day</option>
+                    </select>
+                  </p>
+                  <p>
+                    <button className="submit" onClick={this.handleFormSubmit}>
+                      Submit
+                  </button>
+                  </p>
+                </form>
+              </div>
+            </Row>
+          }
         </Container>
         <Navbar />
       </Wrapper>

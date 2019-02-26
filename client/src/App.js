@@ -21,7 +21,7 @@ class App extends Component {
       sex: "",
       activityLevel: "",
       user: null,
-      userPlan: {},
+      userTier: "",
       signOut: false
     };
   };
@@ -67,12 +67,18 @@ class App extends Component {
     this.setState({ activityLevel: event.target.value });
   };
 
+  getUserTier = (userTier) => {
+    this.setState({ userTier });
+  }
+
   render() {
+    console.log("App.js, got user tier", this.state.userTier);
     return (
       <Router>
         <Wrapper>
 
           {this.state.signOut && auth.currentUser === null ? <Redirect to="/" /> : " "}
+          {this.state.userTier !== "" ? <Redirect to="/portion" /> : " "}
 
           <Route
             exact
@@ -96,7 +102,7 @@ class App extends Component {
                 age={this.state.age}
                 sex={this.state.sex}
                 activityLevel={this.state.activityLevel}
-                userPlan={this.state.userPlan}
+                getUserTier={this.getUserTier}
                 handleInputChange={this.handleInputChange}
                 handleALChange={this.handleALChange}
                 handleSexChange={this.handleSexChange}
@@ -112,8 +118,6 @@ class App extends Component {
               <Portion
                 firstName={this.state.firstName}
                 userTier={this.state.userTier}
-                handleInputChange={this.handleInputChange}
-                calculateTier={this.calculateTier}
               />
             )}
           />
