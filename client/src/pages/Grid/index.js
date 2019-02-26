@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import HTML5Backend from "react-dnd-html5-backend";
 import { DragDropContext } from "react-dnd";
+import MultiBackend, { Preview } from "../../utils/index";
+import HTML5toTouch from '../../utils/HTML5toTouch';
 
 import Item from "../../components/Item";
 import Target from "../../components/Target";
 import Counter from "../../components/Counter";
 import plans from "../../plans.json";
 import Container from "../../components/Container";
-import Wrapper from "../../components/Wrapper"; 
+import Wrapper from "../../components/Wrapper";
 import Navbar from "../../components/Navbar";
-import Header from "../../components/Header"; 
+import Header from "../../components/Header";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 
@@ -254,8 +256,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
 
     const vegetables = this.state.newPortions.map(portion => {
@@ -269,8 +271,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
     const grains = this.state.newPortions.map(portion => {
       return portion.type === "grains" ? (
@@ -283,8 +285,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
 
     const protein = this.state.newPortions.map(portion => {
@@ -298,8 +300,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
 
     const dairy = this.state.newPortions.map(portion => {
@@ -313,8 +315,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
 
     const targets = this.state.meals.map((meal, index) => {
@@ -386,4 +388,4 @@ class Grid extends Component {
   }
 }
 
-export default DragDropContext(HTML5Backend)(Grid);
+export default DragDropContext(MultiBackend(HTML5toTouch))(Grid);
