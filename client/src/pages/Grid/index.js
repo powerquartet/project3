@@ -194,6 +194,40 @@ class Grid extends Component {
           stateCopy[i].portion += 1;
         }
 
+    moveBack = (item, meal) => {
+        //In order not to display the delete button the state returns to false
+        this.setState({
+            showDelete: false
+        })
+
+        this.incrementPortion(item.id);
+
+        const movedPortion = {};
+        movedPortion.type = item.type;
+        movedPortion.id = item.id;
+        movedPortion.size = item.size;
+        movedPortion.src = item.src;
+
+        console.log(movedPortion);
+
+        // Push portion back to the newPortions array
+        const updatedPortions = this.state.newPortions;
+        updatedPortions.push(movedPortion);
+
+        const updatedMealsTarget = [...this.state.meals];
+
+        for (let i = 0; i < this.state.meals.length; i++) {
+            if (this.state.meals[i].meal === meal) {
+                for (let j = 0; j < this.state.meals[i].portions.length; j++) {
+
+                    if (item.id === this.state.meals[i].portions[j].id) {
+                        //Delete portion from target meal
+                        const updatedTarget = this.state.meals[i].portions.filter((portion) => {
+                            return portion.id !== item.id
+                        });
+
+                        updatedMealsTarget[i].portions[j] = updatedTarget;
+
         this.setState(stateCopy);
       }
     }

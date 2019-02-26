@@ -7,10 +7,11 @@ import Home from "./pages/Home";
 import Portion from "./pages/Portion";
 import Wrapper from "./components/Wrapper";
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 // import Toggle from './components/Toggle';
-// import Plans from './plans.json';
+import plans from './plans.json';
 import { auth } from "./utils/firebase";
+
 
 class App extends Component {
   constructor() {
@@ -26,9 +27,12 @@ class App extends Component {
       sex: "",
       userBMI: 0,
       userBMICalories: 0,
-      userAL: ""
+      userAL: "",
+      userTier: ""
     };
+    console.log(plans);
   }
+
 
   componentDidMount() {
     this.authListener();
@@ -66,6 +70,7 @@ class App extends Component {
     BMI =
       703 *
       (weight / Math.pow(height, 2));
+
     // console.log(`calculateBMI = ${BMI}`)
     return <span style={{ fontSize: BMI }}>{BMI}</span>;
   }
@@ -88,7 +93,7 @@ class App extends Component {
 
         value = (u_weight + u_height - u_age + 5) * u_activity;
 
-        console.log(`male BMICalc - ${value}`);
+        console.log(`Male BMICalc - ${value}`);
         break;
 
       // if the user has female inputs
@@ -110,17 +115,36 @@ class App extends Component {
     return <span style={{ fontSize: value }}>{value}</span>;
   }
 
-  // chooseUserTier(userBMICalories) {
-  //   let userTier;
-  //   console.log(`chooseUserTier function reporting for duty`);
+  calculateTier(userBMICalories) {
+    let userTier;
 
-  //   switch (userBMICalories) {
-
-  //   }
-  // }
+    if (userBMICalories <= 1700) {
+      userTier = plans[0].plan;
+    } else if (userBMICalories > 1700 && userBMICalories <= 1900) {
+      userTier = plans[1].plan;
+    } else if (userBMICalories > 1900 && userBMICalories <= 2100) {
+      userTier = plans[2].plan;
+    } else if (userBMICalories > 2100 && userBMICalories <= 2300) {
+      userTier = plans[3].plan;
+    } else if (userBMICalories > 2300 && userBMICalories <= 2500) {
+      userTier = plans[4].plan;
+    } else if (userBMICalories > 2500 && userBMICalories <= 2700) {
+      userTier = plans[5].plan;
+    } else if (userBMICalories > 2700 && userBMICalories <= 2900) {
+      userTier = plans[6].plan;
+    } else if (userBMICalories > 2900 && userBMICalories <= 3100) {
+      userTier = plans[7].plan;
+    } else if (userBMICalories > 3100) {
+      userTier = plans[8].plan;
+    } else {
+      alert("Please, try again.");
+    }
+    console.log(`Here's your user tier: ${userTier}`);
+    return userTier;
+  }
 
   render() {
-    console.log(auth.currentUser);
+    // console.log(auth.currentUser);
     return (
       <Router>
         <Wrapper>
@@ -150,18 +174,31 @@ class App extends Component {
                 userBMI={this.state.userBMI}
                 userBMICalories={this.state.userBMICalories}
                 userAL={this.state.userAL}
+                userTier={this.state.userTier}
                 handleInputChange={this.handleInputChange}
                 handleALChange={this.handleALChange}
                 handleSexChange={this.handleSexChange}
                 calculateBMI={this.calculateBMI}
                 calculateBMICalories={this.calculateBMICalories}
+                calculateTier={this.calculateTier}
               />
             )}
           />
 
           {/* <Route exact path="/form" component={Form} /> */}
 
-          <Route exact path="/portion" component={Portion} />
+          <Route
+            exact
+            path="/portion"
+            render={() => (
+              <Portion
+                firstName={this.state.firstName}
+                userTier={this.state.userTier}
+                handleInputChange={this.handleInputChange}
+                calculateTier={this.calculateTier}
+              />
+            )}
+          />
           <Route exact path="/grid" component={Grid} />
           {/* <Navbar /> */}
         </Wrapper>
