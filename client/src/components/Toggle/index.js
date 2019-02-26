@@ -1,5 +1,6 @@
 import { Component } from "react";
 
+
 class Toggle extends Component {
 
     state = {

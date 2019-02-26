@@ -70,7 +70,7 @@ class Form extends Component {
     return (
       <Wrapper>
         <Header />
-        <Container>
+        {/* <Container> */}
           <Row>
             <div>
               <h1>So, tell us about yourself</h1>
@@ -172,7 +172,7 @@ class Form extends Component {
               </form>
             </div>
           </Row>
-        </Container>
+        {/* </Container> */}
       </Wrapper>
     );
   }
