@@ -28,10 +28,10 @@ class SignUp extends Component {
   };
 
   render() {
-      console.log(auth.currentUser);
+    console.log(auth.currentUser);
     return (
       <div style={{ width: "150px", heigt: "200px", margin: "5px" }}>
-    
+
         {this.state.toForm ? <Redirect to="/form" /> : " "}
         <form className="form">
           <input
