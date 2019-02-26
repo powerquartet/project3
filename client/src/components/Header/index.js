@@ -5,27 +5,14 @@ import { auth } from "../../utils/firebase";
 class Header extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      signOut: false
-    }
-
-    this.signOut = () => {
-      auth.signOut().then(result => {
-        console.log(result);
-        this.setState({
-          signOut: !this.state.signOut
-        });
-         console.log(auth.currentUser);
-      });
-    };
   }
 
   render() {
+    console.log("Current user object:", auth.currentUser);
     return (
       <div className="header">
         <h1> Daily Plate </h1>
-        <button onClick={this.signOut}>Sign Out</button>
+        <button onClick={() => { this.props.handleSignOut() }}>Sign Out</button>
       </div>
     );
   }

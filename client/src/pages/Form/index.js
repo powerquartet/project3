@@ -81,7 +81,9 @@ class Form extends Component {
     // console.log("render method: ", this.props);
     return (
       <Wrapper>
-        <Header />
+        <Header
+          handleSignOut={this.props.handleSignOut}
+        />
         <Container>
           <Row>
             <div>

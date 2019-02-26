@@ -18,15 +18,6 @@ class Home extends React.Component {
     this.state = {
       signUp: false,
       toggleDisplay: false,
-      signOut: false
-    };
-
-    this.signOut = () => {
-      auth.signOut().then(result => {
-        console.log(result);
-        this.setState({ signOut: !this.state.signOut }); 
-        
-      });
     };
 
     this.toggleSignUp = () => {
@@ -71,29 +62,29 @@ class Home extends React.Component {
                   <button onClick={this.toggleSignUp}> Sign Up </button>!
                 </div>
               ) : (
-                <div>
-                  {/* <div>{this.renderSignIn()}</div> */}
-                  Already have an account?
+                  <div>
+                    {/* <div>{this.renderSignIn()}</div> */}
+                    Already have an account?
                   <button onClick={this.toggleSignUp}> Sign In </button>
-                </div>
-              )
+                  </div>
+                )
             ) : (
-              <img className="logo" src={logo} alt="logo" />
-            )}
+                <img className="logo" src={logo} alt="logo" />
+              )}
 
             {/* welcome message */}
             {auth.currentUser === null ? (
               <div>{this.renderSignIn()}</div>
             ) : (
-              "Welcome @" + auth.currentUser.email.split("@")[0] + "!"
-            )}
+                "Welcome @" + auth.currentUser.email.split("@")[0] + "!"
+              )}
 
-            
+
           </Row>
           <Row>
             {/* <Col size="md-2"></Col>
           <Col size="md-10">  */}A
-            portion managing app that does the counting for you
+              portion managing app that does the counting for you
             {/* </Col>
           <Col size="md-2"></Col> */}
           </Row>
@@ -102,7 +93,7 @@ class Home extends React.Component {
             {" "}
             Sign Out
           </button> */}
-  
+
         </Container>
       </Wrapper>
     );
