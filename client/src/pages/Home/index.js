@@ -10,6 +10,7 @@ import Container from "../../components/Container";
 import Navbar from "../../components/Navbar";
 import Wrapper from "../../components/Wrapper";
 import HeaderLogin from "../../components/HeaderLogin";
+import ControlledCarousel from "../../components/Carousel";
 
 class Home extends React.Component {
   constructor(props) {
@@ -63,28 +64,31 @@ class Home extends React.Component {
                 </div>
               ) : (
                   <div>
-                    {/* <div>{this.renderSignIn()}</div> */}
+                    <div>{this.renderSignIn()}</div>
                     Already have an account?
                   <button onClick={this.toggleSignUp}> Sign In </button>
                   </div>
                 )
             ) : (
-                <img className="logo" src={logo} alt="logo" />
+                <div>
+                  <ControlledCarousel />
+                </div>
+                // <img className="logo" src={logo} alt="logo" />
               )}
 
             {/* welcome message */}
-            {auth.currentUser === null ? (
+            {/* {auth.currentUser === null ? (
               <div>{this.renderSignIn()}</div>
             ) : (
                 "Welcome @" + auth.currentUser.email.split("@")[0] + "!"
-              )}
+              )} */}
 
 
           </Row>
           <Row>
             {/* <Col size="md-2"></Col>
           <Col size="md-10">  */}A
-              portion managing app that does the counting for you
+                      portion managing app that does the counting for you
             {/* </Col>
           <Col size="md-2"></Col> */}
           </Row>
