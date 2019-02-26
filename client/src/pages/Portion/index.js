@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import Toggle from "../../components/Toggle";
 import CardFlip from "../../components/CardFlip";
-// import Wrapper from "../../components/Wrapper";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Wrapper from "../../components/Wrapper";
+import Container from "../../components/Container";
 import Col from "../../components/Col";
 import Row from "../../components/Row";
 import "../Portion/css/style.css";
@@ -26,8 +29,9 @@ class Portion extends Component {
 
   render() {
     return (
-      <div className="container">
-
+      <Wrapper>
+      <Header />
+      <Container>
         {this.state.toggleDisplay ? (
           <div><Row>
             <Col size="md-12">
@@ -132,10 +136,10 @@ class Portion extends Component {
                   <button onClick={this.toggleDisplay}> My Daily Portions </button>
                 </Col>
               </Row>
-            </div>
-
-          )}
-
+                  
+                  <Navbar />
+                  </Container>
+                  </Wrapper>
       </div>
     );
   }

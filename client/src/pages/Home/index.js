@@ -7,7 +7,7 @@ import SignIn from "../../components/SignIn";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import Container from "../../components/Container";
-// import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar";
 import Wrapper from "../../components/Wrapper";
 import HeaderLogin from "../../components/HeaderLogin";
 
@@ -17,12 +17,15 @@ class Home extends React.Component {
 
     this.state = {
       signUp: false,
-      toggleDisplay: false
+      toggleDisplay: false,
+      signOut: false
     };
 
     this.signOut = () => {
       auth.signOut().then(result => {
         console.log(result);
+        this.setState({ signOut: !this.state.signOut }); 
+        
       });
     };
 
@@ -61,33 +64,29 @@ class Home extends React.Component {
             {/* </Col> */}
 
             {this.state.toggleDisplay ? (
-              
-                this.state.signUp === false ? (
-               
-                  <div>
+              this.state.signUp === false ? (
+                <div>
                   <div>{this.renderSignIn()}</div>
-                    If you don't have an account
-                <button onClick={this.toggleSignUp}> Sign Up </button>!
-              </div>
-                ) : (
-                    <div>
-                    <div>{this.renderSignIn()}</div>
-                      Already have an account?
-                <button onClick={this.toggleSignUp}> Sign In </button>
-                    </div>
-                  )
-              
+                  If you don't have an account
+                  <button onClick={this.toggleSignUp}> Sign Up </button>!
+                </div>
+              ) : (
+                <div>
+                  {/* <div>{this.renderSignIn()}</div> */}
+                  Already have an account?
+                  <button onClick={this.toggleSignUp}> Sign In </button>
+                </div>
+              )
             ) : (
               <img className="logo" src={logo} alt="logo" />
             )}
 
-              {/* welcome message */}
+            {/* welcome message */}
             {auth.currentUser === null ? (
               <div>{this.renderSignIn()}</div>
             ) : (
               "Welcome @" + auth.currentUser.email.split("@")[0] + "!"
             )}
-
 
             
           </Row>
@@ -103,6 +102,7 @@ class Home extends React.Component {
             {" "}
             Sign Out
           </button> */}
+  
         </Container>
       </Wrapper>
     );

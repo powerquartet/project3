@@ -8,12 +8,12 @@ const HeaderLogin = props => (
       <li className="nav-item">
         Daily Plate
       </li>
-      <li className="nav-item">
+      {/* <li className="nav-item">
       {console.log(props)}
         <button onClick={() => (props.handleDisplay())}>
           Sign In
         </button>
-      </li>
+      </li> */}
     </ul>
   </nav>
 );
