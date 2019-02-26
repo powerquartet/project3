@@ -1,22 +1,19 @@
 nav.navbar.navbar-default {
   margin-top: 0;
-
+  padding: 10px; 
 }
 
 nav.navbar {
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 3px;
+  padding: 10pt;
   background: pink;
-  
-}
+  text-align: center; 
 
-li.nav-item {
-  flex-direction: row;
-  align-content: center; 
 
 }
+
 
 

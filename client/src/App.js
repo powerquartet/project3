@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Form from "./pages/Form";
 import Grid from "./pages/Grid";
 import Home from "./pages/Home";
@@ -18,6 +18,7 @@ class App extends Component {
     super();
     this.state = {
       user: null,
+      signOut: false,
       firstName: "",
       lastName: "",
       email: "",
@@ -36,6 +37,7 @@ class App extends Component {
 
   componentDidMount() {
     this.authListener();
+    console.log(`comp -> mounted -> state of the sign out: ${this.state.signOut}`);
   }
 
   authListener() {
@@ -45,6 +47,15 @@ class App extends Component {
       }
     });
   }
+
+  signOut = () => {
+    auth.signOut().then(result => {
+      this.setState({
+        signOut: !this.state.signOut
+      });
+      console.log(this.state.signOut, " sign out worked");
+    });
+  };
 
   handleInputChange = event => {
     console.log(event.target.name);
@@ -150,6 +161,7 @@ class App extends Component {
         <Wrapper>
           {/* <Header /> */}
           {/* <Route exact path="/" component={Home} /> */}
+          {this.state.signOut && auth.currentUser === null ? <Redirect to="/" /> : " "}
           <Route
             exact
             path="/"
@@ -164,6 +176,7 @@ class App extends Component {
             path="/form"
             render={() => (
               <Form
+                handleSignOut={this.signOut}
                 firstName={this.state.firstName}
                 lastName={this.state.lastName}
                 email={this.state.email}
