@@ -26,7 +26,7 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <div style={{ width: "150px", heigt: "200px", margin: "5px" }}>
+      <div>
         {this.state.toPortion ? <Redirect to="/portion" /> : " "}
         <form className="form">
           <input
