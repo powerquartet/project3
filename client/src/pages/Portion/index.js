@@ -26,7 +26,10 @@ class Portion extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Wrapper>
+          <Navbar />
+          <Container>
+    
         {this.state.toggleDisplay ? (
           <div>
     
@@ -139,7 +142,8 @@ class Portion extends Component {
             </Row>
           </div>
         )}
-        <Navbar/>
+          </Container>
+        </Wrapper>
       </div>
     );
   }

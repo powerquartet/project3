@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import HTML5Backend from "react-dnd-html5-backend";
 import { DragDropContext } from "react-dnd";
 import MultiBackend, { Preview } from "../../utils/index";
-import HTML5toTouch from '../../utils/HTML5toTouch';
+import HTML5toTouch from "../../utils/HTML5toTouch";
 
 import Item from "../../components/Item";
 import Target from "../../components/Target";
@@ -256,8 +256,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-          ""
-        );
+        ""
+      );
     });
 
     const vegetables = this.state.newPortions.map(portion => {
@@ -271,8 +271,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-          ""
-        );
+        ""
+      );
     });
     const grains = this.state.newPortions.map(portion => {
       return portion.type === "grains" ? (
@@ -285,8 +285,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-          ""
-        );
+        ""
+      );
     });
 
     const protein = this.state.newPortions.map(portion => {
@@ -300,8 +300,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-          ""
-        );
+        ""
+      );
     });
 
     const dairy = this.state.newPortions.map(portion => {
@@ -315,8 +315,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-          ""
-        );
+        ""
+      );
     });
 
     const targets = this.state.meals.map((meal, index) => {
@@ -337,13 +337,21 @@ class Grid extends Component {
     return (
       <div>
         <Wrapper>
-          <Header />
+          <Navbar />
           <Container>
-            <Row>
+            {/* <Row>
               <Col size="md-4">
                 <Counter portionDailyTarget={this.state.portions} />
               </Col>
-              <Col size="md-8">
+            </Row> */}
+            <Row>
+              <Col size="md-12">Your Meals</Col>
+            </Row>
+
+            <Row>
+              <Col size="md-6">{targets}</Col>
+
+              <Col size="md-6">
                 {fruit}
                 <br
                   style={{
@@ -376,12 +384,12 @@ class Grid extends Component {
                 />
               </Col>
             </Row>
-            <Row> {targets} </Row>
             <Row>
-              <button onClick={() => this.setInitialState()}> CLEAR </button>
+              <Col size="md-12">
+                <button onClick={() => this.setInitialState()}> CLEAR </button>
+              </Col>
             </Row>
           </Container>
-          <Navbar />
         </Wrapper>
       </div>
     );
