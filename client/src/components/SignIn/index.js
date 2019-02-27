@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { auth } from "../../utils/firebase";
 import { Redirect } from "react-router-dom";
+import "./style.css";
 
 export default class SignIn extends Component {
   state = {
@@ -28,25 +29,28 @@ export default class SignIn extends Component {
     return (
       <div>
         {this.state.toPortion ? <Redirect to="/portion" /> : " "}
-        <form className="form">
+        <form>
           <input
+            className="input"
             value={this.state.email}
             name="email"
             onChange={this.handleChange}
             type="email"
             placeholder="Email"
           />
+
           <input
+            className="input"
             value={this.state.password}
             name="password"
             onChange={this.handleChange}
             type="password"
             placeholder="Password"
           />
-          <button className="submit" onClick={this.submit}>
-            Sign In
-          </button>
         </form>
+        <button className="btn-submit" onClick={this.submit}>
+          Sign In
+          </button>
       </div>
     );
   }

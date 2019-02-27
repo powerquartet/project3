@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { auth } from "../../utils/firebase";
-import Axios from "axios";
 import { Redirect } from "react-router-dom";
 
 class SignUp extends Component {
@@ -28,13 +27,12 @@ class SignUp extends Component {
   };
 
   render() {
-    console.log(auth.currentUser);
     return (
-      <div style={{ width: "150px", heigt: "200px", margin: "5px" }}>
-
+      <div>
         {this.state.toForm ? <Redirect to="/form" /> : " "}
-        <form className="form">
+        <form>
           <input
+            className="input"
             value={this.state.email}
             name="email"
             onChange={this.handleChange}
@@ -42,16 +40,17 @@ class SignUp extends Component {
             placeholder="Email"
           />
           <input
+            className="input"
             value={this.state.password}
             name="password"
             onChange={this.handleChange}
             type="password"
             placeholder="Password"
           />
-          <button className="submit" onClick={this.submit}>
-            Sign Up
-          </button>
         </form>
+        <button className="btn-submit" onClick={this.submit}>
+          Sign Up
+          </button>
       </div>
     );
   }

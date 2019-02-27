@@ -59,14 +59,12 @@ class Home extends React.Component {
               this.state.signUp === false ? (
                 <div>
                   <div>{this.renderSignIn()}</div>
-                  If you don't have an account
-                  <button onClick={this.toggleSignUp}> Sign Up </button>!
+                  <p class="sign-up">Need an account? <button class="sign-up-link" onClick={this.toggleSignUp}>SIGN UP</button></p>
                 </div>
               ) : (
                   <div>
                     <div>{this.renderSignIn()}</div>
-                    Already have an account?
-                  <button onClick={this.toggleSignUp}> Sign In </button>
+                    <p class="sign-up">Need an account? <button class="sign-up-link" onClick={this.toggleSignUp}>SIGN IN</button></p>
                   </div>
                 )
             ) : (
@@ -82,22 +80,10 @@ class Home extends React.Component {
             ) : (
                 "Welcome @" + auth.currentUser.email.split("@")[0] + "!"
               )} */}
-
-
           </Row>
           <Row>
-            {/* <Col size="md-2"></Col>
-          <Col size="md-10">  */}A
-                        portion managing app that does the counting for you
-            {/* </Col>
-          <Col size="md-2"></Col> */}
+            A portion managing app that does the counting for you
           </Row>
-
-          {/* <button style={{ width: "65px" }} onClick={this.signOut}>
-            {" "}
-            Sign Out
-          </button> */}
-
         </Container>
       </Wrapper>
     );
