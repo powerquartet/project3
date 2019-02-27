@@ -54,36 +54,22 @@ class Home extends React.Component {
         />
         <Container>
           <Row className = "login">
-            <Col size="md-12">
-              {this.state.toggleDisplay ? (
-                this.state.signUp === false ? (
+             {this.state.toggleDisplay ? (
+              this.state.signUp === false ? (
+                <div>
+                  <div>{this.renderSignIn()}</div>
+                  <p class="sign-up">Need an account? <button class="sign-up-link" onClick={this.toggleSignUp}>SIGN UP</button></p>
+                </div>
+              ) : (
                   <div>
-                    <Row>
-                      <Col size="md-12">{this.renderSignIn()}</Col>
-                    </Row>
-                    <Row>
-                      <Col size="md-12">
-                        If you don't have an account
-                        <button onClick={this.toggleSignUp}> Sign Up </button>!
-                      </Col>
-                    </Row>
-                  </div>
-                ) : (
-                  <div>
-                    <Row>
-                      <Col size="md-12">
-                        {this.renderSignIn()}
-                        Already have an account?
-                        <button className = "signIn" onClick={this.toggleSignUp}> Sign In </button>
-                      </Col>
-                    </Row>
+                    <div>{this.renderSignIn()}</div>
+                    <p class="sign-up">Need an account? <button class="sign-up-link" onClick={this.toggleSignUp}>SIGN IN</button></p>
                   </div>
                 )
-              ) : (
-                  <Row>
-                    <Col size="md-12">
-                <ControlledCarousel />
-                    </Col>
+            ) : (
+                <div>
+                  <ControlledCarousel />
+                </div>
                   </Row>
                 // <img className="logo" src={logo} alt="logo" />
               )}
