@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-// import axios from "axios";
 import Wrapper from "../../components/Wrapper/index";
 import Container from "../../components/Container/index";
 import Row from "../../components/Row/index";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import { auth } from "../../utils/firebase";
+import plans from "../../plans.json";
 
 class Form extends Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class Form extends Component {
 
   componentDidMount = () => {
     console.log(this.state.userTiers);
+    console.log(JSON.stringify(plans[0].portions))
   }
 
   handleFormSubmit = event => {
@@ -81,10 +82,8 @@ class Form extends Component {
 
     if (auth.currentUser.uid) {
       API.updateUser({
-        // _id: auth.currentUser.uid,
         firstName,
         lastName,
-        // email: auth.currentUser.email,
         weight,
         height,
         age,
@@ -113,23 +112,37 @@ class Form extends Component {
     // }
   };
 
-
   handleClick = (tier) => {
-    console.log(tier);
-    //grab the vaule from user's choice
     // send props back to App.js
     this.props.getUserTier(tier);
+
+    // Update the User Object
+    let plan;
+    let planPortions = [];
+
+    for (let i = 0; i < plans.length; i++) {
+      if (tier.toString() === plans[i].plan) {
+        plan = plans[i].plan;
+        planPortions = JSON.stringify(plans[i].portions);
+      }
+    };
+
+    // console.log(plan, planPortions)
+
+    if (auth.currentUser.uid) {
+      API.updateUser({
+        _id: auth.currentUser.uid,
+        plan,
+        portions: planPortions
+      })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   // Calculate food plan based on TEE & BMI
-
-  // Men	BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5
-  // Women	BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161
-
-  // Sedentary or light activity	(Office worker getting little or no exercise)	1.53
-  // Active or moderately active	(Construction worker or person running one hour daily)	1.76
-  // Vigorously active	(Agricultural worker (non mechanized) or person swimming two hours daily)	2.25
-
   getUserTiers = (weight, height, age, sex, activityLevel) => {
     const BMI = this.calculateBMI(weight, height);
     const idealWeight = this.caluclateIdealWeight(height);
@@ -162,7 +175,12 @@ class Form extends Component {
       const tier1 = this.calculateTier(idealTEE);
       const tier2 = this.calculateTier(userTEE);
 
-      userTiers.push(tier1, tier2);
+      //TODO What if the tier is too large?
+      if (tier2 > 3600) {
+        userTiers.push(tier1);
+      } else {
+        userTiers.push(tier1, tier2);
+      }
     }
 
     return userTiers;

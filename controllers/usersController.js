@@ -11,7 +11,7 @@ module.exports = {
     },
     findById: function (req, res) {
         db.User
-            .findById(req.params.id)
+            .findById(req.body._id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -29,13 +29,13 @@ module.exports = {
     },
     update: function (req, res) {
         db.User
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .findOneAndUpdate({ _id: req.body._id }, req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     remove: function (req, res) {
         db.User
-            .findById({ _id: req.params.id })
+            .findById({ _id: req.body._id })
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-// import HTML5Backend from "react-dnd-html5-backend";
 import { DragDropContext } from "react-dnd";
 import MultiBackend, { Preview } from "../../utils/index";
 import HTML5toTouch from "../../utils/HTML5toTouch";
+import objectAssign from "object-assign";
 
 import Item from "../../components/Item";
 import Target from "../../components/Target";
@@ -20,6 +20,7 @@ let plan = plans[0].plan;
 let portions = plans[0].portions;
 
 class Grid extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -56,6 +57,12 @@ class Grid extends Component {
   componentDidMount() {
     // Display the number values for portions as separate items
     this.makeNewPortions();
+  }
+
+  generatePreview(type, item, style) {
+    objectAssign(style, { "border": "1px solid lightgrey", "borderRadius": "25%", "width": "72px", "height": "72px", "background": `url(${item.src})` });
+
+    return <div key={type + "-" + item.id} style={style}></div>;
   }
 
   //Create portions based on the number provided by the database
@@ -163,6 +170,7 @@ class Grid extends Component {
     // Push portion back to the newPortions array
     const updatedPortions = this.state.newPortions;
     updatedPortions.push(movedPortion);
+    // updatedPortions.sort((a, b) => (a.type > b.type) ? 1 : -1)
 
     const updatedMealsTarget = [...this.state.meals];
 
@@ -176,14 +184,15 @@ class Grid extends Component {
                 return portion.id !== item.id;
               }
             );
-
-            updatedMealsTarget[i].portions[j] = updatedTarget;
+            updatedMealsTarget[i].portions = updatedTarget;
           }
 
           this.setState({
             meals: updatedMealsTarget,
             newPortions: updatedPortions
           });
+
+
         }
       }
     }
@@ -244,7 +253,7 @@ class Grid extends Component {
   };
 
   render() {
-    console.log(this.state.newPortions);
+
     const fruit = this.state.newPortions.map(portion => {
       return portion.type === "fruit" ? (
         <Item
@@ -256,8 +265,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
 
     const vegetables = this.state.newPortions.map(portion => {
@@ -271,9 +280,10 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
+
     const grains = this.state.newPortions.map(portion => {
       return portion.type === "grains" ? (
         <Item
@@ -285,8 +295,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
 
     const protein = this.state.newPortions.map(portion => {
@@ -300,8 +310,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
 
     const dairy = this.state.newPortions.map(portion => {
@@ -315,8 +325,8 @@ class Grid extends Component {
           key={portion.id}
         />
       ) : (
-        ""
-      );
+          ""
+        );
     });
 
     const targets = this.state.meals.map((meal, index) => {
@@ -388,6 +398,7 @@ class Grid extends Component {
               <Col size="md-12">
                 <button onClick={() => this.setInitialState()}> CLEAR </button>
               </Col>
+              <Preview generator={this.generatePreview} />
             </Row>
           </Container>
         </Wrapper>

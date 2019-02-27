@@ -8,9 +8,11 @@ const userSchema = new Schema({
     email: String,
     weight: Number,
     height: Number,
-    age: { type: Number },
+    age: Number,
     sex: String,
-    activityLevel: { type: Number }
+    activityLevel: Number,
+    plan: String,
+    portions: String,
 }, { _id: false });
 
 const User = mongoose.model("User", userSchema);
