@@ -1,6 +1,6 @@
 nav.navbar.navbar-default {
   margin-bottom: 0;
-  padding: 10px; 
+  padding: 10px;
 }
 
 nav.navbar {
@@ -9,14 +9,8 @@ nav.navbar {
   left: 0;
   right: 0;
   padding: 10pt;
-  background: white;
-  text-align: center; 
+  background: transparent;
+  text-align: center;
 
 
 }
-
-
-
-
-
-
