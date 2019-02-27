@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { auth } from "../../utils/firebase";
 import Axios from "axios";
 import { Redirect } from "react-router-dom";
+import Row from "../Row";
+import Col from "../Col";
 
 class SignUp extends Component {
   state = {
@@ -30,24 +32,31 @@ class SignUp extends Component {
   render() {
     console.log(auth.currentUser);
     return (
-      <div style={{ width: "150px", heigt: "200px", margin: "5px" }}>
-
+      <div>
         {this.state.toForm ? <Redirect to="/form" /> : " "}
         <form className="form">
-          <input
-            value={this.state.email}
-            name="email"
-            onChange={this.handleChange}
-            type="email"
-            placeholder="Email"
-          />
-          <input
-            value={this.state.password}
-            name="password"
-            onChange={this.handleChange}
-            type="password"
-            placeholder="Password"
-          />
+          <Row>
+            <Col size="md-12">
+              <input
+                value={this.state.email}
+                name="email"
+                onChange={this.handleChange}
+                type="email"
+                placeholder="Email"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col size="md-12">
+              <input
+                value={this.state.password}
+                name="password"
+                onChange={this.handleChange}
+                type="password"
+                placeholder="Password"
+              />
+            </Col>
+          </Row>
           <button className="submit" onClick={this.submit}>
             Sign Up
           </button>

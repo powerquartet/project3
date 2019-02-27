@@ -1,6 +1,36 @@
 .wrapper {
-  min-height: 100%;
-  margin: auto; 
-  align-content: center; 
-  padding-bottom: 100px;
+  /* background-size: cover; */
+  height: 100%;
+  /* display: -ms-flexbox; */
+  /* -ms-flex-flow: row wrap; */
+  /* display: flex; */
+  /* flex-flow: row wrap; */
+  /* -ms-flex-pack: distribute; */
+  /* -ms-flex-line-pack: start; */
+
+  justify-content: center;
+  /* margin: auto; */
+  /* align-content: flex-start; */
+  /* overflow: auto; */
+  /* background-image: url("../../pages/Home/css/img/strawberry.jpg") */
+}
+
+.home-wrapper {
+  background-size: cover;
+
+  height: 1000px;
+  width: 100%;
+  /* display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+  -ms-flex-line-pack: start;
+  padding: 20px;
+  justify-content: space-around;
+  margin: auto;
+  align-content: flex-start;
+  overflow: auto; */
+  background-size: cover;
+  background-image: url("../../pages/Home/css/img/strawberry.jpg")
 }

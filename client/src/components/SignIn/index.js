@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { auth } from "../../utils/firebase";
 import { Redirect } from "react-router-dom";
+import "./style.css";
+import Row from "../Row";
+import Col from "../Col";
 
 export default class SignIn extends Component {
   state = {
@@ -26,9 +29,11 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <div>
+      <div className = "form">
         {this.state.toPortion ? <Redirect to="/portion" /> : " "}
-        <form className="form">
+        <form>
+          <Row>
+            <Col size ="md-12">
           <input
             value={this.state.email}
             name="email"
@@ -36,6 +41,10 @@ export default class SignIn extends Component {
             type="email"
             placeholder="Email"
           />
+            </Col>
+            </Row>
+          <Row>
+            <Col size="md-12">
           <input
             value={this.state.password}
             name="password"
@@ -43,6 +52,8 @@ export default class SignIn extends Component {
             type="password"
             placeholder="Password"
           />
+            </Col>
+          </Row>
           <button className="submit" onClick={this.submit}>
             Sign In
           </button>
@@ -51,3 +62,4 @@ export default class SignIn extends Component {
     );
   }
 }
+

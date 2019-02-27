@@ -1,21 +1,29 @@
 import React from "react";
-// import "../../components/Header/style.css";
+import "../HeaderLogin/style.css";
 
 
-const HeaderLogin = props => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <ul className="navbar-nav">
-      <li className="nav-item">
+class HeaderLogin extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHidden: true
+    }
+  }
+    toggleHidden() {
+      this.setState({
+        isHidden: !this.state.isHidden
+      })
+    }
+
+  render() {
+    return (
+      <div className="header">
         Daily Plate
-      </li>
-      <li className="nav-item">
-      {console.log(props)}
-        <button onClick={() => (props.handleDisplay())}>
-          Sign In
+        <button className=" sign-in btn-default" onClick={() => this.props.handleDisplay()}>
+          Get Started
         </button>
-      </li>
-    </ul>
-  </nav>
-);
-
+      </div>
+    );
+  }
+}
 export default HeaderLogin;

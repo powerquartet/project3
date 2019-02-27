@@ -7,10 +7,12 @@ import SignIn from "../../components/SignIn";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import Container from "../../components/Container";
+import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import Wrapper from "../../components/Wrapper";
 import HeaderLogin from "../../components/HeaderLogin";
 import ControlledCarousel from "../../components/Carousel";
+import Background from "../Home/css/img/strawberry.jpg";
 
 class Home extends React.Component {
   constructor(props) {
@@ -18,7 +20,7 @@ class Home extends React.Component {
 
     this.state = {
       signUp: false,
-      toggleDisplay: false,
+      toggleDisplay: false
     };
 
     this.toggleSignUp = () => {
@@ -43,61 +45,57 @@ class Home extends React.Component {
     console.log(auth.currentUser);
 
     return (
-      <Wrapper>
+      <Wrapper className="home-wrapper">
+        {/* <Header /> */}
         <HeaderLogin
           handleDisplay={() => {
             this.toggleDisplay();
           }}
         />
         <Container>
-          <Row>
-            {/* <Col size="md-3"> */}
-            {/* <img className="logo" src={logo} alt="logo" /> */}
-            {/* </Col> */}
-
-            {this.state.toggleDisplay ? (
-              this.state.signUp === false ? (
-                <div>
-                  <div>{this.renderSignIn()}</div>
-                  If you don't have an account
-                  <button onClick={this.toggleSignUp}> Sign Up </button>!
-                </div>
-              ) : (
+          <Row className = "login">
+            <Col size="md-12">
+              {this.state.toggleDisplay ? (
+                this.state.signUp === false ? (
                   <div>
-                    <div>{this.renderSignIn()}</div>
-                    Already have an account?
-                  <button onClick={this.toggleSignUp}> Sign In </button>
+                    <Row>
+                      <Col size="md-12">{this.renderSignIn()}</Col>
+                    </Row>
+                    <Row>
+                      <Col size="md-12">
+                        If you don't have an account
+                        <button onClick={this.toggleSignUp}> Sign Up </button>!
+                      </Col>
+                    </Row>
+                  </div>
+                ) : (
+                  <div>
+                    <Row>
+                      <Col size="md-12">
+                        {this.renderSignIn()}
+                        Already have an account?
+                        <button className = "signIn" onClick={this.toggleSignUp}> Sign In </button>
+                      </Col>
+                    </Row>
                   </div>
                 )
-            ) : (
-                <div>
-                  <ControlledCarousel />
-                </div>
+              ) : (
+                  <Row>
+                    <Col size="md-12">
+                <ControlledCarousel />
+                    </Col>
+                  </Row>
                 // <img className="logo" src={logo} alt="logo" />
               )}
+            </Col>
+          </Row>
 
-            {/* welcome message */}
-            {/* {auth.currentUser === null ? (
+          {/* welcome message */}
+          {/* {auth.currentUser === null ? (
               <div>{this.renderSignIn()}</div>
             ) : (
                 "Welcome @" + auth.currentUser.email.split("@")[0] + "!"
               )} */}
-
-
-          </Row>
-          <Row>
-            {/* <Col size="md-2"></Col>
-          <Col size="md-10">  */}A
-                        portion managing app that does the counting for you
-            {/* </Col>
-          <Col size="md-2"></Col> */}
-          </Row>
-
-          {/* <button style={{ width: "65px" }} onClick={this.signOut}>
-            {" "}
-            Sign Out
-          </button> */}
-
         </Container>
       </Wrapper>
     );
