@@ -30,7 +30,6 @@ class Portion extends Component {
       <div>
         <Header />
         <span>Welcome to your Daily Portion. Please Click to see more.</span>
-
         {this.state.toggleDisplay ? (
 
           <div>
@@ -45,7 +44,6 @@ class Portion extends Component {
               </Col>
             </Row>
           </div>
-
         ) : (
 
             <div>
@@ -176,8 +174,6 @@ class Portion extends Component {
               </Row>
             </div>
           )}
-
-        <Navbar />
       </div>
     );
   }
