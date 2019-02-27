@@ -1,8 +1,18 @@
 div.header{
     font-family: "Pacifico", cursive; 
-    background-color: pink;
+    background-color: white;
     margin-bottom: 0; 
     padding-bottom: 10pt; 
     padding-top: 10pt; 
+}
+
+.btn-default {
+    background-image: linear-gradient(to left top, #f76994, #ebb2b1, #f2c2b0, #f4d4b5, #f1e6c1);
+    box-shadow: 0 4px 8px rgba(114, 124, 136, 0.7), 2px 8px 10px rgb(221, 165, 182, 0.7), 6px 10px 14px rgb(241, 230, 193, 0.7);
+    border-radius: 25px;
+    color: white;
+    font-size: 15px;
+    border: none;
+    margin-bottom: 15px;
 }
 
