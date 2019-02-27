@@ -76,6 +76,7 @@ class App extends Component {
       <Router>
         <Wrapper>
 
+          {/* {auth.currentUser ? <Redirect to="/grid" /> : " "} */}
           {this.state.signOut && auth.currentUser === null ? <Redirect to="/" /> : " "}
           {this.state.userTier !== "" ? <Redirect to="/portion" /> : " "}
 

@@ -35,8 +35,8 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI ||
-  "mongodb://localhost/portionCrushDB"
-  // "mongodb://local:power4tet@ds347665.mlab.com:47665/heroku_s7jskswt"
+  // "mongodb://localhost/portionCrushDB"
+  "mongodb://local:power4tet@ds347665.mlab.com:47665/heroku_s7jskswt"
 );
 
 console.log(`! MONGO, online and listening`);
