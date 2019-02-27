@@ -9,7 +9,7 @@ export default {
     getsUser: function (id) {
         return axios.get("/api/users/" + id);
     },
-    updateUser: function (id) {
+    updateUser: function (id, userData) {
         console.log("in APIU - updating", userData)
         return axios.put("/api/users/" + id, userData)
 
