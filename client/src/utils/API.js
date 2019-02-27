@@ -9,10 +9,9 @@ export default {
     getsUser: function (id) {
         return axios.get("/api/users/" + id);
     },
-    updateUser: function (id, userData) {
+    updateUser: function (userData) {
         console.log("in APIU - updating", userData)
-        return axios.put("/api/users/" + id, userData)
-
+        return axios.put("/api/users/", userData)
     },
     // Deletes the user with the given id
     deleteUser: function (id) {
