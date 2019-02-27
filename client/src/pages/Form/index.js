@@ -20,6 +20,7 @@ class Form extends Component {
   componentDidMount = () => {
     console.log(this.state.userTiers);
   }
+
   handleFormSubmit = event => {
 
     event.preventDefault();
@@ -32,7 +33,7 @@ class Form extends Component {
     const sex = this.props.sex;
     const activityLevel = this.props.activityLevel;
 
-    if (this.props.firstName && this.props.firstName) {
+    if (this.props.firstName) {
       API.saveUser({
         _id: auth.currentUser.uid,
         firstName,
@@ -65,6 +66,53 @@ class Form extends Component {
     //     console.log(firstName, lastName);
     // }
   };
+
+  handleFormUpdate = event => {
+
+    event.preventDefault();
+
+    const firstName = this.props.firstName;
+    const lastName = this.props.lastName;
+    const weight = this.props.weight;
+    const height = this.props.height;
+    const age = this.props.age;
+    const sex = this.props.sex;
+    const activityLevel = this.props.activityLevel;
+
+    if (auth.currentUser.uid) {
+      API.updateUser({
+        // _id: auth.currentUser.uid,
+        firstName,
+        lastName,
+        // email: auth.currentUser.email,
+        weight,
+        height,
+        age,
+        sex,
+        activityLevel
+      })
+        .then(res => {
+          console.log(`I'm res`, res);
+          let userTiersArray = this.getUserTiers(res.data.weight, res.data.height, res.data.age, res.data.sex, res.data.activityLevel);
+
+          this.setState({
+            "userTiers": userTiersArray
+          });
+
+        })
+        .catch(err => console.log(err));
+    }
+
+    // let firstName = this.props.firstName;
+    // let lastName = this.props.lastName;
+
+    // if (!this.props.firstName || !this.props.lastName || !this.props.email || !this.props.weight || !this.props.height || !this.props.age) {
+    //     alert("Please fill out all submission fields!");
+    // } else {
+    //     console.log(firstName, lastName);
+    // }
+  };
+
 
   handleClick = (tier) => {
     console.log(tier);
@@ -288,9 +336,15 @@ class Form extends Component {
                     </select>
                   </p>
                   <p>
-                    <button className="submit" onClick={this.handleFormSubmit}>
-                      Submit
+                    {auth.currentUser ? (
+                      <button className="submit" onClick={this.handleFormSubmit}>
+                        Submit
                   </button>
+                    ) : (
+                        <button className="update" onClick={this.handleFormUpdate}>
+                          Update
+                  </button>
+                      )}
                   </p>
                 </form>
               </div>
