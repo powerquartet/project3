@@ -12,7 +12,7 @@ class Header extends React.Component {
     return (
       <div className="header">
         <h1> Daily Plate </h1>
-        <button onClick={() => { this.props.handleSignOut() }}>Sign Out</button>
+        <button className = "btn-default" onClick={() => { this.props.handleSignOut() }}>Sign Out</button>
       </div>
     );
   }

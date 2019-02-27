@@ -9,26 +9,13 @@ import grid from "./grid.png";
 import help from "./help.png";
 import home from "./home.png";
 
-const gridStyle = {
-  size: "70",
-  color: "white"
-  
-};
-const formStyle = {
-  size: "70",
-  color: "white"
-};
-const portionStyle = {
-  size: "70em",
-  color: "white"
-};
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light ">
-      {/* <Link className="navbar-brand" to="/">
-        1
-      </Link> */}
+      <Link className="navbar-brand" to="/">
+      Daily Plate
+      </Link>
       {/* <div> */}
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -40,8 +27,8 @@ function Navbar() {
                 ? "nav-link active"
                 : "nav-link"
             }
-          >
-            <FaUtensils className="faAlignCenter"  style={portionStyle} />
+      >
+           Portion
             {/* <img className="nav-icon" src={help} alt="help" /> */}
           </Link>
         </li>
@@ -53,8 +40,8 @@ function Navbar() {
                 ? "nav-link active"
                 : "nav-link"
             }
-          >
-            <FaVial className="faAlignCenter"  style={formStyle} />
+          > Form
+            {/* <FaVial className="faAlignCenter"  style={formStyle} /> */}
             {/* <img className="nav-icon" src={form} alt="form" /> */}
           </Link>
         </li>
@@ -67,7 +54,8 @@ function Navbar() {
                 : "nav-link"
             }
           >
-            <FaAppleAlt className = "faAlignCenter" style={gridStyle} />
+          Grid
+            {/* <FaAppleAlt className = "faAlignCenter" style={gridStyle} /> */}
             {/* <img className="nav-icon" src={grid} alt="grid" /> */}
           </Link>
         </li>

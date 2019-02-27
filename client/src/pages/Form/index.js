@@ -194,7 +194,7 @@ class Form extends Component {
 
     return (
       <Wrapper>
-        <Header
+        <Navbar
           handleSignOut={this.props.handleSignOut}
         />
         <Container>
@@ -297,7 +297,6 @@ class Form extends Component {
             </Row>
           }
         </Container>
-        <Navbar />
       </Wrapper>
     );
   }
