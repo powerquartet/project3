@@ -10,11 +10,19 @@
 
 .food-group {
     display: block;
-    width: 100%;
-    background: lightcoral;
-    border-radius: 8px;
-    color: white;
+    border: none;
+    border-top: 2px dotted red;
+    /* border-radius: 5px; */
+    width: 600px;
+    height: 30px;
+    background: white;
+    /* border-radius: 8px; */
+    color: grey;
     font-size: 15px;
+}
+
+.food-group:focus{
+    outline: none;
 }
 
 .card {
@@ -22,8 +30,8 @@
     transition: 0.3s;
     width: 40%;
     border-radius: 5px;
-    width: 100%;
-
+    width: 600px;
+    height: 200px;
 }
 
 .card:hover {
