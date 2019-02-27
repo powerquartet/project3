@@ -1,5 +1,5 @@
 import React from "react";
-import "../../components/Header/style.css";
+import "./style.css";
 import { auth } from "../../utils/firebase";
 
 class Header extends React.Component {
@@ -12,7 +12,7 @@ class Header extends React.Component {
     return (
       <div className="header">
         <h1> Daily Plate </h1>
-        <button onClick={() => { this.props.handleSignOut() }}>Sign Out</button>
+        <button className="btn-default" onClick={() => { this.props.handleSignOut() }}>Sign Out</button>
       </div>
     );
   }
