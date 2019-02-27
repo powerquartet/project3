@@ -35,6 +35,7 @@ export default class SignIn extends Component {
           <Row>
             <Col size ="md-12">
           <input
+            className="input"
             value={this.state.email}
             name="email"
             onChange={this.handleChange}
@@ -45,7 +46,9 @@ export default class SignIn extends Component {
             </Row>
           <Row>
             <Col size="md-12">
+
           <input
+            className="input"
             value={this.state.password}
             name="password"
             onChange={this.handleChange}
@@ -58,6 +61,9 @@ export default class SignIn extends Component {
             Sign In
           </button>
         </form>
+        <button className="btn-submit" onClick={this.submit}>
+          Sign In
+          </button>
       </div>
     );
   }

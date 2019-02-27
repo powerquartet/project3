@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { auth } from "../../utils/firebase";
-import Axios from "axios";
 import { Redirect } from "react-router-dom";
 import Row from "../Row";
 import Col from "../Col";
@@ -30,7 +29,6 @@ class SignUp extends Component {
   };
 
   render() {
-    console.log(auth.currentUser);
     return (
       <div>
         {this.state.toForm ? <Redirect to="/form" /> : " "}
@@ -61,6 +59,9 @@ class SignUp extends Component {
             Sign Up
           </button>
         </form>
+        <button className="btn-submit" onClick={this.submit}>
+          Sign Up
+          </button>
       </div>
     );
   }
