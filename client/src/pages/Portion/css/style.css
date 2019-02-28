@@ -37,20 +37,3 @@
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-
-.h2 {
-    font-size: 40px;
-}
-.welcome {
-    font-size: 20px;
-}
-.planName {
-    font-size: 30px;
-}
-
-/* .portion-wrapper{
-
-    color: white; 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 27px
-  } */
