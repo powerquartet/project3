@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "../../index.css";
 // import React, { Component } from 'react'
 import Carousel from "react-bootstrap/Carousel";
 

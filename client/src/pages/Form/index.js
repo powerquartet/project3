@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import { auth } from "../../utils/firebase";
 import plans from "../../plans.json";
+import "../../index.css";
 
 class Form extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactCardFlip from "react-card-flip";
-import "./style.css";
+import "../../index.css";
 import Wrapper from "../../components/Wrapper";
 import Col from "../../components/Col";
 import Row from "../../components/Row";
