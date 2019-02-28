@@ -4,7 +4,6 @@ import MultiBackend, { Preview } from "../../utils/index";
 import HTML5toTouch from "../../utils/HTML5toTouch";
 import objectAssign from "object-assign";
 import API from "../../utils/API";
-import plans from "../../plans.json";
 import { auth } from "../../utils/firebase";
 
 import Item from "../../components/Item";
@@ -13,14 +12,11 @@ import Counter from "../../components/Counter";
 import Container from "../../components/Container";
 import Wrapper from "../../components/Wrapper";
 import Navbar from "../../components/Navbar";
-import Header from "../../components/Header";
+// import Header from "../../components/Header";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import "../../index.css";
-
-//Acess plan from the json tier object
-// let plan = plans[0].plan;
-// let portions = plans[0].portions;
+import "./grid.css";
 
 class Grid extends Component {
 
@@ -60,8 +56,6 @@ class Grid extends Component {
   componentDidMount() {
     // Display the number values for portions as separate items
     this.authListener();
-    console.log(this.state.portions)
-    this.makeNewPortions();
   }
 
   authListener() {
@@ -71,16 +65,18 @@ class Grid extends Component {
         API.getsUser(user.uid)
           .then(res => {
             let dbPortions = JSON.parse(res.data.portions);
-            console.log(dbPortions);
             this.setState({
-              "portions": dbPortions
+              "portions": dbPortions,
+              "plan": res.data.plan
             })
+
+            this.makeNewPortions();
+
           })
           .catch(err => console.log(err));
       };
     });
   };
-
 
   generatePreview(type, item, style) {
     objectAssign(style, { "border": "1px solid lightgrey", "borderRadius": "25%", "width": "72px", "height": "72px", "background": `url(${item.src})` });
@@ -369,54 +365,39 @@ class Grid extends Component {
         <Wrapper>
           <Navbar />
           <Container>
-            {/* <Row>
-              <Col size="md-4">
+            <div className="grid-nav">
+              <Row>
+                <Col size="md-5"><span className="grid-nav-child">Meal Plan: </span>{this.state.plan} kcal</Col>
+                <Col size="md-1"><span className="grid-nav-child">TARGET:</span></Col>
+                <Col size="md-6">Drag your portions to plan your meals!</Col>
+              </Row>
+            </div>
+            <Row>
+              <Col size="md-5">{targets}</Col>
+              <Col size="md-1">
                 <Counter portionDailyTarget={this.state.portions} />
               </Col>
-            </Row> */}
-            <Row>
-              <Col size="md-12">Your Meals</Col>
-            </Row>
-
-            <Row>
-              <Col size="md-6">{targets}</Col>
-
               <Col size="md-6">
+                <div className="portion-title">fruit</div>
                 {fruit}
-                <br
-                  style={{
-                    clear: "both"
-                  }}
-                />
+                <br style={{ "clear": "both" }} />
+                <div className="portion-title">vegetable</div>
                 {vegetables}
-                <br
-                  style={{
-                    clear: "both"
-                  }}
-                />
+                <br style={{ "clear": "both" }} />
+                <div className="portion-title">grains</div>
                 {grains}
-                <br
-                  style={{
-                    clear: "both"
-                  }}
-                />
+                <br style={{ "clear": "both" }} />
+                <div className="portion-title">protein</div>
                 {protein}
-                <br
-                  style={{
-                    clear: "both"
-                  }}
-                />
+                <br style={{ "clear": "both" }} />
+                <div className="portion-title">dairy</div>
                 {dairy}
-                <br
-                  style={{
-                    clear: "both"
-                  }}
-                />
+                <br style={{ "clear": "both" }} />
               </Col>
             </Row>
             <Row>
               <Col size="md-12">
-                <button onClick={() => this.setInitialState()}> CLEAR </button>
+                <button className="grid-clear" onClick={() => this.setInitialState()}> CLEAR </button>
               </Col>
               <Preview generator={this.generatePreview} />
             </Row>

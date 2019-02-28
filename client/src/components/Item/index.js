@@ -40,19 +40,19 @@ class Item extends PureComponent {
 
         return connectDragSource(
             this.props.size === 1 ?
-                <div style={{ "float": "left" }}>
-                    {!isDragging && <div style={{ "border": "1px solid lightgrey", "borderRadius": "25%", "width": "72px", "height": "72px", "background": `url(${src})` }}>
-                        {this.props.showDelete ? <button onClick={() => (this.props.handleClick(this.props, this.props.meal))} style={{ "border": "none", "color": "grey", "marginRight": "5px" }}>x</button> : ""}
+                <div className="outer-item">
+                    {!isDragging && <div className="item" style={{ "background": `url(${src})` }}>
+                        {this.props.showDelete ? <button className="item-button" onClick={() => (this.props.handleClick(this.props, this.props.meal))}>x</button> : ""}
                     </div>}
-                    {isDragging && <div style={{ "border": "1px solid lightgrey", "borderRadius": "25%", "width": "72px", "height": "72px", "background": `url(${src})`, "opacity": "0.3" }}></div>}
+                    {isDragging && <div className="item" style={{ "background": `url(${src})`, "opacity": "0.3" }}></div>}
                 </div>
                 :
                 this.props.size === 0.5 ?
-                    <div style={{ "float": "left" }}>
-                        {!isDragging && <div style={{ "border": "1px solid lightgrey", "borderRadius": "16px 0 0 16px", "width": "36px", "height": "72px", "background": `url(${src})` }}>
-                            {this.props.showDelete ? <button onClick={() => (this.props.handleClick(this.props, this.props.meal))} style={{ "border": "none", "color": "grey", "marginRight": "5px" }}>x</button> : ""}
+                    <div className="outer-item">
+                        {!isDragging && <div className="half-item" style={{ "background": `url(${src})` }}>
+                            {this.props.showDelete ? <button className="item-button" onClick={() => (this.props.handleClick(this.props, this.props.meal))}>x</button> : ""}
                         </div>}
-                        {isDragging && <div style={{ "border": "1px solid lightgrey", "borderRadius": "16px 0 0 16px", "width": "36px", "height": "72px", "background": `url(${src})`, "opacity": "0.3" }}></div>}
+                        {isDragging && <div className="half-item" style={{ "background": `url(${src})`, "opacity": "0.3" }}></div>}
                     </div >
                     :
                     <div></div>
