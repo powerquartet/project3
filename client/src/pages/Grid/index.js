@@ -3,11 +3,13 @@ import { DragDropContext } from "react-dnd";
 import MultiBackend, { Preview } from "../../utils/index";
 import HTML5toTouch from "../../utils/HTML5toTouch";
 import objectAssign from "object-assign";
+import API from "../../utils/API";
+import plans from "../../plans.json";
+import { auth } from "../../utils/firebase";
 
 import Item from "../../components/Item";
 import Target from "../../components/Target";
 import Counter from "../../components/Counter";
-import plans from "../../plans.json";
 import Container from "../../components/Container";
 import Wrapper from "../../components/Wrapper";
 import Navbar from "../../components/Navbar";
@@ -17,8 +19,8 @@ import Col from "../../components/Col";
 import "../../index.css";
 
 //Acess plan from the json tier object
-let plan = plans[0].plan;
-let portions = plans[0].portions;
+// let plan = plans[0].plan;
+// let portions = plans[0].portions;
 
 class Grid extends Component {
 
@@ -27,8 +29,8 @@ class Grid extends Component {
     this.state = {
       initialState: {},
       showDelete: false,
-      plan,
-      portions,
+      plan: "",
+      portions: [],
       newPortions: [],
       meals: [
         {
@@ -57,8 +59,28 @@ class Grid extends Component {
 
   componentDidMount() {
     // Display the number values for portions as separate items
+    this.authListener();
+    console.log(this.state.portions)
     this.makeNewPortions();
   }
+
+  authListener() {
+    auth.onAuthStateChanged(user => {
+      console.log(user.uid)
+      if (user) {
+        API.getsUser(user.uid)
+          .then(res => {
+            let dbPortions = JSON.parse(res.data.portions);
+            console.log(dbPortions);
+            this.setState({
+              "portions": dbPortions
+            })
+          })
+          .catch(err => console.log(err));
+      };
+    });
+  };
+
 
   generatePreview(type, item, style) {
     objectAssign(style, { "border": "1px solid lightgrey", "borderRadius": "25%", "width": "72px", "height": "72px", "background": `url(${item.src})` });
@@ -171,7 +193,6 @@ class Grid extends Component {
     // Push portion back to the newPortions array
     const updatedPortions = this.state.newPortions;
     updatedPortions.push(movedPortion);
-    // updatedPortions.sort((a, b) => (a.type > b.type) ? 1 : -1)
 
     const updatedMealsTarget = [...this.state.meals];
 
@@ -192,8 +213,6 @@ class Grid extends Component {
             meals: updatedMealsTarget,
             newPortions: updatedPortions
           });
-
-
         }
       }
     }

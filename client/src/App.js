@@ -37,7 +37,7 @@ class App extends Component {
   authListener() {
     auth.onAuthStateChanged(user => {
       if (user) {
-        this.setState({ user });
+        this.setState({ "user": user });
       };
     });
   };
@@ -72,6 +72,7 @@ class App extends Component {
 
   render() {
     console.log("App.js, got user tier", this.state.userTier);
+    console.log("User: ", this.state.user);
     return (
       <Router>
         <Wrapper>

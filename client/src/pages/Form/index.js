@@ -48,7 +48,7 @@ class Form extends Component {
         activityLevel
       })
         .then(res => {
-
+          console.log("response", res);
           let userTiersArray = this.getUserTiers(res.data.weight, res.data.height, res.data.age, res.data.sex, res.data.activityLevel);
 
           this.setState({
@@ -83,6 +83,7 @@ class Form extends Component {
 
     if (auth.currentUser.uid) {
       API.updateUser({
+        _id: auth.currentUser.uid,
         firstName,
         lastName,
         weight,
@@ -355,7 +356,7 @@ class Form extends Component {
                     </select>
                   </p>
                   <p>
-                    {auth.currentUser ? (
+                    {!auth.currentUser ? (
                       <button className="submit" onClick={this.handleFormSubmit}>
                         Submit
                   </button>
