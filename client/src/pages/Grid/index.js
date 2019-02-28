@@ -18,8 +18,8 @@ import Row from "../../components/Row";
 import Col from "../../components/Col";
 
 //Acess plan from the json tier object
-let plan = plans[0].plan;
-let portions = plans[0].portions;
+// let plan = plans[0].plan;
+// let portions = plans[0].portions;
 
 class Grid extends Component {
 
@@ -28,8 +28,8 @@ class Grid extends Component {
     this.state = {
       initialState: {},
       showDelete: false,
-      plan,
-      portions,
+      plan: "",
+      portions: [],
       newPortions: [],
       meals: [
         {
@@ -58,10 +58,10 @@ class Grid extends Component {
 
   componentDidMount() {
     // Display the number values for portions as separate items
-    this.makeNewPortions();
     this.authListener();
+    console.log(this.state.portions)
+    this.makeNewPortions();
   }
-
 
   authListener() {
     auth.onAuthStateChanged(user => {
@@ -69,7 +69,11 @@ class Grid extends Component {
       if (user) {
         API.getsUser(user.uid)
           .then(res => {
-            console.log(res.data);
+            let dbPortions = JSON.parse(res.data.portions);
+            console.log(dbPortions);
+            this.setState({
+              "portions": dbPortions
+            })
           })
           .catch(err => console.log(err));
       };

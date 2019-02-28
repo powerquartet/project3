@@ -82,6 +82,7 @@ class Form extends Component {
 
     if (auth.currentUser.uid) {
       API.updateUser({
+        _id: auth.currentUser.uid,
         firstName,
         lastName,
         weight,
