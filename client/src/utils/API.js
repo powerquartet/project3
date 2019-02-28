@@ -7,6 +7,7 @@ export default {
     },
     // Gets the user with the given id
     getsUser: function (id) {
+        console.log("in APIU - find one", id)
         return axios.get("/api/users/" + id);
     },
     updateUser: function (userData) {
