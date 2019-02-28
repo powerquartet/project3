@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "../../index.css";
 import { auth } from "../../utils/firebase";
 
 class Header extends React.Component {

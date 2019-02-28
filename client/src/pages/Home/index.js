@@ -1,6 +1,4 @@
 import React from "react";
-import "../Home/css/style.css";
-// import logo from "../Home/css/img/food.jpg";
 import { auth } from "../../utils/firebase";
 import SignUp from "../../components/SignUp";
 import SignIn from "../../components/SignIn";
@@ -12,7 +10,7 @@ import Container from "../../components/Container";
 import Wrapper from "../../components/Wrapper";
 import HeaderLogin from "../../components/HeaderLogin";
 import ControlledCarousel from "../../components/Carousel";
-import Background from "../Home/css/img/strawberry.jpg";
+import "../../index.css";
 
 class Home extends React.Component {
   constructor(props) {

@@ -14,6 +14,7 @@ import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
+import "../../index.css";
 
 //Acess plan from the json tier object
 let plan = plans[0].plan;

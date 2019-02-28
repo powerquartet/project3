@@ -7,8 +7,8 @@ import Wrapper from "../../components/Wrapper";
 import Container from "../../components/Container";
 import Col from "../../components/Col";
 import Row from "../../components/Row";
-import "../Portion/css/style.css";
 import plans from "../../plans.json";
+import "../../index.css";
 
 class Portion extends Component {
   constructor(props) {

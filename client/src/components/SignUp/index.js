@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { auth } from "../../utils/firebase";
 import { Redirect } from "react-router-dom";
+import "../../index.css";
 
 class SignUp extends Component {
   state = {
