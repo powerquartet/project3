@@ -14,13 +14,19 @@ class Form extends Component {
     super(props)
     this.state = {
       userTiers: [],
-      chosenTier: ""
+      chosenTier: "",
+      showUpdate: false
     };
   }
 
   componentDidMount = () => {
     console.log(this.state.userTiers);
     console.log(JSON.stringify(plans[0].portions))
+    if (this.state.showUpdate === true && auth.currentUser) {
+      this.setState({
+        showUpdate: false,
+      });
+    }
   }
 
   handleFormSubmit = event => {
@@ -52,6 +58,7 @@ class Form extends Component {
           let userTiersArray = this.getUserTiers(res.data.weight, res.data.height, res.data.age, res.data.sex, res.data.activityLevel);
 
           this.setState({
+            showUpdate: true,
             "userTiers": userTiersArray
           });
 
@@ -356,7 +363,8 @@ class Form extends Component {
                     </select>
                   </p>
                   <p>
-                    {!auth.currentUser ? (
+                    {/* TODO This doesn't work --> needs a boolean to toggle */}
+                    {!this.state.showUpdate ? (
                       <button className="submit" onClick={this.handleFormSubmit}>
                         Submit
                   </button>
