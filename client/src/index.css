@@ -1,5 +1,6 @@
 button.sign-up-link {
-    font-family: "Pacifico";
+     font-family: 'Quicksand',
+     sans-serif;
     background-image: linear-gradient(to left top, #f76994, #ebb2b1, #f2c2b0, #f4d4b5, #f1e6c1);
     box-shadow: 0 4px 8px rgba(114, 124, 136, 0.7),
         2px 8px 10px rgb(221, 165, 182, 0.7),
@@ -9,7 +10,6 @@ button.sign-up-link {
     font-size: 20px;
     border: none;
     color: white;
-
     margin: 10px;
     padding: 5px 10px 5px 10px;
 
@@ -21,7 +21,7 @@ button.sign-up-link {
     box-shadow: 0 4px 8px rgba(114, 124, 136, 0.7), 2px 8px 10px rgb(221, 165, 182, 0.7), 6px 10px 14px rgb(241, 230, 193, 0.7);
     border-radius: 25px;
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     border: none;
     float: right;
     outline: none;
@@ -31,34 +31,22 @@ button.sign-up-link {
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
-
-    background-image: linear-gradient(to left top, #f76994, #ebb2b1, #f2c2b0, #f4d4b5, #f1e6c1);
-    box-shadow: 0 4px 8px rgba(114, 124, 136, 0.7), 2px 8px 10px rgb(221, 165, 182, 0.7), 6px 10px 14px rgb(241, 230, 193, 0.7);
     border-radius: 25px;
-    font-size: 30px;
-    border: none;
     margin-bottom: 15px;
-    width: 15%;
-    float: right;
     margin-right: 5%;
-    margin-top: 1%;
-
-    background-image: linear-gradient(to left top, #dda5b6, #ebb2b1, #f2c2b0, #f4d4b5, #f1e6c1);
-    box-shadow: 0 4px 8px rgb(77, 94, 114, 0.7), 2px 8px 10px rgb(221, 165, 182, 0.7), 6px 10px 14px rgb(241, 230, 193, 0.7);
-    border-radius: 25px;
-    color: white;
-    font-size: 15px;
-    border: none;
-    margin-bottom: 15px;
-    width: 100px;
+    margin-top: 3.5%;
+    width: 15%;
+    font-family: 'Quicksand',
+        sans-serif;
 }
 
 .btn-submit {
+    font-family: 'Quicksand', sans-serif;
     background-image: linear-gradient(to left top, #dda5b6, #ebb2b1, #f2c2b0, #f4d4b5, #f1e6c1);
     box-shadow: 0 4px 8px rgb(77, 94, 114, 0.7), 2px 8px 10px rgb(221, 165, 182, 0.7), 6px 10px 14px rgb(241, 230, 193, 0.7);
     border-radius: 25px;
     color: white;
-    font-size: 15px;
+    font-size: 25px;
     border: none;
     padding: 8px;
     width: 100%;
@@ -80,7 +68,7 @@ button.sign-up-link {
     margin-left: -20px !important;
     margin-top: -120%;
     opacity: 0;
-    transition: all 0.8s
+    transition: all 0.8s;
 }
 
 .btn-default:active:after {
@@ -88,6 +76,15 @@ button.sign-up-link {
     margin: 0;
     opacity: 1;
     transition: 0s
+}
+
+button.signOut{
+    float: right; 
+}
+
+button.hand {
+     font-family: 'Quicksand',
+     sans-serif;
 }
 
 .card {
@@ -115,7 +112,7 @@ ControlledCarousel {
 }
 
 div.header {
-    font-family: "Pacifico", cursive;
+    font-family: "Pacifico";
     background-color: transparent;
     padding-top: 5%;
     margin-bottom: 0;
@@ -155,6 +152,8 @@ div.header h1 {
     /* border-radius: 8px; */
     color: grey;
     font-size: 15px;
+     font-family: 'Quicksand',
+     sans-serif;
 }
 
 .food-group:focus {
@@ -176,6 +175,11 @@ div.header h1 {
     background: #B8B8B8;
 }
 
+.formIntro{
+     font-family: 'Quicksand',
+     sans-serif;
+}
+
 form.search {
     overflow: auto;
     margin-bottom: 10px;
@@ -184,6 +188,44 @@ form.search {
 form.search button[type="submit"] {
     float: right;
     margin-top: 10px;
+}
+
+.formWrapper {
+    background-size: cover;
+    height: 1000px;
+    width: 100%;
+    /* display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+  -ms-flex-line-pack: start;
+  padding: 20px;
+  justify-content: space-around;
+  margin: auto;
+  align-content: flex-start;
+  overflow: auto; */
+    background-size: cover;
+    background-image: url("./css/img/form.jpg");
+}
+
+.gridWrapper {
+    background-size: cover;
+    height: 1000px;
+    width: 100%;
+    /* display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+  -ms-flex-line-pack: start;
+  padding: 20px;
+  justify-content: space-around;
+  margin: auto;
+  align-content: flex-start;
+  overflow: auto; */
+    background-size: cover;
+    background-image: url("./css/img/form.jpg");
 }
 
 img.background {
@@ -207,7 +249,8 @@ input {
     width: 50%;
     padding: 1%;
     margin: 1%;
-
+     font-family: 'Quicksand',
+     sans-serif;
 }
 
 .input:focus {
@@ -223,6 +266,7 @@ input {
 
 .login {
     text-align: center;
+    padding-top: 10%;
 }
 
 .measurement {
@@ -255,11 +299,47 @@ nav.navbar {
     padding: 10pt;
     background: transparent;
     text-align: center;
+     font-family: 'Quicksand',
+     sans-serif;
 }
 
 nav.navbar.navbar-default {
     margin-bottom: 0;
     padding: 10px;
+}
+
+p.sign-up {
+    font-size: 25px;
+    color: white;
+}
+
+.planName{
+     font-family: 'Quicksand',
+     sans-serif;
+}
+
+.portionHeader{
+     font-family: 'Quicksand',
+     sans-serif;
+}
+
+.portionWrapper {
+    background-size: cover;
+    height: 1000px;
+    width: 100%;
+    /* display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+  -ms-flex-line-pack: start;
+  padding: 20px;
+  justify-content: space-around;
+  margin: auto;
+  align-content: flex-start;
+  overflow: auto; */
+    background-size: cover;
+    background-image: url("./css/img/portion.jpg");
 }
 
 .screenshot {
@@ -274,6 +354,7 @@ nav.navbar.navbar-default {
     font-size: 12px;
     color: lightgray;
     margin-left: 6%;
+
 }
 
 .sign-up-link {
@@ -287,6 +368,11 @@ nav.navbar.navbar-default {
 .sign-up-link:hover {
     color: #dda5b6;
     text-decoration: none;
+}
+
+span.welcome{
+     font-family: 'Quicksand',
+     sans-serif;
 }
 
 .wrapper {
@@ -303,12 +389,13 @@ nav.navbar.navbar-default {
     /* margin: auto; */
     /* align-content: flex-start; */
     /* overflow: auto; */
-    background-image: url("./css/img/strawberry.jpg")
+
+
+
 }
 
 .home-wrapper {
     background-size: cover;
-
     height: 1000px;
     width: 100%;
     /* display: -ms-flexbox;
@@ -323,9 +410,12 @@ nav.navbar.navbar-default {
   align-content: flex-start;
   overflow: auto; */
     background-size: cover;
-    /* background-image: url("..//Home/css/img/strawberry.jpg") */
+    background-image: url("./css/img/strawberry.jpg");
+}
+
+.home-wrapper {
     color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Quicksand";
     font-size: 27px
 }
 
@@ -349,7 +439,7 @@ nav.navbar.navbar-default {
     font-size: 15px;
 }
 
-.food-group:focus{
+.food-group:focus {
     outline: none;
 }
 
@@ -369,9 +459,11 @@ nav.navbar.navbar-default {
 .h2 {
     font-size: 40px;
 }
+
 .welcome {
     font-size: 20px;
 }
+
 .planName {
     font-size: 30px;
 }

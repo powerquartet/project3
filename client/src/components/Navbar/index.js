@@ -46,8 +46,10 @@ function Navbar() {
           >
             Grid
           </Link>
-        </li>
-      </ul>
+          </li>
+        </ul>
+        <button className="signOut" onClick={()=>{this.props.handleSignOut() }}> Sign Out
+        </button>
     </nav>
   );
 }
