@@ -14,7 +14,7 @@ class Header extends React.Component {
 
         <h1> Daily Plate </h1>
 
-        <button className = "btn-default" onClick={() => { this.props.handleSignOut() }}>Sign Out</button>
+        <button className = "btnSignout" onClick={() => { this.props.handleSignOut() }}>Sign Out</button>
         
       </div>
     );

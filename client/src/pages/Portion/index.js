@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
-import { auth } from "../../utils/firebase";
-
-
 import Toggle from "../../components/Toggle";
 import CardFlip from "../../components/CardFlip";
 import Header from "../../components/Header";
@@ -24,8 +20,7 @@ class Portion extends Component {
     console.log(`here are your props: ${props} \n`);
 
     this.state = {
-      toggleDisplay: false,
-      plan: ""
+      toggleDisplay: false
     };
 
     this.toggleDisplay = () => {
@@ -33,39 +28,16 @@ class Portion extends Component {
     };
   }
 
-  componentDidMount() {
-    // Display userTier plan
-    this.authListener();
-  }
-  authListener() {
-    auth.onAuthStateChanged(user => {
-      console.log(user.uid)
-      if (user) {
-        API.getsUser(user.uid)
-          .then(res => {
-            console.log(res);
-            // let dbPortions = JSON.parse(res.data.portions);
-            this.setState({
-              // "portions": dbPortions,
-              "plan": res.data.plan
-            })
-          })
-          .catch(err => console.log(err));
-      };
-    });
-  };
-
   render() {
-    // console.log(this.state.plan);
     return (
       <Wrapper className="portionWrapper">
         <div>
           <Navbar />
           <Container>
-            <h2 className = "portionHeader">Welcome to your Daily Portion.</h2>
-            <span className="welcome">
-              Please click on each food group to see more.
-            </span>
+            <h1 className="formIntro">Check out your daily plan!</h1>
+            {/* <span className="welcome">
+              Click to learn more about portions. 
+            </span> */}
             {this.state.toggleDisplay ? (
               <div>
                 <Row>
@@ -91,15 +63,7 @@ class Portion extends Component {
                   </Col>
                 </Row>
 
-                    <div className="planName">
-                  <Row>
-                    <Col size="md-12">
-                      {this.props.userTier == plans[0].plan ? "" : ""}
-                      {/* <div> Your plane here: {plans[0].portions[0].type}</div> */}
-                      <div> Your plan: {this.state.plan}</div>
-                    </Col>
-                  </Row>
-                  <Row>
+                <Row>
                   <Col size="md-12">
                     {/* <div className="toggleButtons"> */}
 
@@ -108,13 +72,7 @@ class Portion extends Component {
                         <div className="card-container">
                           {on && (
                             <div className="card">
-                              <ul
-                                style={{
-                                  "margin-left": "25%",
-                                  color: "grey",
-                                  "font-size": "20px"
-                                }}
-                              >
+                              <ul>
                                 <li>1.5 cups means... </li>
                                 <li>1 cup raw frozen or canned</li>
                                 <li>1/2 cups dried</li>
@@ -181,13 +139,7 @@ class Portion extends Component {
                         <div className="card-container">
                           {on && (
                             <div className="card">
-                              <ul
-                                style={{
-                                  "margin-left": "25%",
-                                  color: "grey",
-                                  "font-size": "20px"
-                                }}
-                              >
+                              <ul>
                                 <li>6 oz means... </li>
                                 <li>1 slice of bread</li>
                                 <li>1 oz of dry cereal</li>
@@ -208,13 +160,7 @@ class Portion extends Component {
                         <div className="card-container">
                           {on && (
                             <div className="card">
-                              <ul
-                                style={{
-                                  "margin-left": "25%",
-                                  color: "grey",
-                                  "font-size": "20px"
-                                }}
-                              >
+                              <ul>
                                 <li>3 cups means... </li>
                                 <li>1 cup of milk</li>
                                 <li>1 cup of yogurt</li>
@@ -234,7 +180,7 @@ class Portion extends Component {
                 </Row>
                 <Row>
                   <Col size="md-12">
-                    <button className="hand" onClick={this.toggleDisplay}>
+                    <button className onClick={this.toggleDisplay}>
                       How Do I Hand Portion? <IoMdHand />
                     </button>
                   </Col>
