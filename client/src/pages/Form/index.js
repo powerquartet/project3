@@ -268,7 +268,7 @@ class Form extends Component {
     const userTier = this.state.userTiers.map(tier => <button key={tier} onClick={() => this.handleClick(tier)}>{tier}</button>);
 
     return (
-      <Wrapper>
+      <Wrapper className="formWrapper">
         <Navbar
           handleSignOut={this.props.handleSignOut}
         />
@@ -279,7 +279,7 @@ class Form extends Component {
             </div>
             :
             <Row>
-              <div>
+              <div className="formIntro">
                 <h1>So, tell us about yourself</h1>
                 <p>We're here to help you crush it, {this.props.firstName}</p>
                 <form className="form">

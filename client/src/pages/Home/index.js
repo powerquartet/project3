@@ -56,12 +56,12 @@ class Home extends React.Component {
                 this.state.signUp === false ? (
                   <div>
                     <div>{this.renderSignIn()}</div>
-                    <p class="sign-up">Need an account? <button class="sign-up-link" onClick={this.toggleSignUp}>SIGN UP</button></p>
+                    <p class="sign-up">Need an account? <button class="sign-up-link" onClick={this.toggleSignUp}>Sign Up</button></p>
                   </div>
                 ) : (
                     <div>
                       <div>{this.renderSignIn()}</div>
-                      <p class="sign-up">Need an account? <button class="sign-up-link" onClick={this.toggleSignUp}>SIGN IN</button></p>
+                      <p class="sign-up">Need an account?<button class="sign-up-link" onClick={this.toggleSignUp}>Sign In</button></p>
                     </div>
                   )
               ) : (
@@ -69,7 +69,6 @@ class Home extends React.Component {
                     <ControlledCarousel />
                   </div>
                 )}
-
             </Col>
           </Row>
         </Container>
