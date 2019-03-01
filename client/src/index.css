@@ -150,7 +150,8 @@ div.header h1 {
     /* border-radius: 5px; */
     width: 600px;
     height: 30px;
-    background: white;
+    /* opacity: 0; */
+    background: rgb(0, 128, 128, 0.9);
     /* border-radius: 8px; */
     color: grey;
     font-size: 15px;
@@ -323,9 +324,6 @@ nav.navbar.navbar-default {
   overflow: auto; */
     background-size: cover;
     /* background-image: url("..//Home/css/img/strawberry.jpg") */
-}
-
-.home-wrapper {
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 27px
