@@ -1,0 +1,93 @@
+/* Draggable Item */
+.outer-item {
+    float: left;
+    margin: 5px;
+}
+
+.item {
+    border: 1px solid white;
+    border-radius: 25%;
+    width: 72px;
+    height: 72px; 
+}
+
+.half-item {
+    border: 1px solid white;
+    border-radius: 16px 0 0 16px;
+    width: 36px;
+    height: 72px; 
+}
+
+.item-button {
+background-color: transparent;
+border: none;
+color: red;
+font-size: 20px;
+font-weight: bolder;
+}
+
+.portion-title {
+    border-bottom: 1px solid black;
+    font-weight: 200;
+    font-size: 20px;
+    margin-top: 7px;
+}
+
+/* Target field */
+.target {
+    min-height: 115px;
+    width: 450px;
+    border: 1px solid white;
+    border-radius: 7px;
+    margin: 5px;
+    clear: both;
+}
+
+.target-title {
+    border-bottom: 1px solid white;
+    font-weight: 200;
+    font-size: 20px;
+}
+
+/* Counter component */
+.counter {
+    font-size: 50px;
+    height: 65px;
+    text-align: center;
+    margin: 37px 0 0 0;
+}
+
+.counter-unit {
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+/* Sencond level grid static nav */
+.grid-nav {
+    background-color: rgb(255, 255, 255, 0.5);
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 200;
+    border-bottom: 4px solid white;
+    margin-bottom: 10px;
+}
+
+.grid-nav-child {
+    font-weight: bolder;
+}
+
+/* Button clearing the grid */
+.grid-clear {
+    margin: 5px;
+    padding: 5px;
+    width: 100px;
+    background-color: rgb(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px black;
+    border-radius: 25px;
+    font-size: 20px;
+    border: none;
+    font-weight: 200;
+    color: red;
+}

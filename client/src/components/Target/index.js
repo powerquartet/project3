@@ -52,8 +52,8 @@ class Target extends PureComponent {
         });
 
         return connectDropTarget(
-            <div key={"meal-" + this.props.meal} style={{ "height": "100px", "width": "400px", "border": "1px solid lightgrey", "borderRadius": "7px", "margin": "5px" }}>
-                <div style={{ "borderBottom": "1px solid lightgrey", "color": "grey" }}>
+            <div className="target" key={"meal-" + this.props.meal}>
+                <div className="target-title">
                     {this.props.meal}
                 </div>
                 {portions}
