@@ -1,10 +1,10 @@
 button.sign-up-link {
-     font-family: 'Quicksand',
-     sans-serif;
-    background-image: linear-gradient(to left top, #f76994, #ebb2b1, #f2c2b0, #f4d4b5, #f1e6c1);
-    box-shadow: 0 4px 8px rgba(114, 124, 136, 0.7),
-        2px 8px 10px rgb(221, 165, 182, 0.7),
-        6px 10px 14px rgb(241, 230, 193, 0.7);
+    font-family: 'Quicksand',
+        sans-serif;
+background-image: linear-gradient(to right bottom, #e23a64, #ec4057, #f24a48, #f65737, #f76522);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     border-radius: 25px;
     width: auto;
     font-size: 20px;
@@ -17,8 +17,10 @@ button.sign-up-link {
 
 .btn-default {
     position: relative;
-    background-image: linear-gradient(to left top, #f76994, #ebb2b1, #f2c2b0, #f4d4b5, #f1e6c1);
-    box-shadow: 0 4px 8px rgba(114, 124, 136, 0.7), 2px 8px 10px rgb(221, 165, 182, 0.7), 6px 10px 14px rgb(241, 230, 193, 0.7);
+  background-image: linear-gradient(to right bottom, #e23a64, #ec4057, #f24a48, #f65737, #f76522);
+   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     border-radius: 25px;
     color: white;
     font-size: 20px;
@@ -42,8 +44,10 @@ button.sign-up-link {
 
 .btn-submit {
     font-family: 'Quicksand', sans-serif;
-    background-image: linear-gradient(to left top, #dda5b6, #ebb2b1, #f2c2b0, #f4d4b5, #f1e6c1);
-    box-shadow: 0 4px 8px rgb(77, 94, 114, 0.7), 2px 8px 10px rgb(221, 165, 182, 0.7), 6px 10px 14px rgb(241, 230, 193, 0.7);
+  background-image: linear-gradient(to right bottom, #e23a64, #ec4057, #f24a48, #f65737, #f76522);
+   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     border-radius: 25px;
     color: white;
     font-size: 25px;
@@ -78,13 +82,13 @@ button.sign-up-link {
     transition: 0s
 }
 
-button.signOut{
-    float: right; 
+button.signOut {
+    float: right;
 }
 
 button.hand {
-     font-family: 'Quicksand',
-     sans-serif;
+    font-family: 'Quicksand',
+        sans-serif;
 }
 
 .card {
@@ -108,7 +112,7 @@ button.hand {
 
 ControlledCarousel {
     height: 663px;
-    width: auto;
+    /* width: auto; */
 }
 
 div.header {
@@ -120,6 +124,7 @@ div.header {
     color: white;
     font-size: 50pt;
     flex-direction: row;
+
 }
 
 div.home-header {
@@ -151,8 +156,9 @@ div.header h1 {
     /* border-radius: 8px; */
     color: grey;
     font-size: 15px;
-     font-family: 'Quicksand',
-     sans-serif;
+    font-family: 'Quicksand',
+        sans-serif;
+        
 }
 
 .food-group:focus {
@@ -174,9 +180,9 @@ div.header h1 {
     background: #B8B8B8;
 }
 
-.formIntro{
-     font-family: 'Quicksand',
-     sans-serif;
+.formIntro {
+    font-family: 'Quicksand',
+        sans-serif;
 }
 
 form.search {
@@ -204,8 +210,8 @@ form.search button[type="submit"] {
   margin: auto;
   align-content: flex-start;
   overflow: auto; */
-    background-size: cover;
-    background-image: url("./css/img/form.jpg");
+
+    background-image: url("./css/img/portion.jpg");
 }
 
 .gridWrapper {
@@ -223,9 +229,10 @@ form.search button[type="submit"] {
   margin: auto;
   align-content: flex-start;
   overflow: auto; */
-    background-size: cover;
+
     background-image: url("./css/img/form.jpg");
 }
+
 
 img.background {
     /* background-size: cover;  */
@@ -248,8 +255,8 @@ input {
     width: 50%;
     padding: 1%;
     margin: 1%;
-     font-family: 'Quicksand',
-     sans-serif;
+    font-family: 'Quicksand',
+        sans-serif;
 }
 
 .input:focus {
@@ -288,6 +295,7 @@ input {
 nav.navbar.navbar-default {
     margin-bottom: 0;
     padding: 10px;
+    
 }
 
 nav.navbar {
@@ -298,8 +306,8 @@ nav.navbar {
     padding: 10pt;
     background: transparent;
     text-align: center;
-     font-family: 'Quicksand',
-     sans-serif;
+    font-family: 'Quicksand',
+        sans-serif;
 }
 
 nav.navbar.navbar-default {
@@ -307,19 +315,30 @@ nav.navbar.navbar-default {
     padding: 10px;
 }
 
+nav.navbar-brand {
+        font-family: "Pacifico";
+        background-color: transparent;
+        padding-top: 5%;
+        margin-bottom: 0;
+        margin-left: 5%;
+        color: white;
+        font-size: 50pt;
+   
+}
+
 p.sign-up {
     font-size: 25px;
     color: white;
 }
 
-.planName{
-     font-family: 'Quicksand',
-     sans-serif;
+.planName {
+    font-family: 'Quicksand',
+        sans-serif;
 }
 
-.portionHeader{
-     font-family: 'Quicksand',
-     sans-serif;
+.portionHeader {
+    font-family: 'Quicksand',
+        sans-serif;
 }
 
 .portionWrapper {
@@ -338,7 +357,7 @@ p.sign-up {
   align-content: flex-start;
   overflow: auto; */
     background-size: cover;
-    background-image: url("./css/img/portion.jpg");
+    background-image: url("./css/img/grid.jpg");
 }
 
 .screenshot {
@@ -353,6 +372,7 @@ p.sign-up {
     font-size: 12px;
     color: lightgray;
     margin-left: 6%;
+       text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
 
 }
 
@@ -369,9 +389,24 @@ p.sign-up {
     text-decoration: none;
 }
 
-span.welcome{
-     font-family: 'Quicksand',
-     sans-serif;
+span.welcome {
+    font-family: 'Quicksand',
+        sans-serif;
+}
+
+.tierBtn {
+       font-family: 'Quicksand',
+       sans-serif;
+      color: rgb(228, 16, 2);
+       box-shadow: 0 4px 8px rgb(77, 94, 114, 0.7),
+       2px 8px 10px rgb(221, 165, 182, 0.7),
+       6px 10px 14px rgb(241, 230, 193, 0.7);
+       border-radius: 25px;
+       font-size: 25px;
+       border: none;
+       padding: 8px;
+       width: 100%;
+       margin: 10px;
 }
 
 .wrapper {
@@ -409,10 +444,8 @@ span.welcome{
   align-content: flex-start;
   overflow: auto; */
     background-size: cover;
-    background-image: url("./css/img/strawberry.jpg");
-}
-
-.home-wrapper {
+    background-image: url("./css/img/home.jpg");
+   text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
     color: white;
     font-family: "Quicksand";
     font-size: 27px

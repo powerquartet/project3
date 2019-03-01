@@ -265,7 +265,7 @@ class Form extends Component {
 
   render() {
 
-    const userTier = this.state.userTiers.map(tier => <button key={tier} onClick={() => this.handleClick(tier)}>{tier}</button>);
+    const userTier = this.state.userTiers.map(tier => <button className = "tierBtn" key={tier} onClick={() => this.handleClick(tier)}>{tier}</button>);
 
     return (
       <Wrapper className="formWrapper">
@@ -280,8 +280,7 @@ class Form extends Component {
             :
             <Row>
               <div className="formIntro">
-                <h1>So, tell us about yourself</h1>
-                <p>We're here to help you crush it, {this.props.firstName}</p>
+                <h1>So, tell us about yourself, {this.props.firstName}</h1>
                 <form className="form">
                   <p>
                     <input

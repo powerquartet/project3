@@ -12,6 +12,18 @@ function Navbar() {
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link
+            to="/form"
+            className={
+              window.location.pathname === "/form"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            Form
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
             to="/portion"
             className={
               window.location.pathname === "/portion" ||
@@ -25,18 +37,6 @@ function Navbar() {
         </li>
         <li className="nav-item">
           <Link
-            to="/form"
-            className={
-              window.location.pathname === "/form"
-                ? "nav-link active"
-                : "nav-link"
-            }
-          >
-            Form
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
             to="/grid"
             className={
               window.location.pathname === "/grid"
@@ -46,10 +46,17 @@ function Navbar() {
           >
             Grid
           </Link>
-          </li>
-        </ul>
-        <button className="signOut" onClick={()=>{this.props.handleSignOut() }}> Sign Out
-        </button>
+        </li>
+      </ul>
+      <button
+        className="signOut"
+        onClick={() => {
+          this.props.handleSignOut();
+        }}
+      >
+      
+        Sign Out
+      </button>
     </nav>
   );
 }

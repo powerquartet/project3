@@ -369,7 +369,7 @@ class Grid extends Component {
               <Row>
                 <Col size="md-5"><span className="grid-nav-child">Meal Plan: </span>{this.state.plan} kcal</Col>
                 <Col size="md-1"><span className="grid-nav-child">TARGET:</span></Col>
-                <Col size="md-6">Drag your portions to plan your meals!</Col>
+                <Col size="md-6">Drag and drop your portions to plan your meals!</Col>
               </Row>
             </div>
             <Row>
