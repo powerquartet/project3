@@ -147,7 +147,8 @@ div.header h1 {
     /* border-radius: 5px; */
     width: 600px;
     height: 30px;
-    background: white;
+    /* opacity: 0; */
+    background: rgb(0, 128, 128, 0.9);
     /* border-radius: 8px; */
     color: grey;
     font-size: 15px;
