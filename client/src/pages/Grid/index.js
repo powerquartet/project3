@@ -362,7 +362,7 @@ class Grid extends Component {
 
     return (
       <div>
-        <Wrapper>
+        <Wrapper className="gridWrapper">
           <Navbar />
           <Container>
             <div className="grid-nav">
