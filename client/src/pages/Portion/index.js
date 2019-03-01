@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
-import { auth } from "../../utils/firebase";
-
-
 import Toggle from "../../components/Toggle";
 import CardFlip from "../../components/CardFlip";
 import Header from "../../components/Header";
@@ -24,8 +20,7 @@ class Portion extends Component {
     console.log(`here are your props: ${props} \n`);
 
     this.state = {
-      toggleDisplay: false,
-      plan: ""
+      toggleDisplay: false
     };
 
     this.toggleDisplay = () => {
@@ -33,30 +28,7 @@ class Portion extends Component {
     };
   }
 
-  componentDidMount() {
-    // Display userTier plan
-    this.authListener();
-  }
-  authListener() {
-    auth.onAuthStateChanged(user => {
-      console.log(user.uid)
-      if (user) {
-        API.getsUser(user.uid)
-          .then(res => {
-            console.log(res);
-            // let dbPortions = JSON.parse(res.data.portions);
-            this.setState({
-              // "portions": dbPortions,
-              "plan": res.data.plan
-            })
-          })
-          .catch(err => console.log(err));
-      };
-    });
-  };
-
   render() {
-    // console.log(this.state.plan);
     return (
       <Wrapper className="portionWrapper">
         <div>
@@ -91,15 +63,7 @@ class Portion extends Component {
                   </Col>
                 </Row>
 
-                    <div className="planName">
-                  <Row>
-                    <Col size="md-12">
-                      {this.props.userTier == plans[0].plan ? "" : ""}
-                      {/* <div> Your plane here: {plans[0].portions[0].type}</div> */}
-                      <div> Your plan: {this.state.plan}</div>
-                    </Col>
-                  </Row>
-                  <Row>
+                <Row>
                   <Col size="md-12">
                     {/* <div className="toggleButtons"> */}
 
