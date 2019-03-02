@@ -275,12 +275,17 @@ class Form extends Component {
         <Container>
           {this.state.userTiers.length > 0 ?
             <div>
-              {userTier}
+              <h1 style={{ fontFamily: 'Quicksand, sans-serif' }}>
+              Here is a specialized plan just for you!</h1>
+              <h5> If you see more than one, don’ t be alarmed!It just means that you are an inbetweener - or someone who is eligible for more than one suggested plan.Choose the plan that works best
+              for your goals.</h5>
+             <p> {userTier} </p>
             </div>
             :
             <Row>
               <div className="formIntro">
-                <h1>So, tell us about yourself, {this.props.firstName}</h1>
+                <h1>Tell us about yourself </h1>
+                <h1>{this.props.firstName}</h1>
                 <form className="form">
                   <p>
                     <input
@@ -306,7 +311,7 @@ class Form extends Component {
                       name="weight"
                       onChange={this.props.handleInputChange}
                       type="weight"
-                      placeholder="Weight(lbs)"
+                      placeholder="Weight (lbs)"
                     />
                   </p>
                   <p>
@@ -315,7 +320,7 @@ class Form extends Component {
                       name="height"
                       onChange={this.props.handleInputChange}
                       type="height"
-                      placeholder="Height(in)"
+                      placeholder="Height (in)"
                     />
                   </p>
                   <p>
@@ -324,7 +329,7 @@ class Form extends Component {
                       name="age"
                       onChange={this.props.handleInputChange}
                       type="aged"
-                      placeholder="age (years)"
+                      placeholder="Age (years)"
                     />
                   </p>
                   <p>
@@ -336,9 +341,9 @@ class Form extends Component {
                       value={this.props.sex}
                       onChange={this.props.handleSexChange}
                     >
-                      <option value="default">choose your sex</option>
-                      <option value="male">male</option>
-                      <option value="female">female</option>
+                      <option value="default">Choose Your Sex</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
                       {/* <option value="non-sex-binary">Non-sex binary</option> */}
                     </select>
                   </p>
@@ -351,7 +356,7 @@ class Form extends Component {
                       value={this.props.activityLevel}
                       onChange={this.props.handleALChange}
                     >
-                      <option value="default">choose your activity level</option>
+                      <option value="default">Choose Your Activity Level</option>
                       <option value="1.53">
                         Less than 30 minutes of exercise each day
                     </option>
