@@ -259,10 +259,10 @@ class Form extends Component {
         <Container>
           {this.state.userTiers.length > 0 ?
             <div>
-              <h1 style={{ fontFamily: 'Quicksand, sans-serif' }}>
+              <h1  style={{ fontFamily: 'Pacifico' }}>
               Here is a specialized plan just for you!</h1>
-              <h5> If you see more than one, don’ t be alarmed!It just means that you are an inbetweener - or someone who is eligible for more than one suggested plan.Choose the plan that works best
-              for your goals.</h5>
+              <h4 className="userPlanExplanation"> If you see more than one, don’t be alarmed! It just means that you are an inbetweener - or someone who is eligible for more than one suggested plan. Choose the plan that works best
+              for your goals.</h4>
              <p> {userTier} </p>
             </div>
             :

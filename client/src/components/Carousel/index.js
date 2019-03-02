@@ -35,25 +35,25 @@ class ControlledCarousel extends React.Component {
                 <Carousel.Item>
                     <img
                         className="screenshot"
-                        src={require("./images/heart-food.png")}
+                        src={require("./images/enterdetails.png")}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        {/* <h3>First slide label</h3> */}
+                        <p>Enter your details!</p>
                     </Carousel.Caption>
 
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="screenshot"
-                        src={require("./images/food.png")}
+                        src={require("./images/portion.png")}
                         alt="Third slide"
                     />
 
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        {/* <h3>Second slide label</h3> */}
+                        <p>Get personalized plans.</p>
 
                     </Carousel.Caption>
 
@@ -61,16 +61,17 @@ class ControlledCarousel extends React.Component {
                 <Carousel.Item>
                     <img
                         className="screenshot"
-                        src={require("./images/basket.png")}
+                        src={require("./images/mealplanner.png")}
                         alt="Third slide"
                     />
 
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        {/* <h3>Third slide label</h3> */}
+                        <p>Plan and portion your meals in a fun and dynamic way! </p>
+                        
                     </Carousel.Caption>
                 </Carousel.Item>
-
+ 
             </Carousel >
         );
     }

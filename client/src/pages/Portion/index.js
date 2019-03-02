@@ -66,7 +66,7 @@ class Portion extends Component {
             handleSignOut={this.props.handleSignOut}
           />
           <Container>
-            <h1 className="formIntro">Check out your daily plan!</h1>
+            <h1 className="formIntro" style={{ fontFamily: 'Quicksand'}}>Check out your daily plan!</h1>
             {/* <h2>Welcome to your Daily Portion.</h2>
             <span className="welcome">Please click on each food group to see more.</span> */}
             {this.state.toggleDisplay ? (
@@ -92,7 +92,7 @@ class Portion extends Component {
                     <Col size="md-12">
                       {this.props.userTier === plans[0].plan ? "" : ""}
                       {/* <div> Your plane here: {plans[0].portions[0].type}</div> */}
-                      <div> Your plan: {plans.plan}</div>
+                      <div> Your plan: {this.state.plan}</div>
                     </Col>
                   </Row>
 
@@ -105,16 +105,16 @@ class Portion extends Component {
                           <div className="card-container">
                             {on && (
                               <div className="card">
+                                  <p>What is a portion of fruit?</p>
                                 <ul>
                                   {/* <ul style={{ "margin-left": "25%", "color": "grey", "font-size": "20px" }}> */}
-                                  <li>1.5 cups means... </li>
                                   <li>1 cup raw frozen or canned</li>
                                   <li>1/2 cups dried</li>
                                 </ul>
                               </div>
                             )}
                             <button className="food-group" onClick={toggle}>
-                              Fruits <TiArrowForwardOutline />
+                              Fruit <TiArrowForwardOutline />
                             </button>
                           </div>
                         )}
@@ -127,8 +127,8 @@ class Portion extends Component {
                           <div className="card-container">
                             {on && (
                               <div className="card">
+                                  < p > What is a portion of fruit? </p>
                                 <ul>
-                                  <li>2.5 cups means... </li>
                                   <li>1 cup raw frozen or canned</li>
                                   <li>2 cups leafy</li>
                                   <li>1 cup juiced</li>
@@ -149,8 +149,9 @@ class Portion extends Component {
                           <div className="card-container">
                             {on && (
                               <div className="card">
+                               < p > What is a portion of protein? </p>
                                 <ul>
-                                  <li>5 oz means... </li>
+                              
                                   <li>1 oz cooked or canned</li>
                                   {/* <li>(lean meat/poultry/seafood)</li> */}
                                   {/* <li>Ex: 1 egg, 1 tbsp peanut butter</li> */}
@@ -173,8 +174,9 @@ class Portion extends Component {
                           <div className="card-container">
                             {on && (
                               <div className="card">
+                                < p > What is a portion of grain? </p>
                                 <ul>
-                                  <li>6 oz means... </li>
+                               
                                   <li>1 slice of bread</li>
                                   <li>1 oz of dry cereal</li>
                                 </ul>
@@ -194,8 +196,9 @@ class Portion extends Component {
                           <div className="card-container">
                             {on && (
                               <div className="card">
+                                 < p > What is a portion of dairy? </p>
                                 <ul>
-                                  <li>3 cups means... </li>
+                                 
                                   <li>1 cup of milk/yogurt</li>
                                   {/* <li>1 cup of yogurt</li> */}
                                   <li>1.5 oz of natural cheese</li>

@@ -22,7 +22,7 @@ class Navbar extends Component {
                   : "nav-link"
               }
             >
-              Form
+              Form  |
           </Link>
           </li>
           <li className="nav-item">
@@ -35,7 +35,7 @@ class Navbar extends Component {
                   : "nav-link"
               }
             >
-              Portion
+              Portion  |  
           </Link>
           </li>
           <li className="nav-item">
