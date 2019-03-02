@@ -12,7 +12,6 @@ import Counter from "../../components/Counter";
 import Container from "../../components/Container";
 import Wrapper from "../../components/Wrapper";
 import Navbar from "../../components/Navbar";
-// import Header from "../../components/Header";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import "../../index.css";
@@ -363,7 +362,9 @@ class Grid extends Component {
     return (
       <div>
         <Wrapper className="gridWrapper">
-          <Navbar />
+          <Navbar
+            handleSignOut={this.props.handleSignOut}
+          />
           <Container>
             <div className="grid-nav">
               <Row>

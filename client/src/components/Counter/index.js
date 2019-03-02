@@ -6,7 +6,7 @@ function Counter(props) {
         <div>
             {props.portionDailyTarget.map((element, index) => {
                 return (
-                    <div>
+                    <div key={index}>
                         <p className="counter" key={index}>{element.portion}
                         </p>
                         <p className="counter-unit">{element.measurement}</p>
