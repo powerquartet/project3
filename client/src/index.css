@@ -91,13 +91,13 @@ button.hand {
         sans-serif;
 }
 
-.card {
+/* .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 40%;
     border-radius: 5px;
     width: 600px;
-    height: 200px;
+    height: 400px;;
 }
 
 .card:hover {
@@ -108,7 +108,7 @@ button.hand {
     padding: 10px 10px;
     width: 100%;
     justify-items: center;
-}
+} */
 
 ControlledCarousel {
     height: 663px;
@@ -145,21 +145,6 @@ div.header h1 {
     color: white;
 }
 
-.food-group {
-    display: block;
-    border: none;
-    border-top: 2px dotted red;
-    /* border-radius: 5px; */
-    width: 600px;
-    height: 30px;
-    background: white;
-    /* border-radius: 8px; */
-    color: grey;
-    font-size: 15px;
-    font-family: 'Quicksand',
-        sans-serif;
-        
-}
 
 .food-group:focus {
     outline: none;
@@ -273,17 +258,6 @@ input {
 .login {
     text-align: center;
     padding-top: 10%;
-}
-
-.measurement {
-    /* border-radius: 50%; */
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 150px;
-    height: 100px;
 }
 
 .measurement img {

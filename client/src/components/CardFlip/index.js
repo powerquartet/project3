@@ -111,7 +111,7 @@ class CardFlip extends React.Component {
 
                                 <div key="back" className="measurement">
                                     <div onClick={() => this.handleClick("pointerfinger")} className="measurement">
-                                        Pointer Finger = 1 1/2 oz
+                                        Pointer Finger = 1.5 oz
                     </div>
                                 </div >
                             </ReactCardFlip >
