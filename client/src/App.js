@@ -102,6 +102,7 @@ class App extends Component {
                 age={this.state.age}
                 sex={this.state.sex}
                 activityLevel={this.state.activityLevel}
+                userTier={this.state.userTier}
                 getUserTier={this.getUserTier}
                 handleInputChange={this.handleInputChange}
                 handleALChange={this.handleALChange}
@@ -118,6 +119,7 @@ class App extends Component {
               <Portion
                 firstName={this.state.firstName}
                 userTier={this.state.userTier}
+                handleSignOut={this.signOut}
               />
             )}
           />
@@ -129,6 +131,7 @@ class App extends Component {
               <Grid
                 firstName={this.state.firstName}
                 userTier={this.state.userTier}
+                handleSignOut={this.signOut}
               />
             )}
           />
