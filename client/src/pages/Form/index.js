@@ -3,7 +3,6 @@ import API from "../../utils/API";
 import Wrapper from "../../components/Wrapper/index";
 import Container from "../../components/Container/index";
 import Row from "../../components/Row/index";
-import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import { auth } from "../../utils/firebase";
 import plans from "../../plans.json";
@@ -15,19 +14,29 @@ class Form extends Component {
     this.state = {
       userTiers: [],
       chosenTier: "",
-      showUpdate: false
+      showUpdate: true
     };
   }
 
   componentDidMount = () => {
-    console.log(this.state.userTiers);
-    console.log(JSON.stringify(plans[0].portions))
-    if (this.state.showUpdate === true && auth.currentUser) {
+    if (auth.currentUser) {
       this.setState({
         showUpdate: false,
       });
     }
   }
+
+  componentWillUnmount() {
+    this.authListener();
+  }
+
+  authListener() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ "showUpdate": true });
+      };
+    });
+  };
 
   handleFormSubmit = event => {
 
@@ -58,22 +67,11 @@ class Form extends Component {
           let userTiersArray = this.getUserTiers(res.data.weight, res.data.height, res.data.age, res.data.sex, res.data.activityLevel);
 
           this.setState({
-            showUpdate: true,
             "userTiers": userTiersArray
           });
-
         })
         .catch(err => console.log(err));
     }
-
-    // let firstName = this.props.firstName;
-    // let lastName = this.props.lastName;
-
-    // if (!this.props.firstName || !this.props.lastName || !this.props.email || !this.props.weight || !this.props.height || !this.props.age) {
-    //     alert("Please fill out all submission fields!");
-    // } else {
-    //     console.log(firstName, lastName);
-    // }
   };
 
   handleFormUpdate = event => {
@@ -110,15 +108,6 @@ class Form extends Component {
         })
         .catch(err => console.log(err));
     }
-
-    // let firstName = this.props.firstName;
-    // let lastName = this.props.lastName;
-
-    // if (!this.props.firstName || !this.props.lastName || !this.props.email || !this.props.weight || !this.props.height || !this.props.age) {
-    //     alert("Please fill out all submission fields!");
-    // } else {
-    //     console.log(firstName, lastName);
-    // }
   };
 
   handleClick = (tier) => {
@@ -135,8 +124,6 @@ class Form extends Component {
         planPortions = JSON.stringify(plans[i].portions);
       }
     };
-
-    // console.log(plan, planPortions)
 
     if (auth.currentUser.uid) {
       API.updateUser({
@@ -230,10 +217,7 @@ class Form extends Component {
     return BMI;
   }
 
-  // Lemmens formula: most reliable -> shows very low weight, corresponds with BMI
   // Ideal Body Weight (kg) = 22 x height^2 (meter)
-  // transform to imperial = 2.205 (IBW)
-  // tansform inches to meters inches/39.37
   caluclateIdealWeight = (height) => {
 
     let heightInMeters = height / 39.37;
@@ -265,7 +249,7 @@ class Form extends Component {
 
   render() {
 
-    const userTier = this.state.userTiers.map(tier => <button className = "tierBtn" key={tier} onClick={() => this.handleClick(tier)}>{tier}</button>);
+    const userTier = this.state.userTiers.map(tier => <button className="tierBtn" key={tier} onClick={() => this.handleClick(tier)}>{tier}</button>);
 
     return (
       <Wrapper className="formWrapper">
@@ -339,7 +323,6 @@ class Form extends Component {
                       <option value="default">choose your sex</option>
                       <option value="male">male</option>
                       <option value="female">female</option>
-                      {/* <option value="non-sex-binary">Non-sex binary</option> */}
                     </select>
                   </p>
                   <p>
@@ -362,8 +345,7 @@ class Form extends Component {
                     </select>
                   </p>
                   <p>
-                    {/* TODO This doesn't work --> needs a boolean to toggle */}
-                    {!this.state.showUpdate ? (
+                    {this.state.showUpdate === false ? (
                       <button className="submit" onClick={this.handleFormSubmit}>
                         Submit
                   </button>
