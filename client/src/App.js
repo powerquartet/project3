@@ -119,6 +119,7 @@ class App extends Component {
               <Portion
                 firstName={this.state.firstName}
                 userTier={this.state.userTier}
+                handleSignOut={this.signOut}
               />
             )}
           />
@@ -130,6 +131,7 @@ class App extends Component {
               <Grid
                 firstName={this.state.firstName}
                 userTier={this.state.userTier}
+                handleSignOut={this.signOut}
               />
             )}
           />
