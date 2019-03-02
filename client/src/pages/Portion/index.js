@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Toggle from "../../components/Toggle";
 import CardFlip from "../../components/CardFlip";
-import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import Wrapper from "../../components/Wrapper";
 import Container from "../../components/Container";

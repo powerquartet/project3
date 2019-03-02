@@ -354,11 +354,11 @@ class Form extends Component {
                   <p>
                     {this.state.showUpdate === false ? (
                       <button className="submit" onClick={this.handleFormSubmit}>
-                        Submit
+                        Show Me My Plan!
                   </button>
                     ) : (
                         <button className="update" onClick={this.handleFormUpdate}>
-                          Update
+                          Update My Plan!
                   </button>
                       )}
                   </p>
