@@ -1,0 +1,89 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 20px;
+    width: 600px;
+    height: 200px;;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+    padding: 10px 10px;
+    width: 100%;
+    justify-items: center;
+}
+
+.food-group {
+    display: block;
+    border: none;
+    border-top: 2px dotted red;
+    /* border-radius: 5px; */
+    width: 600px;
+    height: 50px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 5px 5px #f14c4c;
+    color: grey;
+    /* text-shadow: 2px 2px 2px rgba(150, 150, 150, 1); */
+    font-size: 35px;
+    font-family: 'Quicksand',
+        sans-serif;
+        
+}
+
+.measurement {
+    /* border-radius: 50%; */
+    background-color: white;
+    font-family: 'Quicksand',
+    sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(241, 4, 4, 0.911), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 18px;
+    text-align: center;
+    border-radius: 15px;
+    padding: 5px, 5px;
+    margin: 5px, 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 150px;
+    height: 100px;
+}
+
+.measurement img {
+    flex-shrink: 0;
+    width: 200px;
+    height: 100px;
+}
+
+.portion-buttons {
+    /* box-shadow: 5px 10px #888888; */
+    /* margin-top: 75px;
+    width: 600px;
+    height: 50px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 5px 5px #f14c4c;
+    color: grey;
+    background-color: lightseagreen;
+    font-size: 15px; */
+    /* margin: 95px; */
+    /* padding: 5px; */
+    width: 400px;
+    background-color: rgb(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px black;
+    border-radius: 25px;
+    font-size: 20px;
+    border: none;
+    font-weight: 200;
+    color: red;
+}
+.portion-instructions {
+    margin-top: 100px;
+    /* padding: 5px; */
+    width: 100%;
+}

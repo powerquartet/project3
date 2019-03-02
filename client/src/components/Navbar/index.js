@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import "../../index.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
+
 class Navbar extends Component {
 
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light ">
         <Link className="navbar-brand" to="/">
-          Daily Plate
+          Mindful Plate
       </Link>
         <ul className="navbar-nav">
           <li className="nav-item">
@@ -46,7 +47,7 @@ class Navbar extends Component {
                   : "nav-link"
               }
             >
-              Grid
+              Plan Your Meals
           </Link>
           </li>
         </ul>
@@ -58,6 +59,7 @@ class Navbar extends Component {
         >
 
           Sign Out
+
       </button>
       </nav>
     );
