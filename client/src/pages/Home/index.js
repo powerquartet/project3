@@ -52,6 +52,9 @@ class Home extends React.Component {
         <Container>
           <Row className="login">
             <Col size="md-12">
+             < h2 > A food portioning app that makes meal management fun and easy </h2>
+             <h2> Click 'Get Started'
+             to make your profile today! </h2>
               {this.state.toggleDisplay ? (
                 this.state.signUp === false ? (
                   <div>
@@ -65,10 +68,14 @@ class Home extends React.Component {
                     </div>
                   )
               ) : (
+           
                   <div>
+                    
                     <ControlledCarousel />
                   </div>
+
                 )}
+
             </Col>
           </Row>
         </Container>

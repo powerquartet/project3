@@ -92,7 +92,7 @@ class Portion extends Component {
                     <Col size="md-12">
                       {this.props.userTier === plans[0].plan ? "" : ""}
                       {/* <div> Your plane here: {plans[0].portions[0].type}</div> */}
-                      <div> Your plan: {plans.plan}</div>
+                      <div> Your plan: {this.state.plan}</div>
                     </Col>
                   </Row>
 

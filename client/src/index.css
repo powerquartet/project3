@@ -159,6 +159,7 @@ button.hand {
 ControlledCarousel {
     height: 663px;
     /* width: auto; */
+ /* transition:.6s ease-in-out left; */
 }
 
 div.header {
@@ -517,4 +518,9 @@ span.welcome {
    
     font-family: 'Quicksand'; 
     
+}
+
+.screenshot {
+    width: 675px;
+    height: 625px;
 }
