@@ -63,7 +63,7 @@ class Form extends Component {
         activityLevel
       })
         .then(res => {
-          console.log("response", res);
+
           let userTiersArray = this.getUserTiers(res.data.weight, res.data.height, res.data.age, res.data.sex, res.data.activityLevel);
 
           this.setState({
@@ -132,7 +132,7 @@ class Form extends Component {
         portions: planPortions
       })
         .then(res => {
-          console.log(res);
+          // console.log(res);
         })
         .catch(err => console.log(err));
     }
@@ -259,11 +259,11 @@ class Form extends Component {
         <Container>
           {this.state.userTiers.length > 0 ?
             <div>
-              <h1  style={{ fontFamily: 'Pacifico' }}>
-              Here is a specialized plan just for you!</h1>
+              <h1 style={{ fontFamily: 'Pacifico' }}>
+                Here is a specialized plan just for you!</h1>
               <h4 className="userPlanExplanation"> If you see more than one, don’t be alarmed! It just means that you are an inbetweener - or someone who is eligible for more than one suggested plan. Choose the plan that works best
               for your goals.</h4>
-             <p> {userTier} </p>
+              <p> {userTier} </p>
             </div>
             :
             <Row>
@@ -325,11 +325,9 @@ class Form extends Component {
                       value={this.props.sex}
                       onChange={this.props.handleSexChange}
                     >
-
                       <option value="default">Choose Your Sex</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
-                      {/* <option value="non-sex-binary">Non-sex binary</option> */}
                     </select>
                   </p>
                   <p>

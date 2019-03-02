@@ -59,7 +59,6 @@ class Grid extends Component {
 
   authListener() {
     auth.onAuthStateChanged(user => {
-      console.log(user.uid)
       if (user) {
         API.getsUser(user.uid)
           .then(res => {

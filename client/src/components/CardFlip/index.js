@@ -4,17 +4,13 @@ import "../../index.css";
 import Wrapper from "../../components/Wrapper";
 import Col from "../../components/Col";
 import Row from "../../components/Row";
-// import handportions from "./images";
 
-
-// import PropTypes from "prop-types";
 
 class CardFlip extends React.Component {
     constructor() {
         super();
         this.state = {
             items: [{
-                // handportions: handportions.id,
                 isFlipped: false
             }]
         };
@@ -23,13 +19,10 @@ class CardFlip extends React.Component {
 
     handleClick(name) {
 
-        console.log(name)
-
         this.setState({ [name]: !this.state[name] });
     }
 
     render() {
-        console.log(this.state)
         return (
             <Wrapper style={{ display: "flex" }}>
                 <div>
@@ -41,7 +34,6 @@ class CardFlip extends React.Component {
                                         src={require("./images/handful.png")}
                                         alt="hand" />
                                 </div>
-
                                 <div key="back">
                                     <div onClick={() => this.handleClick("handful")} className="measurement">
                                         Handful = 1/2 Cup

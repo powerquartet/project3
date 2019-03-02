@@ -1,29 +1,37 @@
-# Create React Express App
+# 🍓 Mindful Plate
 
-## About This Boilerplate
+**App:** Portion Planner \
+**Created for:** Northwestern Coding Bootcamp \
+**Developers:** Natalia Kukula, Kat Eng, Kathy Barnak, Lindsey Cardenas \
+**Deployment Date:**  March 2, 2019 \
+**Published:** Heroku <https://powerquartet.herokuapp.com/> \
+**Built with:** MERN Stack \
+**Technologies:** MongoDB, Express, React.JS, Node.JS, Firebase Authentication \
+**Npm Libraries:** React Router DOM, React DragAndDrop, React Card Flip, React Icons, React Bootstrap
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+&nbsp;
+## Summary: 
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+### **Our application's misson:** We count your daily portions, so that you don’t have to “sweat nutrition”!
+### **Data source:** USDA’s Choose My Plate (https://www.choosemyplate.gov)
 
-## Starting the app locally
+The app calculates user inputs and return their daily portion map based on caloric needs. \
+It teaches about portion control and allows users to plan their meals, by understanding portion sizes.
+  
+## Web view:
+![Form](/client/src/components/Carousel/images/enterdetails.png)
+![Portions](/client/src/components/Carousel/images/portion.png)
+![MealPlanner](/client/src/components/Carousel/images/mealplanner.png)
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+&nbsp;
 
-```
-yarn install
-```
+## Future Development:
+* specialized diets
+* weight loss/bulk-up plans
+* animated tutorial
+* calendar/user statistics
+* user profile (multi-plans)
+* expand food groups
 
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-yarn start
-```
-
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## Notes:
+This app was built as a graduation project for the NU coding bootcamp and has participated in the Northwestern Demo Day on March 20th, 2019 at 1871 Chicago's Center for Technology and Entreprenuership.
