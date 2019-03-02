@@ -1,3 +1,7 @@
+body {
+    background-color: #e7645b;
+}
+
 button.sign-up-link {
     font-family: 'Quicksand',
         sans-serif;
@@ -14,6 +18,7 @@ button.sign-up-link {
     padding: 5px 10px 5px 10px;
 
 }
+
 button.submit {
     font-family: 'Quicksand',
         sans-serif;
@@ -26,6 +31,7 @@ button.submit {
     font-size: 20pt;
     width: 70%;
 }
+
 button.update {
     font-family: 'Quicksand',
         sans-serif;
@@ -106,6 +112,22 @@ button.update {
     transition: 0s
 }
 
+.signOut {
+    margin-left: 34%;
+    /* margin-top:2%; */
+     font-family: 'Quicksand',
+     sans-serif;
+     color: rgb(228, 16, 2);
+     box-shadow: 0 4px 8px rgb(77, 94, 114, 0.7),
+     2px 8px 10px rgb(221, 165, 182, 0.7),
+     6px 10px 14px rgb(241, 230, 193, 0.7);
+     border-radius: 25px;
+     font-size: 25px;
+     border: none;
+     padding: 8px;
+     /* width: 60%; */
+}
+
 button.signOut {
     float: right;
 }
@@ -172,21 +194,6 @@ div.header h1 {
     outline: none;
 }
 
-.footer {
-    min-height: 100px;
-    background: #E5E5E5;
-    position: relative;
-}
-
-.footer span {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 3px;
-    background: #B8B8B8;
-}
-
 .formIntro {
     font-family: 'Quicksand',
         sans-serif;
@@ -206,6 +213,7 @@ form.search button[type="submit"] {
     background-size: cover;
     height: 1000px;
     width: 100%;
+    background-color: red;
     /* display: -ms-flexbox;
   -ms-flex-flow: row wrap;
   display: flex;
@@ -290,7 +298,7 @@ input {
 
 nav.navbar.navbar-default {
     margin-bottom: 0;
-    padding: 10px;
+    padding: 20%;
 
 }
 
@@ -299,16 +307,23 @@ nav.navbar {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 10pt;
+    padding: 30pt;
+    font-size: 26px;
     background: transparent;
     text-align: center;
     font-family: 'Quicksand',
         sans-serif;
+    margin-bottom: 3%;
 }
 
 nav.navbar.navbar-default {
     margin-bottom: 0;
-    padding: 10px;
+    padding: 30px;
+}
+
+a.navbar-brand {
+    font-size: 40px;
+    font-family: "Pacifico";
 }
 
 nav.navbar-brand {
@@ -319,6 +334,7 @@ nav.navbar-brand {
     margin-left: 5%;
     color: white;
     font-size: 50pt;
+
 
 }
 
@@ -439,7 +455,6 @@ span.welcome {
   margin: auto;
   align-content: flex-start;
   overflow: auto; */
-    background-size: cover;
     background-image: url("./css/img/home.jpg");
     text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
     color: white;
@@ -494,4 +509,12 @@ span.welcome {
 
 .planName {
     font-size: 30px;
+}
+
+.userPlanExplanation {
+    width: 60%;
+    margin: 4%;
+   
+    font-family: 'Quicksand'; 
+    
 }

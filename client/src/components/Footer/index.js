@@ -1,10 +1,14 @@
 import React from "react";
-import "./index.css";
+import "../../../src/index.css";
 
 function Footer() {
     return (
-        <footer className="footer">
-            <span>Mindful Plate 2019</span>
+        <footer>
+            <div className="footer-top"></div>
+                        <div className = "footer-bottom">
+                        <span> Mindful Plate 2019 </span>
+                        Copyright &copy; Power Quartet
+                        </div>
         </footer>
     );
 }
