@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light ">
       <Link className="navbar-brand" to="/">
-        Daily Plate
+        Mindful Plate
       </Link>
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -27,7 +27,7 @@ function Navbar() {
             to="/portion"
             className={
               window.location.pathname === "/portion" ||
-              window.location.pathname === "/portion"
+                window.location.pathname === "/portion"
                 ? "nav-link active"
                 : "nav-link"
             }
@@ -54,7 +54,7 @@ function Navbar() {
           this.props.handleSignOut();
         }}
       >
-      
+
         Sign Out
       </button>
     </nav>

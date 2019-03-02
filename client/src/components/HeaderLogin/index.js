@@ -9,16 +9,16 @@ class HeaderLogin extends React.Component {
       isHidden: true
     }
   }
-    toggleHidden() {
-      this.setState({
-        isHidden: !this.state.isHidden
-      })
-    }
+  toggleHidden() {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
+  }
 
   render() {
     return (
       <div className="header">
-        Daily Plate
+        Mindful Plate
         <button className=" sign-in btn-default" onClick={() => this.props.handleDisplay()}>
           Get Started
         </button>
