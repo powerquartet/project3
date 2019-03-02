@@ -5,6 +5,12 @@ background-image: linear-gradient(to right bottom, #e23a64, #ec4057, #f24a48, #f
 -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+/* 
+    background-image: linear-gradient(to left top, #f76994, #ebb2b1, #f2c2b0, #f4d4b5, #f1e6c1);
+    box-shadow: 0 4px 8px rgba(114, 124, 136, 0.7),
+        2px 8px 10px rgb(221, 165, 182, 0.7),
+        6px 10px 14px rgb(241, 230, 193, 0.7);
+>>>>>>> Stashed changes */
     border-radius: 25px;
     width: auto;
     font-size: 20px;
