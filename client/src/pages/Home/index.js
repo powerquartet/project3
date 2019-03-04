@@ -1,12 +1,9 @@
 import React from "react";
-import { auth } from "../../utils/firebase";
 import SignUp from "../../components/SignUp";
 import SignIn from "../../components/SignIn";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import Container from "../../components/Container";
-// import Header from "../../components/Header";
-// import Navbar from "../../components/Navbar";
 import Wrapper from "../../components/Wrapper";
 import HeaderLogin from "../../components/HeaderLogin";
 import ControlledCarousel from "../../components/Carousel";
@@ -40,8 +37,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(auth.currentUser);
-
     return (
       <Wrapper className="home-wrapper">
         <HeaderLogin
@@ -52,8 +47,8 @@ class Home extends React.Component {
         <Container>
           <Row className="login">
             <Col size="md-12">
-             < h2 > A food portioning app that makes meal management fun and easy </h2>
-             <h2> Click 'Get Started'
+              < h2 > A food portioning app that makes meal management fun and easy </h2>
+              <h2> Click 'Get Started'
              to make your profile today! </h2>
               {this.state.toggleDisplay ? (
                 this.state.signUp === false ? (
@@ -68,12 +63,9 @@ class Home extends React.Component {
                     </div>
                   )
               ) : (
-           
                   <div>
-                    
                     <ControlledCarousel />
                   </div>
-
                 )}
 
             </Col>

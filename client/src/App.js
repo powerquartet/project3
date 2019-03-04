@@ -71,8 +71,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("App.js, got user tier", this.state.userTier);
-    console.log("User: ", this.state.user);
     return (
       <Router>
         <Wrapper>

@@ -7,11 +7,11 @@ export default {
     },
     // Gets the user with the given id
     getsUser: function (id) {
-        console.log("in APIU - find one", id)
+        console.log("in APIU - find one")
         return axios.get("/api/users/" + id);
     },
     updateUser: function (userData) {
-        console.log("in APIU - updating", userData)
+        console.log("in APIU - updating")
         return axios.put("/api/users/", userData)
     },
     // Deletes the user with the given id
@@ -20,7 +20,7 @@ export default {
     },
     // Saves a user to the database
     saveUser: function (userData) {
-        console.log("in APIU - creating", userData);
+        console.log("in APIU - creating");
         return axios.post("/api/users", userData);
 
     }
